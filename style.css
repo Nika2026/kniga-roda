@@ -1,18 +1,39 @@
 css
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Используем темно-зеленый цвет для всего фона страницы */
+body {
+    background-color: #013220; /* Темный лесной зеленый цвет */
+    color: #F6B93B;            /* Золотой/янтарный цвет для основного текста */
+    font-family: Arial, sans-serif;
+    min-height: 100vh;         /* Гарантирует, что фон покроет весь экран */
 }
 
-body {
-    background-image: url('bgr.png');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    min-height: 100vh;
+/* Стилизация основных заголовков (например, h1, h2) */
+h1, h2, h3 {
+    color: #FFD700;            /* Яркий золотой цвет для заголовков */
+    text-transform: uppercase;
 }
+
+/* Стилизация контейнера, если он есть, для полупрозрачности */
+.container {
+    background-color: rgba(0, 0, 0, 0.4); /* Очень темный полупрозрачный фон */
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    border-radius: 10px;
+    /* Золотая рамка вокруг блока */
+    border: 1px solid #D4AF37;
+}
+
+/* Стилизация ссылок (золотой цвет) */
+a {
+    color: #D4AF37;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .tariff-card { 
     width: 350px; 
     /* Увеличиваем толщину рамки в 2 раза (было 1px, стало 2px) */
@@ -249,4 +270,5 @@ button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
 
 @media (max-width: 768px) { 
     .tariff-card { transform: scale(1) !important; width: 100%; } 
+
     h1 { font-size: 1.8rem; }
