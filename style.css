@@ -1,26 +1,55 @@
 css
-/* Используем темно-зеленый цвет для всего фона страницы */
-
-body {
-    background-color: #013220; /* Темный лесной зеленый цвет */
-    color: #F6B93B;            /* Золотой/янтарный цвет для основного текста */
-    font-family: Arial, sans-serif;
-    min-height: 100vh;         /* Гарантирует, что фон покроет весь экран */
+ody {
+    /* Глубокий изумрудный цвет */
+    background-color: #0a2e1e; 
+    
+    /* Ваша текстура */
+    background-image: url("bgr.png");
+    
+    /* Магия: текстура накладывается поверх цвета, создавая объем */
+    background-blend-mode: overlay; 
+    background-repeat: repeat;
+    
+    /* Фиксируем фон, чтобы при скролле двигался только текст — это выглядит премиально */
+    background-attachment: fixed;
+    
+    color: #f1e4c1; /* Цвет слоновой кости для основного текста */
+    font-family: 'Times New Roman', serif;
+    margin: 0;
+    padding: 0;
 }
-body {
-    background-color: #013220; /* Темный лесной зеленый цвет */
-    color: #F6B93B;            /* Золотой/янтарный цвет для основного текста */
-    font-family: Arial, sans-serif;
-    min-height: 100vh;         /* Гарантирует, что фон покроет весь экран */
+/* Исправляем звездочки */
+ul {
+    list-style: none;
+    padding-left: 30px;
 }
 
+ul li {
+    position: relative;
+    margin-bottom: 15px;
+    color: #f1e4c1;
+}
+
+ul li::before {
+    content: "★"; 
+    position: absolute;
+    left: -25px;
+    color: #d4af37; /* Золотой цвет для звезд */
+    font-size: 0.9em;
+    filter: drop-shadow(0 0 2px rgba(212, 175, 55, 0.8)); /* Эффект сияния */
+}
+/* Стилизация важного текста про 8 месяцев */
+strong, b {
+    color: #ffd700; /* Яркое золото для важных акцентов */
+    font-weight: bold;
+}
 /* Стилизация контейнера, если он есть, для полупрозрачности */
 .container {
     background-color: rgba(0, 0, 0, 0.4); /* Очень темный полупрозрачный фон */
     padding: 20px;
     margin: 20px auto;
     max-width: 800px;
-    border-radius: 10px;
+    border-radius: 16px;
     /* Золотая рамка вокруг блока */
     border: 1px solid #D4AF37;
 }
@@ -279,5 +308,6 @@ button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
     .tariff-card { transform: scale(1) !important; width: 100%; } 
 
     h1 { font-size: 1.8rem; }
+
 
 
