@@ -1,5 +1,5 @@
 css
-ody {
+body {
     /* Глубокий изумрудный цвет */
     background-color: #0a2e1e; 
     
@@ -72,7 +72,7 @@ a:hover {
     text-align: center; 
     position: relative;
     
-    /* Добавляем скругление краев на 6px */
+    /* Добавляем скругление краев на 16px */
     border-radius: 16px; 
 
     /* Используем градиент для наложения темно-зеленого цвета (rgba(12, 26, 18, 0.9)) поверх изображения */
@@ -84,7 +84,7 @@ a:hover {
 
 /* Стиль для премиум-карточки также обновлен */
 .tariff-card.premium { 
-    border: 8px solid #d4af37; /* Толщина рамки 4px */
+    border: 8px solid #d4af37; /* Толщина рамки 8px */
     box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
     transform: scale(1.05);
 }
@@ -308,6 +308,7 @@ button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
     .tariff-card { transform: scale(1) !important; width: 100%; } 
 
     h1 { font-size: 1.8rem; }
+
 
 
 
