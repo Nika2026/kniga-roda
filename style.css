@@ -1,16 +1,17 @@
 css
 /* Используем темно-зеленый цвет для всего фона страницы */
+
 body {
     background-color: #013220; /* Темный лесной зеленый цвет */
     color: #F6B93B;            /* Золотой/янтарный цвет для основного текста */
     font-family: Arial, sans-serif;
     min-height: 100vh;         /* Гарантирует, что фон покроет весь экран */
 }
-
-/* Стилизация основных заголовков (например, h1, h2) */
-h1, h2, h3 {
-    color: #FFD700;            /* Яркий золотой цвет для заголовков */
-    text-transform: uppercase;
+body {
+    background-color: #013220; /* Темный лесной зеленый цвет */
+    color: #F6B93B;            /* Золотой/янтарный цвет для основного текста */
+    font-family: Arial, sans-serif;
+    min-height: 100vh;         /* Гарантирует, что фон покроет весь экран */
 }
 
 /* Стилизация контейнера, если он есть, для полупрозрачности */
@@ -127,8 +128,14 @@ h1, h2, h3 {
     color: #d4af37;
     text-align: center;
     text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
-}
 
+
+}
+/* Стилизация основных заголовков (например, h1, h2) */
+h1, h2, h3 {
+    color: #FFD700;            /* Яркий золотой цвет для заголовков */
+    text-transform: uppercase;
+}
 /* --- Хедер --- */
 header { 
     padding: 80px 5%; 
@@ -272,4 +279,5 @@ button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
     .tariff-card { transform: scale(1) !important; width: 100%; } 
 
     h1 { font-size: 1.8rem; }
+
 
