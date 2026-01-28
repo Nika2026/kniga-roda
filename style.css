@@ -1,3 +1,4 @@
+css
 /* --- Глобальные Стили и Визуал Баннера --- */
 body { 
     /* Глубокий зеленый цвет с легкой текстурой, как на обложке книги */
@@ -164,5 +165,3 @@ button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
 @media (max-width: 768px) { 
     .tariff-card { transform: scale(1) !important; width: 100%; } 
     h1 { font-size: 1.8rem; }
-}
-
