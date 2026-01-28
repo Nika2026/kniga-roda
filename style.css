@@ -1,0 +1,168 @@
+/* --- Глобальные Стили и Визуал Баннера --- */
+body { 
+    /* Глубокий зеленый цвет с легкой текстурой, как на обложке книги */
+    background-color: #0c1a12;
+    background-image: url('https://images.unsplash.com'); 
+    background-size: cover; 
+    background-attachment: fixed; 
+    /* Винтажные шрифты */
+    font-family: 'Cormorant Garamond', serif; 
+    margin: 0; 
+    line-height: 1.6; /* Увеличил интерлиньяж для читаемости */
+    font-size: 1.1rem;
+    color: #e0e0e0;
+}
+
+h1, h2, h3 { 
+    font-family: 'Cinzel', serif; 
+    letter-spacing: 2px;
+    /* Золотистый цвет акцентов с баннера */
+    color: #d4af37;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* --- Хедер --- */
+header { 
+    padding: 80px 5%; 
+    text-align: center; 
+    background: rgba(12, 26, 18, 0.9); /* Почти черный для контраста */
+    border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+.tagline { 
+    color: #d4af37; 
+    font-style: italic; 
+    letter-spacing: 2px;
+    margin-top: -10px;
+    display: block;
+}
+
+.section-title { margin-top: 60px; font-size: 2.5rem; text-transform: uppercase; }
+
+/* --- Сетка Программы (Карточки Месяцев) --- */
+.program-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px; 
+    padding: 40px 5%; 
+}
+
+.module-card { 
+    border: 1px solid rgba(212, 175, 55, 0.3); 
+    padding: 25px;
+    background: rgba(12, 26, 18, 0.7); /* Прозрачный темный фон */
+    backdrop-filter: blur(5px); /* Эффект размытия */
+    transition: transform 0.4s ease, background 0.4s ease;
+    cursor: pointer;
+    overflow: hidden; /* Скрываем полное описание по умолчанию */
+    position: relative;
+    min-height: 150px;
+}
+/* Эффект при наведении: свечение и "раскрытие" */
+.module-card:hover { 
+    border-color: #d4af37; 
+    transform: translateY(-5px) scale(1.02); 
+    background: rgba(17, 37, 26, 0.9); /* Чуть светлее при наведении */
+}
+
+.module-card h3 { 
+    font-size: 1.4rem; 
+    margin: 10px 0; 
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2); 
+    padding-bottom: 10px;
+}
+.duration { 
+    color: #d4af37; 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    font-weight: bold;
+}
+
+/* Стили для короткого и полного описания */
+.short-desc { 
+    transition: opacity 0.3s ease; 
+}
+.full-desc {
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+    margin-top: 15px;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    padding-top: 10px;
+}
+
+/* При наведении скрываем короткое описание и показываем полное */
+.module-card:hover .short-desc {
+    opacity: 0;
+    max-height: 0;
+    padding: 0;
+    margin: 0;
+}
+.module-card:hover .full-desc {
+    opacity: 1;
+    max-height: 500px; /* Достаточно большое значение, чтобы показать весь текст */
+}
+
+
+/* --- Тарифы (не менялись, но стили перенесены) --- */
+.tariffs { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 30px; 
+    padding: 40px 5%; 
+}
+.tariff-card { 
+    width: 350px; 
+    border: 1px solid rgba(212, 175, 55, 0.3); 
+    padding: 40px 20px; 
+    text-align: center; 
+    background: rgba(12, 26, 18, 0.9);
+    position: relative;
+}
+.tariff-card.premium { 
+    border: 2px solid #d4af37; 
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+    transform: scale(1.05);
+}
+.price { font-size: 2rem; color: #fff; margin: 20px 0; font-family: 'Cinzel', serif; }
+.old-price { text-decoration: line-through; opacity: 0.5; font-size: 1.2rem; }
+.special-label { 
+    background: #d4af37; color: #000; padding: 5px 15px; 
+    position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+    font-weight: bold; font-size: 0.8rem; letter-spacing: 1px;
+}
+
+/* --- Форма Контакта --- */
+.contact-form { 
+    max-width: 600px; 
+    margin: 60px auto; 
+    background: rgba(12, 26, 18, 0.8); 
+    padding: 40px; 
+    border: 1px solid #d4af37; 
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+}
+
+input, textarea, select { 
+    width: 100%; margin: 10px 0; background: rgba(0, 0, 0, 0.4); 
+    border: 1px solid rgba(212, 175, 55, 0.2); color: #fff; padding: 15px; box-sizing: border-box;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+button { 
+    background: linear-gradient(45deg, #d4af37, #f2d479, #d4af37);
+    color: #000; padding: 20px; border: none; cursor: pointer; 
+    font-weight: bold; width: 100%; font-family: 'Cinzel', serif; letter-spacing: 2px;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
+
+@media (max-width: 768px) { 
+    .tariff-card { transform: scale(1) !important; width: 100%; } 
+    h1 { font-size: 1.8rem; }
+}
+
