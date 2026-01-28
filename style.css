@@ -1,16 +1,77 @@
-css
-/* ОБЩИЙ ФОН: Зеленый + Текстура */
+ccss
+/* Настройки фона */
 body {
-    /* Темный благородный зеленый (запасной вариант, если картинка не прогрузится) */
-    background-color: #0b2b1a !important; 
-    
-    /* Текстура: пробуем два варианта пути для надежности */
-    background-image: url("bgr.png"), url("./bgr.png") !important;
-    
-    /* Режим смешивания для "дорогого" эффекта */
-    background-blend-mode: overlay !important;
-    background-repeat: repeat;
+    background-color: #0b2b1a !important; /* Глубокий зеленый */
+    background-image: linear-gradient(rgba(11, 43, 26, 0.8), rgba(11, 43, 26, 0.8)), url("bgr.png") !important;
+    background-blend-mode: multiply;
+    background-size: cover;
     background-attachment: fixed;
+    color: #f1e4c1 !important;
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+/* Золотые звездочки для списков */
+ul {
+    list-style: none !important;
+    padding: 0;
+    max-width: 600px;
+    margin: 20px auto;
+    text-align: left;
+}
+
+ul li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 12px;
+}
+
+ul li::before {
+    content: "★";
+    position: absolute;
+    left: 0;
+    color: #ffd700;
+    text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+/* Стилизация заголовков и карточек */
+h1, h2, h3 {
+    color: #ffd700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.tariff-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #d4af37;
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 500px;
+    border-radius: 8px;
+}
+
+.special {
+    border: 2px solid #ffd700;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+
+button {
+    background: #d4af37;
+    color: #0b2b1a;
+    border: none;
+    padding: 15px 30px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ffd700;
+    transform: scale(1.05);
     
     /* Цвет текста: не чисто белый, а мягкий золотистый/кремовый */
     color: #f1e4c1 !important; 
@@ -19,27 +80,7 @@ body {
     padding: 20px;
 }
 
-/* ИСПРАВЛЯЕМ ЗВЕЗДОЧКИ */
-ul {
-    list-style: none !important;
-    padding-left: 30px !important;
-}
 
-ul li {
-    position: relative;
-    margin-bottom: 15px;
-    /* Убеждаемся, что текст описаний НЕ белый, а читаемый */
-    color: #f1e4c1 !important; 
-}
-
-ul li::before {
-    content: "★" !important; 
-    position: absolute;
-    left: -25px;
-    color: #ffd700 !important; /* Яркое золото */
-    font-size: 1.2em;
-    line-height: 1;
-}
 
 /* ОФОРМЛЕНИЕ ВАЖНЫХ АКЦЕНТОВ (8 месяцев и т.д.) */
 strong, b {
@@ -317,6 +358,7 @@ button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
     .tariff-card { transform: scale(1) !important; width: 100%; } 
 
     h1 { font-size: 1.8rem; }
+
 
 
 
