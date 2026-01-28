@@ -12,6 +12,18 @@ body {
     background-position: center;
     background-attachment: fixed;
     min-height: 100vh;
+     background-color: #0b2b1a !important; /* Глубокий зеленый */
+    background-image: linear-gradient(rgba(11, 43, 26, 0.8), rgba(11, 43, 26, 0.8)), url("bgr.png") !important;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #f1e4c1 !important;
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 40px 20px;
+    text-align: center;
+
 }
 .tariff-card { 
     width: 350px; 
@@ -250,3 +262,4 @@ button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
 @media (max-width: 768px) { 
     .tariff-card { transform: scale(1) !important; width: 100%; } 
     h1 { font-size: 1.8rem; }
+
