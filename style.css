@@ -1,22 +1,29 @@
 css
 /* --- Глобальные настройки и фон --- */
 body {
-    background-color: #0b2b1a !important; /* Глубокий зеленый */
-    background-image: linear-gradient(rgba(11, 43, 26, 0.8), rgba(11, 43, 26, 0.8)), url("bgr.png") !important;
-    background-blend-mode: multiply;
+    background-color: #0b2b1a !important; /* Глубокий зеленый (резерв) */
+    background-image: url("bgr.png") !important; /* Текстура */
+    background-blend-mode: multiply; /* Режим наложения для фактуры */
     background-size: cover;
     background-attachment: fixed;
     color: #f1e4c1 !important; /* Цвет текста слоновой кости */
     font-family: 'Georgia', serif;
     line-height: 1.6;
     margin: 0;
-    padding: 40px 20px; /* Добавляем отступы от краев экрана */
+    padding: 40px 20px;
     text-align: center;
+}
+
+/* --- Контейнер для выравнивания контента --- */
+section {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
 }
 
 /* --- Типографика и акценты --- */
 h1, h2, h3 {
-    color: #ffd700; /* Яркое золото для заголовков */
+    color: #ffd700;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -27,7 +34,7 @@ h1, h2, h3 {
 }
 
 strong, b {
-    color: #ffffff; /* Белый для важных акцентов */
+    color: #ffffff;
     font-weight: bold;
     text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 }
@@ -36,7 +43,6 @@ strong, b {
 ul {
     list-style: none !important;
     padding: 0;
-    max-width: 800px;
     margin: 20px auto;
     text-align: left;
 }
@@ -55,14 +61,21 @@ ul li::before {
     text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
 }
 
-/* --- Карточки тарифов --- */
+/* --- Тарифы: Сетка из 3 колонок (Flexbox) --- */
+.tariffs .container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Чтобы на маленьких экранах переносились */
+}
+
 .tariff-card {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid #d4af37;
-    margin: 20px auto;
     padding: 20px;
-    max-width: 500px;
     border-radius: 8px;
+    flex: 1 1 300px; /* Примерно по 300px шириной */
+    text-align: center;
 }
 
 .special {
@@ -70,12 +83,7 @@ ul li::before {
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
 }
 
-.promo {
-    color: #ff0000;
-    font-weight: bold;
-}
-
-/* --- Аккордеоны плана курса (из новых стилей) --- */
+/* --- Аккордеоны плана курса --- */
 .month-plan details {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid #d4af37;
@@ -94,26 +102,11 @@ ul li::before {
     outline: none;
 }
 
-.month-plan summary:hover {
-    color: #fff;
-}
-
-.month-plan p {
-    padding: 10px 0 0;
-    color: #f1e4c1;
-}
-
 /* --- Форма и Кнопка --- */
 select, button {
     font-size: 1em;
     padding: 10px;
     margin-top: 10px;
-}
-
-select {
-    background: #0b2b1a;
-    color: #f1e4c1;
-    border: 1px solid #d4af37;
 }
 
 button {
@@ -126,16 +119,7 @@ button {
     transition: 0.3s;
 }
 
-button:hover {
-    background: #ffd700;
-    transform: scale(1.05);
-}
-
-/* --- Футер и УТП --- */
-footer {
-    margin-top: 50px;
-}
-
+/* --- Футер --- */
 .footer-usp {
     background-color: #d4af37;
     color: #0b2b1a;
@@ -145,15 +129,3 @@ footer {
     font-weight: bold;
     border-radius: 5px;
 }
-
-.social-links a {
-    color: #f1e4c1;
-    margin: 0 10px;
-    text-decoration: none;
-    font-size: 1.5em;
-}
-
-
-
-
-
