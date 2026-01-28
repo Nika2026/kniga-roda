@@ -1,14 +1,18 @@
 css
-/* --- Тарифы (обновленные стили) --- */
-.tariffs { 
-    display: flex; 
-    flex-wrap: wrap; 
-    justify-content: center; 
-    gap: 30px; 
-    padding: 40px 5%; 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-/* ОБНОВЛЕННЫЙ СТИЛЬ: Применяем изменения ко всем карточкам */
+body {
+    background-image: url('bgr.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+}
 .tariff-card { 
     width: 350px; 
     /* Увеличиваем толщину рамки в 2 раза (было 1px, стало 2px) */
