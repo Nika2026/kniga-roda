@@ -208,6 +208,67 @@ css
     /* Убедись, что текст внутри этого блока белый или светлый для контраста */
     color: #fff; /* */
 }
+
+/* Добавляем отступы сверху и снизу для всех основных секций */
+.author-section, 
+.bonus-section, 
+.months-description-section, /* Убедитесь, что этот класс есть в вашем HTML */
+.tariffs-section,
+.contact-form {
+    padding: 80px 0; /* Или любое другое удобное вам значение */
+}
+
+/* Добавляем золотую линию снизу секции с месяцами, чтобы отделить её от тарифов */
+.months-description-section {
+    border-bottom: 2px solid #d4af37; /* Золотой разделитель */
+    /* Если фон у месяцев черный, то этого достаточно */
+
+    .contact-form {
+    background-color: #f0f0f0; /* Светло-серый фон для контраста */
+    padding: 60px 20px;
+    text-align: center;
+    color: #0b2d20; /* Темный текст на светлом фоне */
+}
+
+.contact-form h2 {
+    color: #d4af37; /* Золотой заголовок */
+    margin-bottom: 20px;
+}
+
+.contact-form p {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    line-height: 1.5;
+}
+
+/* Стили для полей ввода, select и кнопки внутри формы */
+.contact-form input,
+.contact-form select,
+.contact-form button {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 15px auto;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; /* Важно для корректной ширины */
+}
+
+.contact-form button {
+    /* Используем уже определенный ранее золотой стиль кнопки */
+    background: #d4af37;
+    color: #0b2d20;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #0b2d20;
+    color: #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
 body {
     background-image: url('bgr.png');
     background-repeat: no-repeat;
@@ -271,7 +332,12 @@ body {
     gap: 25px; 
     padding: 40px 5%; 
 }
-
+.months-description-section{
+display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px; 
+    padding: 40px 5%; 
+}    
 .module-card { 
     /* Увеличена толщина рамки в 2 раза (было 1px, стало 2px) */
     border: 2px solid rgba(212, 175, 55, 0.3); 
@@ -465,6 +531,7 @@ button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
 @media (max-width: 768px) { 
     .tariff-card { transform: scale(1) !important; width: 100%; } 
     h1 { font-size: 1.8rem; }
+
 
 
 
