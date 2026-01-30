@@ -178,17 +178,56 @@
         <h2>Итог: Ваше Предназначение — Творец Истории</h2>
         <p>Курс рассчитан на <strong>8 месяцев</strong> (2-3 урока в месяц). По его завершении вы станете не просто создателем собственной <strong>«Книги Рода»</strong>, а <strong>Творцом Истории</strong>, способным самостоятельно издавать любые книги. Вы обретете <strong>предназначение</strong> и <strong>навык</strong>, который всегда будет <strong>ценен</strong>.</p>
         
-        <!-- Форма обратной связи, как была -->
-        <input type="text" placeholder="Ваше Имя">
-        <input type="email" placeholder="Email или Telegram/WhatsApp">
-        <select>
-            <option selected>Тариф "Самостоятельный" (без поддержки)</option>
-            <option selected>Тариф "Наследие" (Базовый)</option>
-            <option selected>Тариф "Мастер Рода" (Премиум с регрессией)</option>
+        <div class="contact-form">
+    <h3>Записаться на курс «Книга Рода»</h3>
+    <form id="course-form">
+        <input type="text" id="course-name" placeholder="Ваше Имя / Имя Рода" required>
+        <input type="text" id="course-contact" placeholder="Ваш Телеграм / WhatsApp" required>
+        
+        <!-- Выбор тарифа -->
+        <select id="course-tariff" required style="width: 100%; margin-bottom: 15px; padding: 10px;">
+            <option value="" disabled selected>Выберите тариф</option>
+            <option value="Тариф 1">Тариф 1</option>
+            <option value="Тариф 2">Тариф 2</option>
+            <option value="Тариф 3">Тариф 3</option>
         </select>
-        <button>Записаться на курс</button>
-    </div>
 
+        <textarea id="course-message" rows="5" placeholder="Ваши вопросы или уточнения"></textarea>
+        <button type="submit">ЗАПИСАТЬСЯ НА КУРС</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById('course-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const name = document.getElementById('course-name').value;
+        const contact = document.getElementById('course-contact').value;
+        const tariff = document.getElementById('course-tariff').value;
+        const message = document.getElementById('course-message').value;
+        
+        const botToken = '8535720567:AAHa9y3s5_0ss1oxsP3CJ4Nxl-3W4jHNJz8';
+        const chatId = '1046240445';
+        
+        // Формируем текст сообщения
+        const text = `📖 ЗАЯВКА НА КУРС: КНИГА РОДА\n\n👤 Заказчик: ${name}\n📱 Связь: ${contact}\n💎 Тариф: ${tariff}\n📝 Сообщение: ${message}`;
+        
+        // Исправленная ссылка (добавлен /bot перед токеном)
+        const url = `https://api.telegram.org{botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
+
+        try {
+            const response = await fetch(url);
+            if (response.ok) {
+                alert('Благодарю! Ваша заявка на курс принята.');
+                e.target.reset();
+            } else {
+                alert('Ошибка отправки. Попробуйте использовать VPN.');
+            }
+        } catch (error) {
+            alert('Сбой сети. Проверьте соединение.');
+        }
+    });
+</script>
     <footer>
         <p style="text-align: center; font-size: 1rem; opacity: 0.8; padding: 20px;">&copy; 2026 Ника Алексеева. Все права защищены.</p>
     </footer>
@@ -196,6 +235,7 @@
 </body>
 
 </html>
+
 
 
 
