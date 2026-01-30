@@ -521,9 +521,71 @@ button {
 }
 button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
 
+<style>
+    /* Адаптация под стиль nika2026.github.io/kniga-roda/ */
+    .course-form-container {
+        max-width: 500px;
+        margin: 40px auto;
+        padding: 30px;
+        background: #1a1a1a; /* Темный фон как на сайте */
+        border: 1px solid #d4af37; /* Золотистая рамка */
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        font-family: 'Georgia', serif;
+        color: #f4f4f4;
+    }
+
+    .course-form-container h3 {
+        text-align: center;
+        color: #d4af37;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+
+    .course-form-container input, 
+    .course-form-container select, 
+    .course-form-container textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        background: #262626;
+        border: 1px solid #444;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .course-form-container input:focus, 
+    .course-form-container select:focus {
+        border-color: #d4af37;
+        outline: none;
+    }
+
+    .course-form-container button {
+        width: 100%;
+        padding: 15px;
+        background: #d4af37;
+        border: none;
+        border-radius: 6px;
+        color: #1a1a1a;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .course-form-container button:hover {
+        background: #f1c40f;
+        transform: translateY(-2px);
+    }
+</style>
+
 @media (max-width: 768px) { 
     .tariff-card { transform: scale(1) !important; width: 100%; } 
     h1 { font-size: 1.8rem; }
+
 
 
 
