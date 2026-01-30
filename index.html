@@ -197,11 +197,17 @@
          
 </form>
     <form id="course-form">
-         <form action="https://api.web3forms.com" method="POST">
-        <input type="text" id="course-name" placeholder="Ваше Имя / Имя Рода" required>
-        <input type="text" id="course-contact" placeholder="Ваш Телеграм / WhatsApp" required>
-        
-        <!-- Выбор тарифа -->
+
+        <form action="https://api.web3forms.com/submit" method="POST">
+  <input type="hidden" name="access_key" value=botToken>
+  <!-- Скрытое поле, чтобы в почте видеть, что это по Книге Рода -->
+  <input type="hidden" name="subject" value="Новая заявка: Книга Рода">
+  
+  <input type="text" name="name" placeholder="Ваше имя" required>
+  <input type="text" name="contact" placeholder="Ваш контакт (TG/Email)" required>
+  <textarea name="message" placeholder="Ваш вопрос или комментарий" required></textarea>
+  
+               <!-- Выбор тарифа -->
         <select id="course-tariff" required style="width: 100%; margin-bottom: 15px; padding: 10px;">
             <option value="" disabled selected>Выберите тариф</option>
             <option value="Тариф 1">Тариф 1</option>
@@ -210,7 +216,7 @@
         </select>
 
         <textarea id="course-message" rows="5" placeholder="Ваши вопросы или уточнения"></textarea>
-       <button type="submit" class="btn-gold">Записаться</button>
+           <button type="submit" class="btn-gold">Записаться</button>
     </form>
 </div>
 
@@ -223,7 +229,7 @@
         const tariff = document.getElementById('course-tariff').value;
         const message = document.getElementById('course-message').value;
         
-        const botToken = '8535720567:AAHa9y3s5_0ss1oxsP3CJ4Nxl-3W4jHNJz8';
+        const botToken = '67674486-a3a9-4fb2-b97b-dbf4ce168dc3';
         const chatId = '1046240445';
         
         // Формируем текст сообщения
@@ -246,12 +252,13 @@
     });
 </script>
     <footer>
-        <p style="text-align: center; font-size: 1rem; opacity: 0.8; padding: 20px;">&copy; 2026 Ника Алексеева. Все права защищены.</p>
+        <p style="text-align: center; font-size: 2rem; opacity: 0.9; padding: 20px;">&copy; 2026 Ника Алексеева. Все права защищены.</p>
     </footer>
 
 </body>
 
 </html>
+
 
 
 
