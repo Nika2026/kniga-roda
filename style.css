@@ -71,6 +71,51 @@ ul li::before {
     color: #ffd700;
     text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
 }
+/* --- Стили для нового баннера --- */
+.main-banner {
+    position: relative;
+    width: 100%;
+    /* Замените URL на правильный путь до вашего файла les-kniga2.jpg */
+    background-image: url('les-kniga2.jpg'); 
+    background-size: cover;
+    background-position: center;
+    height: 400px; /* Высота баннера */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+/* Темно-зеленое наложение (оверлей) */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 50, 0, 0.7); /* Темно-зеленый полупрозрачный цвет */
+    /* Или используйте градиент, как вы просили */
+    /* background: linear-gradient(to right, rgba(0, 50, 0, 0.8), rgba(0, 100, 0, 0.6)); */
+    z-index: 1;
+}
+
+.banner-content {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.banner-content h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+}
+
+.banner-content p {
+    font-size: 1.2em;
+}
 
 /* --- Тарифы: Сетка из 3 колонок (Flexbox) --- */
 .tariffs .container {
@@ -92,6 +137,15 @@ ul li::before {
 .special {
     border: 2px solid #ffd700;
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+}
+.course-stages-container { 
+    display: grid;
+    /* 4 колонки одинаковой ширины */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px; /* Расстояние между блоками */
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* --- Аккордеоны плана курса --- */
@@ -563,12 +617,54 @@ body {
     transform: scale(1.05);
 }
 
+/* --- Стили для Сетки Программы (Карточки Месяцев) --- */
 .program-grid { 
     display: grid; 
+    /* Автоматически подбирает сколько карточек влезет в ряд, 
+       минимальная ширина карточки 300px, максимальная - равномерно */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 25px; 
-    padding: 40px 5%; 
+    gap: 25px; /* Расстояние между карточками */
+    padding: 40px 5%; /* Отступы по бокам страницы */
+    max-width: 1400px; /* Ограничиваем ширину контейнера */
+    margin: 0 auto; /* Выравниваем по центру */
 }
+
+/* Стиль для отдельной карточки месяца (предполагается, что вы их так назовете в HTML) */
+.program-card {
+    position: relative; /* Нужно для позиционирования special-label */
+    background: #1a1a1a; /* Темный фон для контраста */
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Стили для цен и лейблов (если будете добавлять на карточки) */
+.price { 
+    font-size: 2rem; 
+    color: #d4af37; /* Используем ваш золотой цвет */
+    margin: 20px 0; 
+    font-family: 'Cinzel', serif; /* Используйте шрифт, если он подключен */
+}
+
+.old-price { 
+    text-decoration: line-through; 
+    opacity: 0.5; 
+    font-size: 1.2rem; 
+}
+
+.special-label { 
+    background: #d4af37; /* Золотой фон лейбла */
+    color: #000; 
+    padding: 5px 15px; 
+    position: absolute; 
+    top: -15px; 
+    left: 50%; 
+    transform: translateX(-50%);
+    font-weight: bold; 
+    font-size: 0.8rem; 
+    letter-spacing: 1px;
+    border-radius: 3px;
 
 .price { font-size: 2rem; color: #fff; margin: 20px 0; font-family: 'Cinzel', serif; }
 .old-price { text-decoration: line-through; opacity: 0.5; font-size: 1.2rem; }
@@ -577,6 +673,7 @@ body {
     position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
     font-weight: bold; font-size: 0.8rem; letter-spacing: 1px;
 }
+    
 /* --- Сетка Программы (Карточки Месяцев) ОБНОВЛЕНО --- */
 
 }
@@ -834,6 +931,7 @@ button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
 @media (max-width: 768px) { 
     .tariff-card { transform: scale(1) !important; width: 100%; } 
     h1 { font-size: 1.8rem; 
+
 
 
 
