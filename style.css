@@ -268,7 +268,7 @@ css
 .contact-form button:hover {
     background: #0b2d20;
     color: #d4af37;
-    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);}
 body {
     background-image: url('bgr.png');
     background-repeat: no-repeat;
@@ -314,6 +314,11 @@ body {
     transform: scale(1.05);
 }
 
+.program-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px; 
+    padding: 40px 5%; 
 }
 
 .price { font-size: 2rem; color: #fff; margin: 20px 0; font-family: 'Cinzel', serif; }
@@ -344,7 +349,6 @@ display: grid;
 
     /* Добавлено скругление краев на 6px */
     border-radius: 6px; 
-
     backdrop-filter: blur(5px); /* Эффект размытия */
     transition: transform 0.4s ease, background 0.4s ease;
     cursor: pointer;
@@ -361,12 +365,12 @@ display: grid;
 }
 /* --- Глобальные Стили и Визуал Баннера --- */
 body { 
-    /* Глубокий зеленый цвет с легкой текстурой, как на обложке книги */
-  /  background-color: #0c1a12;
-   / background-image: url('https://images.unsplash.com'); 
-  /  background-size: cover; 
-    /background-attachment: fixed; 
-    /* Винтажные шрифты */
+    * Глубокий зеленый цвет с легкой текстурой, как на обложке книги */
+    background-color: #0c1a12;
+   background-image: url('bgr.png')
+   background-size: cover; 
+    background-attachment: fixed; 
+    * Винтажные шрифты *
     font-family: 'Cormorant Garamond', serif; 
     margin: 0; 
     line-height: 1.6; /* Увеличил интерлиньяж для читаемости */
@@ -497,6 +501,7 @@ header {
     border: 4px solid #d4af37; 
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
      border-radius: 15px; /* Добавляем скругление */
+    background-image: url('bgr.png')
 }
 
 input, textarea, select { 
@@ -519,6 +524,7 @@ button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
 @media (max-width: 768px) { 
     .tariff-card { transform: scale(1) !important; width: 100%; } 
     h1 { font-size: 1.8rem; }
+
 
 
 
