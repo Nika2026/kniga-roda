@@ -1,4 +1,4 @@
-css
+
 /* --- Глобальные настройки и фон --- */
 body {
     background-color: #0b2b1a !important; /* Глубокий зеленый (резерв) */
@@ -166,4 +166,5 @@ button {
     font-weight: bold;
     border-radius: 5px;
 }
+
 
