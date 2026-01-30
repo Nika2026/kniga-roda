@@ -172,56 +172,41 @@
         <section id="order" class="order-section container">
     <h2>Забронировать место в Роду</h2>
     <p class="subtitle">Оставьте ваши данные, и я свяжусь с вами для подтверждения участия</p>
-    
-    <form action="https://api.web3forms.com" method="POST">
-        <!-- ТВОЙ ПРОВЕРЕННЫЙ КЛЮЧ -->
-        <input type="hidden" name="access_key" value="ТВОЙ-КЛЮЧ-ИЗ-WEB3FORMS">
-        <input type="hidden" name="subject" value="Заявка: Книга Рода">
-        <input type="checkbox" name="botcheck" style="display: none;">
-
-        <input type="text" name="name" placeholder="Ваше благородное имя" required>
-        <input type="text" name="contact" placeholder="Ваш Telegram (например, @nika)" required>
-        
-        <button type="submit" class="btn-gold">Отправить весточку</button>
-    </form>
-</section>
-  
-</section>
     <!-- Блок Итога -->
     <div class="contact-form">
         <h2>Итог: Ваше Предназначение — Творец Истории</h2>
         <p>Курс рассчитан на <strong>8 месяцев</strong> (2-3 урока в месяц). По его завершении вы станете не просто создателем собственной <strong>«Книги Рода»</strong>, а <strong>Творцом Истории</strong>, способным самостоятельно издавать любые книги. Вы обретете <strong>предназначение</strong> и <strong>навык</strong>, который всегда будет <strong>ценен</strong>.</p>
-        
-   <div class="contact-form">
-    <h3>Записаться на курс «Книга Рода»</h3>
+   </div> <!-- Принудительно закрываем предыдущие блоки -->
+
+<div style="max-width: 500px; margin: 50px auto; padding: 20px; background: #fff; border: 1px solid #ddd; border-radius: 10px; font-family: sans-serif;">
+    <h3 style="text-align: center;">Записаться на курс «Книга Рода»</h3>
     
     <form action="https://api.web3forms.com" method="POST">
-        <!-- Ключ доступа: Строго в кавычках, без пробелов -->
+        <!-- ВАЖНО: Ключ вставлен напрямую -->
         <input type="hidden" name="access_key" value="67674486-a3a9-4fb2-b97b-dbf4ce168dc3">
-        
-        <!-- Тема письма, которую вы увидите в почте -->
-        <input type="hidden" name="subject" value="Новая заявка: Книга Рода">
+        <input type="hidden" name="subject" value="Заявка: Книга Рода">
+        <!-- Чтобы после отправки человека не уводило с сайта -->
+        <input type="hidden" name="from_name" value="Сайт Книга Рода">
 
-        <!-- Поля формы -->
-        <input type="text" name="name" placeholder="Ваше имя" required style="width: 100%; margin-bottom: 15px; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+        <input type="text" name="name" placeholder="Ваше имя" required style="width: 100%; margin-bottom: 15px; padding: 12px; box-sizing: border-box;">
         
-        <input type="text" name="contact" placeholder="Ваш контакт (TG/Email)" required style="width: 100%; margin-bottom: 15px; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+        <input type="text" name="contact" placeholder="Ваш контакт (TG/Email)" required style="width: 100%; margin-bottom: 15px; padding: 12px; box-sizing: border-box;">
         
-        <select name="tariff" required style="width: 100%; margin-bottom: 15px; padding: 10px; border-radius: 8px; border: 1px solid #ccc;">
+        <select name="tariff" required style="width: 100%; margin-bottom: 15px; padding: 12px;">
             <option value="" disabled selected>Выберите тариф</option>
             <option value="Тариф 1">Тариф 1</option>
             <option value="Тариф 2">Тариф 2</option>
             <option value="Тариф 3">Тариф 3</option>
         </select>
 
-        <textarea name="message" rows="5" placeholder="Ваши вопросы или уточнения" style="width: 100%; margin-bottom: 15px; padding: 10px; border-radius: 8px; border: 1px solid #ccc;"></textarea>
+        <textarea name="message" rows="4" placeholder="Вопросы" style="width: 100%; margin-bottom: 15px; padding: 12px; box-sizing: border-box;"></textarea>
         
-        <!-- Кнопка -->
-        <button type="submit" class="btn-gold" style="width: 100%; padding: 15px; background-color: #d4af37; color: white; border: none; border-radius: 25px; cursor: pointer; font-weight: bold;">
-            Оставить заявку
+        <button type="submit" style="width: 100%; padding: 15px; background-color: #d4af37; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold;">
+            ОТПРАВИТЬ ЗАЯВКУ
         </button>
     </form>
 </div>
+    
 
     <footer>
         <p style="text-align: center; font-size: 1rem; opacity: 0.9; padding: 20px;">&copy; 2026 Ника Алексеева. Все права защищены.</p>
@@ -230,6 +215,7 @@
 </body>
 
 </html>
+
 
 
 
