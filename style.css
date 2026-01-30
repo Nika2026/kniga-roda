@@ -215,12 +215,12 @@ css
 .months-description-section, /* Убедитесь, что этот класс есть в вашем HTML */
 .tariffs-section,
 .contact-form {
-    padding: 80px 0; /* Или любое другое удобное вам значение */
+    padding: 50px 0; /* Или любое другое удобное вам значение */
 }
 
 /* Добавляем золотую линию снизу секции с месяцами, чтобы отделить её от тарифов */
 .months-description-section {
-    border-bottom: 2px solid #d4af37; /* Золотой разделитель */
+    border-bottom: 4px solid #d4af37; /* Золотой разделитель */
     /* Если фон у месяцев черный, то этого достаточно */
 
     .contact-form {
@@ -250,8 +250,8 @@ css
     max-width: 400px;
     margin: 15px auto;
     padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 4px solid #ccc;
+    border-radius: 15px;
     box-sizing: border-box; /* Важно для корректной ширины */
 }
 
@@ -276,7 +276,7 @@ body {
     background-position: center;
     background-attachment: fixed;
     min-height: 100vh;
-     background-color: #0b2b1a !important; /* Глубокий зеленый */
+    background-color: #0b2b1a !important; /* Глубокий зеленый */
     background-image: linear-gradient(rgba(11, 43, 26, 0.8), rgba(11, 43, 26, 0.8)), url("bgr.png") !important;
     background-blend-mode: multiply;
     background-size: cover;
@@ -292,13 +292,13 @@ body {
 .tariff-card { 
     width: 350px; 
     /* Увеличиваем толщину рамки в 2 раза (было 1px, стало 2px) */
-    border: 2px solid rgba(212, 175, 55, 0.3); 
+    border: 4px solid rgba(212, 175, 55, 0.3); 
     padding: 40px 20px; 
     text-align: center; 
     position: relative;
     
     /* Добавляем скругление краев на 6px */
-    border-radius: 6px; 
+    border-radius: 16px; 
 
     /* Используем градиент для наложения темно-зеленого цвета (rgba(12, 26, 18, 0.9)) поверх изображения */
     /* Имя файла bgr.png */
@@ -309,12 +309,10 @@ body {
 
 /* Стиль для премиум-карточки также обновлен */
 .tariff-card.premium { 
-    border: 4px solid #d4af37; /* Толщина рамки 4px */
+    border: 8px solid #d4af37; /* Толщина рамки 8px */
     box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
     transform: scale(1.05);
 }
-
-/* ... остальной ваш CSS код ... */
 
 }
 
@@ -326,11 +324,7 @@ body {
     font-weight: bold; font-size: 0.8rem; letter-spacing: 1px;
 }
 /* --- Сетка Программы (Карточки Месяцев) ОБНОВЛЕНО --- */
-.program-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 25px; 
-    padding: 40px 5%; 
+
 }
 .months-description-section{
 display: grid; 
@@ -376,7 +370,7 @@ body {
     font-family: 'Cormorant Garamond', serif; 
     margin: 0; 
     line-height: 1.6; /* Увеличил интерлиньяж для читаемости */
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     color: #e0e0e0;
 }
 
@@ -406,14 +400,6 @@ header {
 }
 
 .section-title { margin-top: 60px; font-size: 2.5rem; text-transform: uppercase; }
-
-/* --- Сетка Программы (Карточки Месяцев) --- */
-.program-grid { 
-    display: grid; 
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
-    gap: 25px; 
-    padding: 40px 5%; 
-}
 
 .module-card { 
     border: 1px solid rgba(212, 175, 55, 0.3); 
@@ -508,8 +494,9 @@ header {
     margin: 60px auto; 
     background: rgba(12, 26, 18, 0.8); 
     padding: 40px; 
-    border: 1px solid #d4af37; 
+    border: 4px solid #d4af37; 
     box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+     border-radius: 15px; /* Добавляем скругление */
 }
 
 input, textarea, select { 
@@ -525,12 +512,14 @@ button {
     font-weight: bold; width: 100%; font-family: 'Cinzel', serif; letter-spacing: 2px;
     font-size: 1.1rem;
     box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+     border-radius: 15px; /* Добавляем скругление */
 }
 button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
 
 @media (max-width: 768px) { 
     .tariff-card { transform: scale(1) !important; width: 100%; } 
     h1 { font-size: 1.8rem; }
+
 
 
 
