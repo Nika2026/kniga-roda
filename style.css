@@ -4,6 +4,113 @@ css
     padding: 0;
     box-sizing: border-box;
 }
+
+/* Общий контейнер для тарифов */
+.tariffs-section {
+    background-color: #0b2d20; /* Темно-зеленый фон */
+    padding: 80px 0;
+    color: #fff;
+}
+
+.section-title {
+    text-align: center;
+    color: #d4af37; /* Золотой заголовок */
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+}
+
+.tariffs-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Чтобы на мобилках переносились */
+}
+
+/* Стили карточки */
+.tariff-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #d4af37;
+    border-radius: 10px;
+    padding: 30px;
+    width: 350px; /* Фиксированная ширина для симметрии */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.3s;
+    position: relative;
+}
+
+.tariff-card:hover {
+    transform: translateY(-10px);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+/* Выделение Премиум тарифа */
+.tariff-card.premium {
+    border-width: 3px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.special-label {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #d4af37;
+    color: #0b2d20;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 20px;
+}
+
+.price {
+    font-size: 2rem;
+    color: #d4af37;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.old-price {
+    text-decoration: line-through;
+    opacity: 0.5;
+    font-size: 1rem;
+}
+
+.tariff-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.tariff-card ul li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.tariff-card ul li::before {
+    content: "✓ ";
+    color: #d4af37;
+}
+
+/* Золотая кнопка */
+.btn-gold {
+    background: #d4af37;
+    color: #0b2d20;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-gold:hover {
+    background: #fff;
+    box-shadow: 0 0 15px #d4af37;
+    }
 /* Настройки главного экрана */
 .hero-section {
     position: relative;
@@ -358,6 +465,7 @@ button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
 @media (max-width: 768px) { 
     .tariff-card { transform: scale(1) !important; width: 100%; } 
     h1 { font-size: 1.8rem; }
+
 
 
 
