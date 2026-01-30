@@ -187,13 +187,31 @@
         <!-- Выбор тарифа -->
         <select id="course-tariff" required style="width: 100%; margin-bottom: 15px; padding: 10px;">
             <option value="" disabled selected>Выберите тариф</option>
-            <option value="Тариф 1">Тариф 1</option>
-            <option value="Тариф 2">Тариф 2</option>
-            <option value="Тариф 3">Тариф 3</option>
+            <option value="Тариф Самостоятельный">Самостоятельный</option>
+            <option value="Тариф Наследие">Наследие</option>
+            <option value="Тариф Мастер Рода">Мастер Рода</option>
         </select>
 
         <textarea id="course-message" rows="5" placeholder="Ваши вопросы или уточнения"></textarea>
         <button type="submit">ЗАПИСАТЬСЯ НА КУРС</button>
+    </form>
+</div>
+
+<div class="course-form-container">
+    <h3>Запись на курс «Книга Рода»</h3>
+    <form id="course-form">
+        <input type="text" id="course-name" placeholder="Ваше Имя / Имя Рода" required>
+        <input type="text" id="course-contact" placeholder="Ваш Телеграм / WhatsApp" required>
+        
+        <select id="course-tariff" required>
+            <option value="" disabled selected>Выберите тариф участия</option>
+            <option value="Тариф Самостоятельный">Тариф Самостоятельный</option>
+            <option value="Тариф Наследие">Тариф Наследие</option>
+            <option value="Тариф Мастер Рода">Тариф Мастер Рода</option>
+        </select>
+
+        <textarea id="course-message" rows="4" placeholder="Ваши вопросы или намерения"></textarea>
+        <button type="submit">ОТПРАВИТЬ ЗАЯВКУ</button>
     </form>
 </div>
 
@@ -209,22 +227,21 @@
         const botToken = '8535720567:AAHa9y3s5_0ss1oxsP3CJ4Nxl-3W4jHNJz8';
         const chatId = '1046240445';
         
-        // Формируем текст сообщения
-        const text = `📖 ЗАЯВКА НА КУРС: КНИГА РОДА\n\n👤 Заказчик: ${name}\n📱 Связь: ${contact}\n💎 Тариф: ${tariff}\n📝 Сообщение: ${message}`;
+        const text = `📖 ЗАЯВКА КНИГА РОДА\n\n👤 Имя: ${name}\n📱 Связь: ${contact}\n💎 Тариф: ${tariff}\n📝 Заметка: ${message}`;
         
-        // Исправленная ссылка (добавлен /bot перед токеном)
+        // Исправлено: добавлен /bot перед токеном
         const url = `https://api.telegram.org{botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(text)}`;
 
         try {
             const response = await fetch(url);
             if (response.ok) {
-                alert('Благодарю! Ваша заявка на курс принята.');
+                alert('Светлого пути! Заявка успешно отправлена.');
                 e.target.reset();
             } else {
-                alert('Ошибка отправки. Попробуйте использовать VPN.');
+                alert('Ошибка отправки. Попробуйте включить VPN.');
             }
         } catch (error) {
-            alert('Сбой сети. Проверьте соединение.');
+            alert('Сбой сети. Проверьте интернет-соединение.');
         }
     });
 </script>
@@ -235,6 +252,7 @@
 </body>
 
 </html>
+
 
 
 
