@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Курс "Книга Рода" - Вероника Алексеева</title>
     <!-- Здесь подключи свой CSS файл, например: -->
-     link rel="stylesheet" href="style.css"
-  
+    <link rel="stylesheet" href="style.css">
+  </head>
 <body>
     <!-- HERO SECTION: Теперь с правильным наложением текста -->
     <section class="hero-section">
@@ -180,7 +180,10 @@
         
         <div class="contact-form">
     <h3>Записаться на курс «Книга Рода»</h3>
+         
+</form>
     <form id="course-form">
+         <form action="https://api.web3forms.com" method="POST">
         <input type="text" id="course-name" placeholder="Ваше Имя / Имя Рода" required>
         <input type="text" id="course-contact" placeholder="Ваш Телеграм / WhatsApp" required>
         
@@ -193,7 +196,7 @@
         </select>
 
         <textarea id="course-message" rows="5" placeholder="Ваши вопросы или уточнения"></textarea>
-        <button type="submit">ЗАПИСАТЬСЯ НА КУРС</button>
+       <button type="submit" class="btn-gold">Записаться</button>
     </form>
 </div>
 
@@ -235,3 +238,4 @@
 </body>
 
 </html>
+
