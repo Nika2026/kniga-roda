@@ -39,185 +39,77 @@
 
 <body>
 
-    <header>
-        <h1>КНИГА РОДА</h1>
-        <p class="tagline">Авторский курс Ники Алексеевой</p>
-        <p>Создайте материальное воплощение вашей семейной истории за 8 месяцев — <strong>фамильный артефакт</strong>.</p>
+  <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Книга Рода | Обучающий курс</title>
+    <!-- Подключаем стили и шрифты как на сайте с геральдикой -->
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Шапка с УТП -->
+    <header class="hero-section">
+        <div class="container">
+            <h1 class="fade-in">Книга Рода</h1>
+            <p class="lead">Восстановите историю своей семьи и создайте великое наследие за 10 месяцев</p>
+            <a href="#order-form" class="btn-primary">Присоединиться к курсу</a>
+        </div>
     </header>
-    
 
-   
-    <style>
-    /* Предотвращаем конфликты, используя уникальный префикс и color-scheme */
-    .kniga-roda-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px; /* Отступы между карточками */
-        justify-content: center; /* Выравнивание по центру */
-        margin: 40px auto;
-        color-scheme: light; /* Предотвращает автоматическое переключение тем */
-    }
+    <!-- План по месяцам (Сделал 3 для примера, добавь остальные по аналогии) -->
+    <section class="curriculum">
+        <div class="container">
+            <h2 class="section-title">Программа погружения</h2>
+            <div class="plan-grid">
+                <div class="step-card">
+                    <div class="step-num">01</div>
+                    <h3>Точка входа</h3>
+                    <p>Аудит семейного архива и интервью со старшим поколением.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">02</div>
+                    <h3>Архивный поиск</h3>
+                    <p>Технологии работы с онлайн-базами и запросы в ЗАГСы.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">03</div>
+                    <h3>Систематизация</h3>
+                    <p>Создание карточек персон и древа в специальных программах.</p>
+                </div>
+                <!-- Добавь блоки 04-10 здесь -->
+            </div>
+        </div>
+    </section>
 
-    .kniga-roda-card {
-        flex: 1 1 calc(25% - 20px); /* Адаптивная ширина: 4 карточки в ряд */
-        min-width: 220px; /* Минимальная ширина карточки */
-        padding: 20px;
-        background: #1a1a1a;
-        border: 1px solid #d4af37;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        font-family: 'Georgia', serif;
-        color: #f4f4f4;
-        box-sizing: border-box;
-        text-align: left; /* Выравнивание текста по левому краю */
-        cursor: pointer; /* Делаем курсор "рукой" для наглядности наведения */
-    }
+    <!-- Форма заявки (Web3Forms -> Telegram) -->
+    <section id="order-form" class="contact-section">
+        <div class="container">
+            <div class="form-wrapper">
+                <h2>Начать путь</h2>
+                <form action="https://api.web3forms.com" method="POST">
+                    <!-- ВСТАВЬ СВОЙ КЛЮЧ НИЖЕ -->
+                    <input type="hidden" name="access_key" value="ТВОЙ_РАБОЧИЙ_КЛЮЧ">
+                    <input type="hidden" name="subject" value="Новая заявка: Книга Рода">
+                    <input type="checkbox" name="botcheck" id="" style="display: none;">
 
-    .kniga-roda-card h3 {
-        color: #d4af37;
-        font-size: 14px; /* Меньший размер для "МЕСЯЦ X" */
-        margin-bottom: 10px;
-        text-transform: uppercase;
-        font-weight: normal;
-    }
-    
-    .kniga-roda-card strong {
-        color: #f4f4f4; /* Название ступени делаем белым */
-        font-weight: bold;
-        display: block;
-        font-size: 16px;
-    }
+                    <div class="input-group">
+                        <input type="text" name="name" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="text" name="contact" placeholder="@Telegram или Телефон" required>
+                    </div>
+                    <button type="submit" class="btn-submit">Отправить куратору</button>
+                </form>
+            </div>
+        </div>
+    </section>
 
-    /* СТИЛИ ДЛЯ СКРЫТОГО/РАЗВЕРНУТОГО ОПИСАНИЯ */
-    .kniga-roda-description {
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: max-height 0.5s ease-out, opacity 0.4s ease-out; /* Плавный переход */
-        color: #ddd;
-        font-size: 14px;
-        margin-top: 5px;
-    }
-
-    /* Показываем описание при наведении */
-    .kniga-roda-card:hover .kniga-roda-description {
-        max-height: 200px; /* Достаточная высота, чтобы показать весь текст */
-        opacity: 1;
-        transition: max-height 0.5s ease-in, opacity 0.4s ease-in;
-    }
-</style>
-
-<style>
-    /* Предотвращаем конфликты, используя уникальный префикс и color-scheme */
-    .kniga-roda-container {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px; /* Отступы между карточками */
-        justify-content: center; /* Выравнивание по центру */
-        margin: 40px auto;
-        color-scheme: light; /* Предотвращает автоматическое переключение тем */
-    }
-
-    .kniga-roda-card {
-        flex: 1 1 calc(25% - 20px); /* Адаптивная ширина: 4 карточки в ряд */
-        min-width: 220px; /* Минимальная ширина карточки */
-        padding: 20px;
-        background: #1a1a1a;
-        border: 1px solid #d4af37;
-        border-radius: 8px;
-        box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        font-family: 'Georgia', serif;
-        color: #f4f4f4;
-        box-sizing: border-box;
-        text-align: left; /* Выравнивание текста по левому краю */
-        cursor: pointer; /* Делаем курсор "рукой" для наглядности наведения */
-    }
-
-    .kniga-roda-card h3 {
-        color: #d4af37;
-        font-size: 14px; /* Меньший размер для "МЕСЯЦ X" */
-        margin-bottom: 10px;
-        text-transform: uppercase;
-        font-weight: normal;
-    }
-    
-    .kniga-roda-card strong {
-        color: #f4f4f4; /* Название ступени делаем белым */
-        font-weight: bold;
-        display: block;
-        font-size: 16px;
-    }
-
-    /* СТИЛИ ДЛЯ СКРЫТОГО/РАЗВЕРНУТОГО ОПИСАНИЯ */
-    .kniga-roda-description {
-        max-height: 0;
-        overflow: hidden;
-        opacity: 0;
-        transition: max-height 0.5s ease-out, opacity 0.4s ease-out; /* Плавный переход */
-        color: #ddd;
-        font-size: 14px;
-        margin-top: 5px;
-    }
-
-    /* Показываем описание при наведении */
-    .kniga-roda-card:hover .kniga-roda-description {
-        max-height: 300px; /* Увеличил высоту на случай длинного текста */
-        opacity: 1;
-        transition: max-height 0.5s ease-in, opacity 0.4s ease-in;
-    }
-</style>
-
-<!-- Разметка для 8 месяцев (4х2) -->
-<div class="kniga-roda-container">
-    <div class="kniga-roda-card">
-        <h3>МЕСЯЦ 1</h3>
-        <strong>1. Родовое древо</strong>
-        <p class="kniga-roda-description">Создание визуальной схемы всех членов семьи. Включает базовый поиск информации и работу с основными источниками.</p>
-    </div>
-    <div class="kniga-roda-card">
-        <h3>МЕСЯЦ 2</h3>
-        <strong>2. Писательское мастерство</strong>
-        <p class="kniga-roda-description">Сбор историй, описание судеб, редактирование текстов, чтобы ваша книга читалась легко и увлекательно.</p>
-    </div>
-    <div class="kniga-roda-card">
-        <h3>МЕСЯЦ 3</h3>
-        <strong>3. Вёрстка (InDesign)</strong>
-        <p class="kniga-roda-description">Основы типографики, работа с сеткой, оформление титульных листов и разделов книги.</p>
-    </div>
-    <div class="kniga-roda-card">
-        <h3>МЕСЯЦ 4</h3>
-        <strong>4. Иллюстрация (Illustrator)</strong>
-        <p class="kniga-roda-description">Отрисовка древа, создание рамок и других декоративных элементов оформления в векторном редакторе.</p>
-    </div>
-    <div class="kniga-roda-card">
-        <h3>МЕСЯЦ 5</h3>
-        <strong>5. Фото-архив</strong>
-        <p class="kniga-roda-description">Оцифровка и реставрация старых снимков с помощью Photoshop и современных нейросетей.</p>
-    </div>
-    <div class="kniga-roda-card">
-        <h3>МЕСЯЦ 6</h3>
-        <strong>6. Упаковка книги</strong>
-        <p class="kniga-roda-description">Подготовка финального макета в печать (препресс) и взаимодействие с типографией для получения готового тиража.</p>
-    </div>
-
-    <!-- ВАШ КОД ДЛЯ 7 МЕСЯЦА, АДАПТИРОВАННЫЙ ПОД НОВЫЕ СТИЛИ -->
-    <div class="kniga-roda-card">
-        <h3>МЕСЯЦ 7</h3>
-        <strong>7. Печать и подготовка</strong>
-        <p class="kniga-roda-description">
-            Книга переходит из цифрового мира в <strong>материальный</strong>. Мы подготавливаем <strong>книжный блок</strong> к <strong>печати</strong> и <strong>сшиванию</strong>. Это <strong>ритуал воплощения</strong> вашей работы в жизнь. Вы узнаете, как <strong>выбрать бумагу</strong>, инструменты, и типографию, чтобы ваш <strong>артефакт</strong> был <strong>безупречен</strong>. Выбор мастерской или печать дома — решение за вами, но <strong>качество исполнения</strong> гарантирует, что книга переживет поколения.
-        </p>
-    </div>
-    
-    <div class="kniga-roda-card">
-        <h3>МЕСЯЦ 8</h3>
-        <strong>8. Название ступени</strong>
-        <p class="kniga-roda-description">
-            [Здесь будет развернутое описание восьмого месяца.]
-        </p>
-    </div>
-
-                   
+</body>
+                  
 <section id="tariffs" class="tariffs-section">
     <h2 class="section-title">Инвестиции в Ваше Наследие: Тарифы</h2>
     <div class="container tariffs-grid">
@@ -339,6 +231,7 @@
 </body>
 
 </html>
+
 
 
 
