@@ -118,7 +118,44 @@ button {
     cursor: pointer;
     transition: 0.3s;
 }
+* --- Стили формы заказа --- */
+.order-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid #d4af37;
+    border-radius: 15px;
+    padding: 40px;
+    margin-top: 50px;
+}
 
+.order-section input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    background: rgba(11, 43, 26, 0.7); /* Темно-зеленый фон инпута */
+    border: 1px solid #d4af37;
+    color: #f1e4c1;
+    border-radius: 5px;
+    font-family: 'Georgia', serif;
+    box-sizing: border-box;
+}
+
+.btn-gold {
+    background-color: #d4af37;
+    color: #0b2b1a;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.btn-gold:hover {
+    background-color: #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 /* --- Футер --- */
 .footer-usp {
     background-color: #d4af37;
@@ -129,3 +166,4 @@ button {
     font-weight: bold;
     border-radius: 5px;
 }
+
