@@ -5,6 +5,15 @@ css
     box-sizing: border-box;
 }
 
+/* Примерный селектор для баннера */
+.header-background {
+    /* Добавляем темный полупрозрачный слой поверх изображения */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('les-kniga1.jpg'); /* */
+    background-size: cover;
+    background-position: center;
+    /* Убедись, что текст внутри этого блока белый или светлый для контраста */
+    color: #fff; /* */
+}
 body {
     background-image: url('bgr.png');
     background-repeat: no-repeat;
@@ -262,4 +271,5 @@ button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
 @media (max-width: 768px) { 
     .tariff-card { transform: scale(1) !important; width: 100%; } 
     h1 { font-size: 1.8rem; }
+
 
