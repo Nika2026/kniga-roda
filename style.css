@@ -13,7 +13,18 @@ body {
     padding: 40px 20px;
     text-align: center;
 }
-
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Скругление как в стиле 4 */
+    font-family: inherit;
+    box-sizing: border-box; /* Чтобы поля не вылезали за края */
+}
+    
 /* --- Контейнер для выравнивания контента --- */
 section {
     max-width: 1000px;
@@ -108,7 +119,21 @@ select, button {
     padding: 10px;
     margin-top: 10px;
 }
+form button[type="submit"] {
+    background-color: #4A90E2; /* Или ваш основной цвет */
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px; /* Овальная кнопка */
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s ease;
+    width: 100%;
+}
 
+form button[type="submit"]:hover {
+    background-color: #357ABD; /* Эффект при наведении */
+}
 button {
     background: #d4af37;
     color: #0b2b1a;
@@ -166,5 +191,649 @@ button {
     font-weight: bold;
     border-radius: 5px;
 }
+    /* Контейнер всей формы */
+.form-container {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.sovereign-form {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    max-width: 450px;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+.form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Стили полей ввода */
+.form-input, .form-textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-sizing: border-box; /* Важно, чтобы не вылезало за края */
+    font-size: 16px;
+}
+
+.form-textarea {
+    height: 100px;
+    resize: vertical;
+}
+
+/* Стиль кнопки (в стиле ваших проектов) */
+.form-button {
+    width: 100%;
+    padding: 15px;
+    background-color: #2c3e50; /* Темный благородный цвет */
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.form-button:hover {
+    background-color: #34495e;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Общий контейнер для тарифов */
+.tariffs-section {
+    background-color: #0b2d20; /* Темно-зеленый фон */
+    padding: 80px 0;
+    color: #fff;
+}
+
+.section-title {
+    text-align: center;
+    color: #d4af37; /* Золотой заголовок */
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+}
+
+.tariffs-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Чтобы на мобилках переносились */
+}
+
+/* Стили карточки */
+.tariff-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #d4af37;
+    border-radius: 10px;
+    padding: 30px;
+    width: 350px; /* Фиксированная ширина для симметрии */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 0.3s;
+    position: relative;
+}
+
+.tariff-card:hover {
+    transform: translateY(-10px);
+    background: rgba(212, 175, 55, 0.1);
+}
+
+/* Выделение Премиум тарифа */
+.tariff-card.premium {
+    border-width: 3px;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+}
+
+.special-label {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #d4af37;
+    color: #0b2d20;
+    padding: 5px 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 20px;
+}
+
+.price {
+    font-size: 2rem;
+    color: #d4af37;
+    margin: 15px 0;
+    font-weight: bold;
+}
+
+.old-price {
+    text-decoration: line-through;
+    opacity: 0.5;
+    font-size: 1rem;
+}
+
+.tariff-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    margin: 20px 0;
+}
+
+.tariff-card ul li {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.tariff-card ul li::before {
+    content: "✓ ";
+    color: #d4af37;
+}
+
+/* Золотая кнопка */
+.btn-gold {
+    background: #d4af37;
+    color: #0b2d20;
+    border: none;
+    padding: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn-gold:hover {
+    background: #fff;
+    box-shadow: 0 0 15px #d4af37;
+    }
+/* Настройки главного экрана */
+.hero-section {
+    position: relative;
+    height: 80vh; /* Оптимально для широкого баннера */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('les-kniga1.jpg') no-repeat center center; /* Сюда вставите новую картинку из Шедеврума */
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Затемнение фона */
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Регулируйте прозрачность здесь */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.hero-content h1 span {
+    color: #d4af37; /* Золотой акцент в заголовке */
+}
+
+/* Стили блока УТП (Зеленый и Золото) */
+.usp-section {
+    background-color: #0b2d20; /* Благородный темно-зеленый */
+    padding: 80px 0;
+    border-top: 2px solid #d4af37;
+}
+
+.usp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.usp-card {
+    border: 1px solid #d4af37;
+    padding: 40px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    transition: 0.3s;
+}
+
+.usp-card:hover {
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-10px);
+}
+
+.usp-card h3 {
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.usp-card p {
+    color: #f0f0f0;
+    line-height: 1.6;
+}
+
+/* Золотая кнопка */
+.btn-gold {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #d4af37;
+    color: #0b2d20;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-gold:hover {
+    background: #fff;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
+/* Примерный селектор для баннера */
+.header-background {
+    /* Добавляем темный полупрозрачный слой поверх изображения */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('les-kniga1.jpg'); /* */
+    background-size: cover;
+    background-position: center;
+    /* Убедись, что текст внутри этого блока белый или светлый для контраста */
+    color: #fff; /* */
+}
+
+/* Добавляем отступы сверху и снизу для всех основных секций */
+.author-section, 
+.bonus-section, 
+.months-description-section, /* Убедитесь, что этот класс есть в вашем HTML */
+.tariffs-section,
+.contact-form {
+    padding: 50px 0; /* Или любое другое удобное вам значение */
+}
+
+/* Добавляем золотую линию снизу секции с месяцами, чтобы отделить её от тарифов */
+.months-description-section {
+    border-bottom: 4px solid #d4af37; /* Золотой разделитель */
+    /* Если фон у месяцев черный, то этого достаточно */
+
+    .contact-form {
+    background-color: #f0f0f0; /* Светло-серый фон для контраста */
+    padding: 60px 20px;
+    text-align: center;
+    color: #0b2d20; /* Темный текст на светлом фоне */
+}
+
+.contact-form h2 {
+    color: #d4af37; /* Золотой заголовок */
+    margin-bottom: 20px;
+}
+
+.contact-form p {
+    max-width: 700px;
+    margin: 0 auto 30px auto;
+    line-height: 1.5;
+}
+
+/* Стили для полей ввода, select и кнопки внутри формы */
+.contact-form input,
+.contact-form select,
+.contact-form button {
+    display: block;
+    width: 100%;
+    max-width: 400px;
+    margin: 15px auto;
+    padding: 12px;
+    border: 4px solid #ccc;
+    border-radius: 15px;
+    box-sizing: border-box; /* Важно для корректной ширины */
+}
+
+.contact-form button {
+    /* Используем уже определенный ранее золотой стиль кнопки */
+    background: #d4af37;
+    color: #0b2d20;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+.contact-form button:hover {
+    background: #0b2d20;
+    color: #d4af37;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);}
+body {
+    background-image: url('bgr.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    background-color: #0b2b1a !important; /* Глубокий зеленый */
+    background-image: linear-gradient(rgba(11, 43, 26, 0.8), rgba(11, 43, 26, 0.8)), url("bgr.png") !important;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #f1e4c1 !important;
+    font-family: 'Georgia', serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 40px 20px;
+    text-align: center;
+
+}
+.tariff-card { 
+    width: 350px; 
+    /* Увеличиваем толщину рамки в 2 раза (было 1px, стало 2px) */
+    border: 4px solid rgba(212, 175, 55, 0.3); 
+    padding: 40px 20px; 
+    text-align: center; 
+    position: relative;
+    
+    /* Добавляем скругление краев на 6px */
+    border-radius: 16px; 
+
+    /* Используем градиент для наложения темно-зеленого цвета (rgba(12, 26, 18, 0.9)) поверх изображения */
+    /* Имя файла bgr.png */
+    background-image: linear-gradient(rgba(12, 26, 18, 0.9), rgba(12, 26, 18, 0.9)), url('bgr.png');
+    background-size: cover; /* Растягивает изображение, чтобы оно покрыло всю карточку */
+    background-blend-mode: overlay; /* Режим наложения, который хорошо работает с темными оттенками */
+}
+
+/* Стиль для премиум-карточки также обновлен */
+.tariff-card.premium { 
+    border: 8px solid #d4af37; /* Толщина рамки 8px */
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+    transform: scale(1.05);
+}
+
+.program-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px; 
+    padding: 40px 5%; 
+}
+
+.price { font-size: 2rem; color: #fff; margin: 20px 0; font-family: 'Cinzel', serif; }
+.old-price { text-decoration: line-through; opacity: 0.5; font-size: 1.2rem; }
+.special-label { 
+    background: #d4af37; color: #000; padding: 5px 15px; 
+    position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+    font-weight: bold; font-size: 0.8rem; letter-spacing: 1px;
+}
+/* --- Сетка Программы (Карточки Месяцев) ОБНОВЛЕНО --- */
+
+}
+.months-description-section{
+display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 25px; 
+    padding: 40px 5%; 
+}    
+.module-card { 
+    /* Увеличена толщина рамки в 2 раза (было 1px, стало 2px) */
+    border: 2px solid rgba(212, 175, 55, 0.3); 
+    padding: 25px;
+
+    /* Используем градиент для наложения темно-зеленого цвета поверх изображения bgr.png */
+    background-image: linear-gradient(rgba(12, 26, 18, 0.9), rgba(12, 26, 18, 0.9)), url('bgr.png');
+    background-size: cover; 
+    background-blend-mode: overlay;
+
+    /* Добавлено скругление краев на 6px */
+    border-radius: 6px; 
+    backdrop-filter: blur(5px); /* Эффект размытия */
+    transition: transform 0.4s ease, background 0.4s ease;
+    cursor: pointer;
+    overflow: hidden; /* Скрываем полное описание по умолчанию */
+    position: relative;
+    min-height: 150px;
+}
+/* Эффект при наведении: свечение и "раскрытие" */
+.module-card:hover { 
+    border-color: #d4af37; 
+    transform: translateY(-5px) scale(1.02); 
+    /* При наведении фон становится немного светлее, чтобы выделить карточку */
+    background-image: linear-gradient(rgba(17, 37, 26, 0.9), rgba(17, 37, 26, 0.9)), url('bgr.png'); 
+}
+/* --- Глобальные Стили и Визуал Баннера --- */
+body { 
+    * Глубокий зеленый цвет с легкой текстурой, как на обложке книги */
+    background-color: #0c1a12;
+   background-image: url('bgr.png')
+   background-size: cover; 
+    background-attachment: fixed; 
+    * Винтажные шрифты *
+    font-family: 'Cormorant Garamond', serif; 
+    margin: 0; 
+    line-height: 1.6; /* Увеличил интерлиньяж для читаемости */
+    font-size: 1.3rem;
+    color: #e0e0e0;
+}
+
+h1, h2, h3 { 
+    font-family: 'Cinzel', serif; 
+    letter-spacing: 2px;
+    /* Золотистый цвет акцентов с баннера */
+    color: #d4af37;
+    text-align: center;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+/* --- Хедер --- */
+header { 
+    padding: 80px 5%; 
+    text-align: center; 
+    background: rgba(12, 26, 18, 0.9); /* Почти черный для контраста */
+    border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+.tagline { 
+    color: #d4af37; 
+    font-style: italic; 
+    letter-spacing: 2px;
+    margin-top: -10px;
+    display: block;
+}
+
+.section-title { margin-top: 60px; font-size: 2.5rem; text-transform: uppercase; }
+
+.module-card { 
+    border: 1px solid rgba(212, 175, 55, 0.3); 
+    padding: 25px;
+    background: rgba(12, 26, 18, 0.7); /* Прозрачный темный фон */
+    backdrop-filter: blur(5px); /* Эффект размытия */
+    transition: transform 0.4s ease, background 0.4s ease;
+    cursor: pointer;
+    overflow: hidden; /* Скрываем полное описание по умолчанию */
+    position: relative;
+    min-height: 150px;
+}
+/* Эффект при наведении: свечение и "раскрытие" */
+.module-card:hover { 
+    border-color: #d4af37; 
+    transform: translateY(-5px) scale(1.02); 
+    background: rgba(17, 37, 26, 0.9); /* Чуть светлее при наведении */
+}
+
+.module-card h3 { 
+    font-size: 1.4rem; 
+    margin: 10px 0; 
+    border-bottom: 1px solid rgba(212, 175, 55, 0.2); 
+    padding-bottom: 10px;
+}
+.duration { 
+    color: #d4af37; 
+    font-size: 0.9rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1px; 
+    font-weight: bold;
+}
+
+/* Стили для короткого и полного описания */
+.short-desc { 
+    transition: opacity 0.3s ease; 
+}
+.full-desc {
+    opacity: 0;
+    max-height: 0;
+    transition: opacity 0.4s ease, max-height 0.4s ease;
+    margin-top: 15px;
+    border-top: 1px solid rgba(212, 175, 55, 0.2);
+    padding-top: 10px;
+}
+
+/* При наведении скрываем короткое описание и показываем полное */
+.module-card:hover .short-desc {
+    opacity: 0;
+    max-height: 0;
+    padding: 0;
+    margin: 0;
+}
+.module-card:hover .full-desc {
+    opacity: 1;
+    max-height: 500px; /* Достаточно большое значение, чтобы показать весь текст */
+}
+
+
+/* --- Тарифы (не менялись, но стили перенесены) --- */
+.tariffs { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: center; 
+    gap: 30px; 
+    padding: 40px 5%; 
+}
+.tariff-card { 
+    width: 350px; 
+    border: 1px solid rgba(212, 175, 55, 0.3); 
+    padding: 40px 20px; 
+    text-align: center; 
+    background: rgba(12, 26, 18, 0.9);
+    position: relative;
+}
+.tariff-card.premium { 
+    border: 2px solid #d4af37; 
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+    transform: scale(1.05);
+}
+.price { font-size: 2rem; color: #fff; margin: 20px 0; font-family: 'Cinzel', serif; }
+.old-price { text-decoration: line-through; opacity: 0.5; font-size: 1.2rem; }
+.special-label { 
+    background: #d4af37; color: #000; padding: 5px 15px; 
+    position: absolute; top: -15px; left: 50%; transform: translateX(-50%);
+    font-weight: bold; font-size: 0.8rem; letter-spacing: 1px;
+}
+
+/* --- Форма Контакта --- */
+.contact-form { 
+    max-width: 600px; 
+    margin: 60px auto; 
+    background: rgba(12, 26, 18, 0.8); 
+    padding: 40px; 
+    border: 4px solid #d4af37; 
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.1);
+     border-radius: 15px; /* Добавляем скругление */
+    background-image: url('bgr.png')
+}
+
+input, textarea, select { 
+    width: 100%; margin: 10px 0; background: rgba(0, 0, 0, 0.4); 
+    border: 1px solid rgba(212, 175, 55, 0.2); color: #fff; padding: 15px; box-sizing: border-box;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+button { 
+    background: linear-gradient(45deg, #d4af37, #f2d479, #d4af37);
+    color: #000; padding: 20px; border: none; cursor: pointer; 
+    font-weight: bold; width: 100%; font-family: 'Cinzel', serif; letter-spacing: 2px;
+    font-size: 1.1rem;
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+     border-radius: 15px; /* Добавляем скругление */
+}
+button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
+
+<style>
+    /* Адаптация под стиль nika2026.github.io/kniga-roda/ */
+    .course-form-container {
+        max-width: 500px;
+        margin: 40px auto;
+        padding: 30px;
+        background: #1a1a1a; /* Темный фон как на сайте */
+        border: 1px solid #d4af37; /* Золотистая рамка */
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        font-family: 'Georgia', serif;
+        color: #f4f4f4;
+    }
+
+    .course-form-container h3 {
+        text-align: center;
+        color: #d4af37;
+        margin-bottom: 25px;
+        text-transform: uppercase;
+        letter-spacing: 1.5px;
+    }
+
+    .course-form-container input, 
+    .course-form-container select, 
+    .course-form-container textarea {
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 15px;
+        background: #262626;
+        border: 1px solid #444;
+        border-radius: 6px;
+        color: #fff;
+        font-size: 16px;
+        box-sizing: border-box;
+    }
+
+    .course-form-container input:focus, 
+    .course-form-container select:focus {
+        border-color: #d4af37;
+        outline: none;
+    }
+
+    .course-form-container button {
+        width: 100%;
+        padding: 15px;
+        background: #d4af37;
+        border: none;
+        border-radius: 6px;
+        color: #1a1a1a;
+        font-weight: bold;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+
+    .course-form-container button:hover {
+        background: #f1c40f;
+        transform: translateY(-2px);
+    }
+</style>
+
+@media (max-width: 768px) { 
+    .tariff-card { transform: scale(1) !important; width: 100%; } 
+    h1 { font-size: 1.8rem; 
+
 
 
