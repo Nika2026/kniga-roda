@@ -4,7 +4,94 @@ css
     padding: 0;
     box-sizing: border-box;
 }
+/* Настройки главного экрана */
+.hero-section {
+    position: relative;
+    height: 80vh; /* Оптимально для широкого баннера */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('les-kniga1.jpg') no-repeat center center; /* Сюда вставите новую картинку из Шедеврума */
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+    overflow: hidden;
+}
 
+/* Затемнение фона */
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Регулируйте прозрачность здесь */
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.hero-content h1 span {
+    color: #d4af37; /* Золотой акцент в заголовке */
+}
+
+/* Стили блока УТП (Зеленый и Золото) */
+.usp-section {
+    background-color: #0b2d20; /* Благородный темно-зеленый */
+    padding: 80px 0;
+    border-top: 2px solid #d4af37;
+}
+
+.usp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.usp-card {
+    border: 1px solid #d4af37;
+    padding: 40px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.03);
+    transition: 0.3s;
+}
+
+.usp-card:hover {
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-10px);
+}
+
+.usp-card h3 {
+    color: #d4af37;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+
+.usp-card p {
+    color: #f0f0f0;
+    line-height: 1.6;
+}
+
+/* Золотая кнопка */
+.btn-gold {
+    display: inline-block;
+    padding: 15px 40px;
+    background: #d4af37;
+    color: #0b2d20;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    margin-top: 20px;
+    transition: 0.3s;
+}
+
+.btn-gold:hover {
+    background: #fff;
+    box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+}
 /* Примерный селектор для баннера */
 .header-background {
     /* Добавляем темный полупрозрачный слой поверх изображения */
@@ -271,5 +358,6 @@ button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
 @media (max-width: 768px) { 
     .tariff-card { transform: scale(1) !important; width: 100%; } 
     h1 { font-size: 1.8rem; }
+
 
 
