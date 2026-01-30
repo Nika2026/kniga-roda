@@ -176,38 +176,62 @@
     <div class="contact-form">
         <h2>Итог: Ваше Предназначение — Творец Истории</h2>
         <p>Курс рассчитан на <strong>8 месяцев</strong> (2-3 урока в месяц). По его завершении вы станете не просто создателем собственной <strong>«Книги Рода»</strong>, а <strong>Творцом Истории</strong>, способным самостоятельно издавать любые книги. Вы обретете <strong>предназначение</strong> и <strong>навык</strong>, который всегда будет <strong>ценен</strong>.</p>
-   </div> <!-- Принудительно закрываем предыдущие блоки -->
-
-<div style="max-width: 500px; margin: 50px auto; padding: 20px; background: #fff; border: 1px solid #ddd; border-radius: 10px; font-family: sans-serif;">
-    <h3 style="text-align: center;">Записаться на курс «Книга Рода»</h3>
-    
-    <form action="https://api.web3forms.com" method="POST">
-        <!-- ВАЖНО: Ключ вставлен напрямую -->
-        <input type="hidden" name="access_key" value="67674486-a3a9-4fb2-b97b-dbf4ce168dc3">
-        <input type="hidden" name="subject" value="Заявка: Книга Рода">
-        <!-- Чтобы после отправки человека не уводило с сайта -->
-        <input type="hidden" name="from_name" value="Сайт Книга Рода">
-
-        <input type="text" name="name" placeholder="Ваше имя" required style="width: 100%; margin-bottom: 15px; padding: 12px; box-sizing: border-box;">
+<div class="contact-form">
+    <h3>Записаться на курс «Книга Рода»</h3>
+    <form id="tg-form">
+        <!-- Имя -->
+        <input type="text" id="name" name="name" placeholder="Ваше Имя" required style="width: 100%; margin-bottom: 15px; padding: 10px;">
         
-        <input type="text" name="contact" placeholder="Ваш контакт (TG/Email)" required style="width: 100%; margin-bottom: 15px; padding: 12px; box-sizing: border-box;">
+        <!-- Контакт -->
+        <input type="text" id="contact" name="contact" placeholder="Ваш Телеграм / WhatsApp" required style="width: 100%; margin-bottom: 15px; padding: 10px;">
         
-        <select name="tariff" required style="width: 100%; margin-bottom: 15px; padding: 12px;">
-            <option value="" disabled selected>Выберите тариф</option>
-            <option value="Тариф 1">Тариф 1</option>
-            <option value="Тариф 2">Тариф 2</option>
-            <option value="Тариф 3">Тариф 3</option>
+        <!-- ВЫБОР ТАРИФА (Новый блок) -->
+        <select name="tariff" required style="width: 100%; margin-bottom: 15px; padding: 10px; border: 1px solid #ccc; border-radius: 4px;">
+            <option value="" disabled selected>Выберите тариф курса</option>
+            <option value="Тариф 1: Самостоятельный">Тариф 1 (Самостоятельный)</option>
+            <option value="Тариф 2: С поддержкой">Тариф 2 (С поддержкой)</option>
+            <option value="Тариф 3: VIP (Личный)">Тариф 3 (VIP Личный)</option>
         </select>
-
-        <textarea name="message" rows="4" placeholder="Вопросы" style="width: 100%; margin-bottom: 15px; padding: 12px; box-sizing: border-box;"></textarea>
         
-        <button type="submit" style="width: 100%; padding: 15px; background-color: #d4af37; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold;">
-            ОТПРАВИТЬ ЗАЯВКУ
-        </button>
+        <!-- Сообщение -->
+        <textarea id="message" name="message" rows="5" placeholder="Ваши вопросы или комментарии"></textarea>
+        
+        <button type="submit" class="btn-gold">ЗАПИСАТЬСЯ НА КУРС</button>
     </form>
 </div>
-    
 
+<script>
+    document.getElementById('tg-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const formData = new FormData(this);
+        
+        // Ваш рабочий ключ от Геральдики
+        formData.append("access_key", "a8e48c35-dbb4-4144-a528-f3d7111f1f4c");
+        
+        // Меняем название проекта, чтобы в почте было понятно, откуда письмо
+        formData.append("from_name", "Курс Книга Рода");
+        formData.append("subject", "Новая заявка на Книгу Рода");
+
+        fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        })
+        .then(async (response) => {
+            const result = await response.json();
+            if (response.ok) {
+                alert("Благодарю! Ваша заявка на курс принята.");
+                document.getElementById('tg-form').reset();
+            } else {
+                alert("Ошибка: " + result.message);
+            }
+        })
+        .catch(error => {
+            alert("Сбой сети. Проверьте интернет или попробуйте с VPN.");
+        });
+    });
+</script>
+        </section>
     <footer>
         <p style="text-align: center; font-size: 1rem; opacity: 0.9; padding: 20px;">&copy; 2026 Ника Алексеева. Все права защищены.</p>
     </footer>
@@ -215,6 +239,7 @@
 </body>
 
 </html>
+
 
 
 
