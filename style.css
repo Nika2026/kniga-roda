@@ -926,11 +926,50 @@ button:hover { filter: brightness(1.2); letter-spacing: 3px; transition: 0.4s; }
         background: #f1c40f;
         transform: translateY(-2px);
     }
+
+    /* Стили для секции тарифов */
+#tariffs {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 колонки в ряд */
+    gap: 20px; /* Расстояние между плашками */
+    padding: 40px 20px;
+}
+
+.tariff-card {
+    border: 2px solid #d4af37; /* Та самая золотая рамка 2px */
+    border-radius: 12px;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.05); /* Легкий фон, чтобы золото сияло */
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); /* Мягкое золотое свечение */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
+}
+
+.tariff-card:hover {
+    transform: translateY(-5px); /* Анимация при наведении */
+    box-shadow: 0 0 25px rgba(212, 175, 55, 0.4);
+}
+
+/* Адаптив для мобильных устройств */
+@media (max-width: 1024px) {
+    #tariffs {
+        grid-template-columns: repeat(2, 1fr); /* 2 в ряд на планшетах */
+    }
+}
+
+@media (max-width: 600px) {
+    #tariffs {
+        grid-template-columns: 1fr; /* 1 в ряд на телефонах */
+    }
+}
 </style>
 
 @media (max-width: 768px) { 
     .tariff-card { transform: scale(1) !important; width: 100%; } 
     h1 { font-size: 1.8rem; 
+
 
 
 
