@@ -3,128 +3,313 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Книга Рода — Ника Алексеева</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>КНИГА РОДА | Авторский курс Ники Алексеевой</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f1e4c1 url('bgr.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: 'Cormorant Garamond', serif;
+            color: #062114;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* ШАПКА */
+        header {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            margin: 0;
+            letter-spacing: 8px;
+            color: #062114;
+            text-transform: uppercase;
+        }
+
+        .author-line {
+            font-size: 1.5rem;
+            font-style: italic;
+            margin-bottom: 30px;
+            color: #8e6d1c;
+        }
+
+        .hero-text {
+            max-width: 700px;
+            margin: 0 auto 40px;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+
+        /* КНОПКА С БЛИКОМ */
+        .btn-gold {
+            display: inline-block;
+            padding: 22px 50px;
+            background: #062114;
+            color: #d4af37;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3rem;
+            border: 2px solid #d4af37;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+            transition: 0.3s;
+            letter-spacing: 2px;
+        }
+
+        .btn-gold:hover {
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            color: #f1e4c1;
+        }
+
+        .btn-gold::after {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -100%;
+            width: 30%;
+            height: 200%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(30deg);
+            transition: 0s;
+        }
+
+        .btn-gold:hover::after {
+            left: 150%;
+            transition: 0.8s;
+        }
+
+        /* ПРОГРАММА */
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin: 80px 0 50px;
+            padding-bottom: 20px;
+            border-bottom: 1px double #062114;
+        }
+
+        .program-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .module-card {
+            background: #062114;
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            padding: 25px;
+            cursor: pointer;
+            transition: all 0.5s ease;
+        }
+
+        .module-card:hover {
+            border-color: #f1e4c1;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        .card-header .month-num {
+            color: #d4af37;
+            font-size: 0.8rem;
+            letter-spacing: 4px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .card-header h3 {
+            color: #f1e4c1;
+            font-size: 1.8rem;
+            margin: 0;
+            font-weight: 600;
+        }
+
+        .card-header .subtitle {
+            color: #d4af37;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin-top: 5px;
+        }
+
+        .card-content {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.7s ease, opacity 0.7s ease, margin-top 0.4s ease;
+            color: #f1e4c1;
+            font-size: 1.15rem;
+            text-align: justify;
+        }
+
+        .module-card:hover .card-content {
+            max-height: 800px;
+            opacity: 1;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        /* ИТОГ */
+        .itog-box {
+            margin: 80px 0;
+            text-align: center;
+            padding: 50px;
+            border: 2px solid #062114;
+            background: rgba(212, 175, 55, 0.05);
+            border-radius: 15px;
+        }
+
+        .itog-box h2 { font-size: 2.2rem; color: #062114; margin-bottom: 20px; }
+
+        strong { color: #d4af37; }
+        p strong { color: #062114; }
+        .card-content strong { color: #d4af37; }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 2.5rem; }
+            .module-card h3 { font-size: 1.4rem; }
+        }
+    </style>
 </head>
 <body>
 
-    <section class="hero-section">
-        <div class="hero-overlay"></div>
-        <div class="hero-content container">
-            <h1>Создайте физическое воплощение силы вашего <span>Рода</span></h1>
-            <p class="hero-subtitle">Где архивный поиск и право соединяются с искусством дизайна, нейросетями и сакральной геометрией.</p>
+    <header>
+        <div class="container">
+            <h1>КНИГА РОДА</h1>
+            <p class="author-line">Авторский курс Ники Алексеевой</p>
+            <p class="hero-text">
+                Создайте материальное воплощение вашей семейной истории за 8 месяцев — <strong>фамильный артефакт</strong>.
+            </p>
             <a href="#tariffs" class="btn-gold">ПРОЯВИТЬ ВОЛЮ</a>
         </div>
-    </section>
+    </header>
 
-    <section class="about-section container">
-        <div class="about-flex">
-            <div class="about-image">
-                <img src="les-kniga1.jpg" alt="Ника Алексеева">
+    <div class="container">
+        <h2 class="section-title">Программа Пути: Обретение Наследия</h2>
+        
+        <div class="program-grid">
+            
+            <div class="module-card">
+                <div class="card-header">
+                    <span class="month-num">МЕСЯЦ 1</span>
+                    <h3>Родовое древо</h3>
+                    <p class="subtitle">Визуальная схема и поиск корней</p>
+                </div>
+                <div class="card-content">
+                    Это не просто построение схемы. Это <strong>археологическое погружение</strong> в ваше <strong>наследие</strong>, где каждый член семьи — найденный артефакт. Вы восстанавливаете живую <strong>связь поколений</strong>, чувствуя силу рода. Результат — ваша персональная <strong>карта судьбы</strong>.
+                </div>
             </div>
-            <div class="about-text">
-                <h2>Ника Алексеева</h2>
-                <p>Мой путь начался в залах музеев, куда отец-художник брал меня с трех лет. Позже это переросло в страсть к черчению, физике и сакральной геометрии. Я всегда искала гармонию там, где цифровая точность встречается с живым искусством.</p>
-                <p>Как выпускник ИВТ-факультета по специальности «Компьютерная графика и дизайн», я научилась превращать хаос информации в четкую систему. С 2011 года я создаю логотипы, книги и фамильные гербы, соединяя мастерство Adobe Illustrator с глубокими смыслами наследия.</p>
-                <p><strong>Книга Рода</strong> — это мой личный опыт материализации памяти, которым я готова делиться с теми, кто осознал себя Носителем Воли.</p>
+
+            <div class="module-card">
+                <div class="card-header">
+                    <span class="month-num">МЕСЯЦ 2</span>
+                    <h3>Писательское мастерство</h3>
+                    <p class="subtitle">Сбор историй и транскрибация голосов</p>
+                </div>
+                <div class="card-content">
+                    Мы переходим от фактов к <strong>живым историям</strong>. Это не «писательское мастерство» в обычном смысле, это <strong>транскрибация голосов</strong> вашего рода. Мы превращаем сухие биографии в захватывающий нарратив и обрамляем его как <strong>драгоценный манускрипт</strong>.
+                </div>
             </div>
+
+            <div class="module-card">
+                <div class="card-header">
+                    <span class="month-num">МЕСЯЦ 3</span>
+                    <h3>Вёрстка (InDesign)</h3>
+                    <p class="subtitle">Основы типографики и сакральная форма</p>
+                </div>
+                <div class="card-content">
+                    Этап, где ваша история обретает <strong>благородную форму</strong>. С помощью <strong>Adobe InDesign</strong> вы научитесь чувствовать ритм страницы и гармонию отступов. Это создание <strong>сакрального пространства</strong> для вашей родовой книги.
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="card-header">
+                    <span class="month-num">МЕСЯЦ 4</span>
+                    <h3>Иллюстрации (Illustrator)</h3>
+                    <p class="subtitle">Уникальный визуальный код семьи</p>
+                </div>
+                <div class="card-content">
+                    В <strong>Adobe Illustrator</strong> вы нарисуете <strong>символ силы</strong> вашего дома. Декоративные элементы, рамки и вензеля сделают вашу книгу <strong>уникальным артефактом</strong>, а не типовым изделием.
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="card-header">
+                    <span class="month-num">МЕСЯЦ 5</span>
+                    <h3>Фото-архив</h3>
+                    <p class="subtitle">Оцифровка и реставрация через нейросети</p>
+                </div>
+                <div class="card-content">
+                    Возвращение лицам их <strong>подлинности</strong>. Через <strong>Adobe Photoshop</strong> и нейросети мы восстанавливаем утерянные детали. Это акт <strong>сохранения наследия</strong>, где прошлое становится четким и живым.
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="card-header">
+                    <span class="month-num">МЕСЯЦ 6</span>
+                    <h3>Уникальный шрифт</h3>
+                    <p class="subtitle">Ваш собственный голос в вечности</p>
+                </div>
+                <div class="card-content">
+                    Максимальная персонализация в <strong>Fontlab 8</strong>. Вы создадите <strong>собственную подпись</strong> вашего рода. Каждый заголовок будет нести <strong>энергию вашей семьи</strong>, делая книгу неповторимой.
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="card-header">
+                    <span class="month-num">МЕСЯЦ 7</span>
+                    <h3>Печать и подготовка</h3>
+                    <p class="subtitle">Ритуал воплощения в материю</p>
+                </div>
+                <div class="card-content">
+                    Книга переходит из цифрового мира в материальный. Это <strong>ритуал воплощения</strong> вашей работы. Выбор бумаги и типографии гарантирует, что ваш <strong>артефакт будет безупречен</strong>.
+                </div>
+            </div>
+
+            <div class="module-card">
+                <div class="card-header">
+                    <span class="month-num">МЕСЯЦ 8</span>
+                    <h3>Изготовление обложки</h3>
+                    <p class="subtitle">Щит, защищающий историю</p>
+                </div>
+                <div class="card-content">
+                    Финальный и самый <strong>сакральный этап</strong>. Мы создаем твердую обложку — <strong>щит</strong>, который защитит вашу историю от забвения, гарантируя передачу <strong>силы рода</strong> дальше.
+                </div>
+            </div>
+
         </div>
-    </section>
 
-    <section class="program-section container">
-        <h2 class="section-title">8 ступеней к вашему Артефакту</h2>
+        <div class="itog-box">
+            <h2>Итог: Ваше Предназначение — Творец Истории</h2>
+            <p style="font-size: 1.3rem;">
+                По завершении курса вы станете не просто создателем собственной «Книги Рода», а <strong>Творцом Истории</strong>. Вы обретете навык, который позволит вам самостоятельно издавать любые семейные артефакты.
+            </p>
+        </div>
+
+        <h2 id="tariffs" class="section-title">Варианты участия</h2>
         <div class="program-grid">
             <div class="module-card">
-                <h3>1. Инициация и Поиск</h3>
-                <div class="full-content">
-                    <p>Разворачиваем стратегию поиска в архивах. Учимся работать с <strong>документами</strong> и базами данных, даже если ниточки кажутся оборванными.</p>
+                <div class="card-header">
+                    <h3>ИСКАТЕЛЬ</h3>
+                    <p class="subtitle">Базовый доступ к знаниям — 15 000 ₽</p>
+                </div>
+                <div class="card-content">
+                    Для тех, кто готов идти самостоятельно. Доступ ко всем урокам на 1 год + чат единомышленников.
                 </div>
             </div>
-            <div class="module-card">
-                <h3>2. Код Крови (ДНК)</h3>
-                <div class="full-content">
-                    <p>Разбор генетических тестов. Как <strong>биологическая память</strong> дополняет бумажные архивы.</p>
-                </div>
             </div>
-            <div class="module-card">
-                <h3>3. Систематизация хаоса</h3>
-                <div class="full-content">
-                    <p>Создание цифровой структуры. Используем навыки <strong>эргономики</strong> для организации семейного древа.</p>
-                </div>
-            </div>
-            <div class="module-card">
-                <h3>8. Рождение Фолианта</h3>
-                <div class="full-content">
-                    <p>Финализация дизайна. Ваша <strong>Книга Рода</strong> готова к печати в типографии как вечный артефакт.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
-    <section id="tariffs" class="container">
-        <h2 class="section-title">Выберите уровень проявления Воли</h2>
-        <div class="tariffs-grid">
-            <div class="tariff-card">
-                <h3>ИСКАТЕЛЬ</h3>
-                <p class="subtitle">Поиск секретов</p>
-                <div class="price">15 000 ₽</div>
-                <ul>
-                    <li>Доступ к 8 месяцам уроков</li>
-                    <li>Методика работы с архивами</li>
-                    <li>Общий чат сообщества</li>
-                </ul>
-                <a href="ССЫЛКА_РОБОКАССА_1" class="btn-gold">НАЧАТЬ ПОИСК</a>
-            </div>
-
-            <div class="tariff-card" style="border-color: #f1e4c1;">
-                <h3>ХРАНИТЕЛЬ</h3>
-                <p class="subtitle">Сохранение секретов</p>
-                <div class="price">35 000 ₽</div>
-                <ul>
-                    <li><strong>Всё из тарифа Искатель</strong></li>
-                    <li>Книга "Ловушка Суверена" (PDF)</li>
-                    <li>Шаблоны бланков и геральдики</li>
-                </ul>
-                <a href="ССЫЛКА_РОБОКАССА_2" class="btn-gold">СОХРАНИТЬ ПАМЯТЬ</a>
-            </div>
-
-            <div class="tariff-card" style="box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);">
-                <h3>ТВОРЕЦ</h3>
-                <p class="subtitle">Создание секретов</p>
-                <div class="price">150 000 ₽</div>
-                <ul>
-                    <li><strong>Всё из тарифа Хранитель</strong></li>
-                    <li>Личное сопровождение Ники</li>
-                    <li><strong>Золотой NFT-ключ</strong> (1 из 10)</li>
-                    <li>Разработка вашего герба</li>
-                </ul>
-                <a href="ССЫЛКА_РОБОКАССА_3" class="btn-gold">ПРОЯВИТЬ ВОЛЮ</a>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer container">
-        <div class="archivarius-box">
-            <p>У вас есть слово-ключ со страницы 247?</p>
-            <div class="key-input-group">
-                <input type="text" id="archive-key" placeholder="Введите ключ...">
-                <button onclick="checkArchiveKey()" class="btn-gold">ВОЙТИ</button>
-            </div>
-        </div>
-        <p style="margin-top: 40px; opacity: 0.6;">© 2026 Ника Алексеева. Носитель Воли.</p>
-    </footer>
-
-    <script>
-    function checkArchiveKey() {
-        const key = document.getElementById('archive-key').value.toLowerCase().trim();
-        if (key === 'архивариус') {
-            alert('Доступ разрешен. Добро пожаловать, Носитель Воли.');
-            window.location.href = 'archive.html';
-        } else {
-            alert('Ключ не принят. Ищите ответ в книге.');
-        }
-    }
-    </script>
 </body>
 </html>
