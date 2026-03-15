@@ -1,129 +1,105 @@
-/* Базовые стили: Геральдический шик */
+/* Общие настройки страницы */
 body {
-    background-color: #0c1a12 !important;
-    background-image: linear-gradient(rgba(12, 26, 18, 0.85), rgba(12, 26, 18, 0.85)), url("bgr.png") !important;
-    background-size: cover;
-    background-attachment: fixed;
-    color: #f1e4c1 !important;
-    font-family: 'Cormorant Garamond', serif;
-    margin: 0; padding: 0;
+    background: #001a11; /* Твой фирменный темно-зеленый */
+    color: #d1d1d1;
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
 }
 
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-
-/* Сетка программы: 3 в ряд */
-.program-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 25px;
-    margin-top: 40px;
-}
-
-.module-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1.5px solid rgba(212, 175, 55, 0.4);
-    border-radius: 15px;
-    padding: 25px;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    cursor: pointer;
-    overflow: hidden;
-    min-height: 100px;
-}
-
-.module-card:hover {
-    border-color: #d4af37;
-    background: rgba(212, 175, 55, 0.08);
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
-
-/* Скрытый текст месяца */
-.module-card .full-content {
-    max-height: 0;
-    opacity: 0;
-    transition: all 0.6s ease;
-    text-align: left;
-}
-
-.module-card:hover .full-content {
-    max-height: 800px;
-    opacity: 1;
-    margin-top: 20px;
-}
-
-.full-content strong { color: #d4af37; }
-
-.tariffs-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+/* Контейнер тарифов */
+.tariffs-wrapper {
+    display: flex;
+    justify-content: center;
     gap: 30px;
-    align-items: stretch;
+    padding: 60px 20px;
+    flex-wrap: wrap;
+    background: #001a11;
+    border-radius: 20px;
 }
 
+/* Карточка тарифа */
 .tariff-card {
-    background: rgba(12, 26, 18, 0.8);
-    border: 2px solid #d4af37;
-    border-radius: 20px;
-    padding: 40px 25px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid #d4af37;
+    padding: 40px;
+    width: 300px;
+    text-align: center;
+    transition: 0.4s;
     display: flex;
     flex-direction: column;
-    text-align: center;
-    transition: 0.3s;
+    justify-content: space-between;
+    border-radius: 15px; /* Те самые скругленные уголки */
 }
 
-.tariff-card .price {
-    font-size: 2rem;
-    color: #d4af37;
-    margin: 20px 0;
-    font-weight: bold;
+.tariff-card:hover { 
+    transform: translateY(-10px); 
+    background: rgba(212, 175, 55, 0.1); 
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
 }
 
-.tariff-card ul {
-    text-align: left;
-    list-style: none;
-    padding: 0;
-    margin: 20px 0 40px 0;
-    flex-grow: 1;
+.tariff-title { 
+    color: #d4af37; 
+    font-size: 1.3rem; 
+    letter-spacing: 2px; 
+    font-weight: 600; 
+    text-transform: uppercase; 
 }
 
-.tariff-card ul li {
-    padding: 8px 0;
-    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+.tariff-price { 
+    color: #ffffff; 
+    font-size: 2.5rem; 
+    margin: 25px 0; 
+    font-weight: 600; 
 }
 
-.tariff-card ul li:before {
-    content: "◈ ";
-    color: #d4af37;
+.tariff-desc { 
+    color: #e0e0e0; 
+    margin-bottom: 35px; 
+    min-height: 80px; 
+    font-size: 1rem; 
 }
 
-.btn-robokassa {
-    background: #d4af37;
-    color: #0c1a12;
-    padding: 18px;
+/* Золотая кнопка с коричневым текстом */
+.gold-button {
+    background: linear-gradient(45deg, #d4af37, #f9f295, #d4af37);
+    color: #5d4037 !important; /* Тот самый коричневый */
+    padding: 18px 25px;
+    text-decoration: none;
+    font-weight: 800;
+    display: block;
     border-radius: 12px;
-    text-decoration: none;
-    font-weight: bold;
-    letter-spacing: 1px;
     transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+    text-transform: uppercase;
+    font-size: 0.9rem;
 }
 
-.btn-robokassa:hover {
-    background: #f1e4c1;
-    box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
-}
-.btn-robokassa {
-    background: #d4af37;
-    color: #0c1a12;
-    padding: 15px;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: auto;
+.gold-button:hover { 
+    filter: brightness(1.1);
 }
 
-/* Вход для Архивариуса */
-.archivarius-box {
-    margin-top: 100px;
-    border-top: 1px solid rgba(212, 175, 55, 0.3);
-    padding: 60px 0;
+/* Футер / Итоговый бокс */
+.itog-box {
+    margin-top: 80px;
+    text-align: center;
+    padding: 50px 20px;
+    background: #001a11;
+    border-radius: 20px;
+    border: 1px solid rgba(214, 175, 55, 0.2);
+}
+
+.itog-box p {
+    color: #d4af37; /* Золото */
+    font-size: 1.1rem;
+}
+
+.itog-box a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.itog-box a:hover {
+    color: #d4af37;
 }
