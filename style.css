@@ -161,3 +161,37 @@ footer.itog-box {
     .program-grid { grid-template-columns: 1fr; }
     header h1 { font-size: 2.5rem; }
 }
+/* Изначально скрываем описание */
+.module-card .card-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out, padding 0.3s ease;
+    padding-top: 0;
+    opacity: 0;
+}
+
+/* Когда карточка активна (нажали на неё) */
+.module-card.active .card-content {
+    max-height: 500px; /* Достаточная высота для текста */
+    padding-top: 15px;
+    opacity: 1;
+}
+
+/* Добавим указатель, что на карточку можно нажать */
+.module-card {
+    cursor: pointer;
+}
+
+/* Маленький индикатор (плюсик), чтобы пользователь понял, что надо жать */
+.card-header::after {
+    content: '+';
+    float: right;
+    color: #d4af37;
+    font-size: 1.5rem;
+    transition: 0.3s;
+}
+
+.module-card.active .card-header::after {
+    content: '−';
+    transform: rotate(90deg);
+}
