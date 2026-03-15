@@ -298,74 +298,91 @@
         </div>
 
 <h2 id="tariffs" class="section-title">Инвестиции в Ваше Наследие</h2>
-        
-        <div class="program-grid">
-            
-            <div class="module-card">
-                <div class="card-header">
-                    <span class="month-num">ТАРИФ</span>
-                    <h3>ИСКАТЕЛЬ</h3>
-                    <p class="subtitle">Базовый доступ к знаниям — 15 000 ₽</p>
-                </div>
-                <div class="card-content">
-                    <p>Для тех, кто привык идти сам. Вы получаете фундамент для работы над своей историей.</p>
-                    <ul>
-                        <li>Доступ ко всем видеоурокам на 1 год</li>
-                        <li>Участие в общем чате единомышленников</li>
-                        <li>Методические материалы и чеклисты</li>
-                    </ul>
-                    <a href="ССЫЛКА_РОБОКАССЫ_15К" class="btn-gold" style="padding: 10px 25px; font-size: 1rem; margin-top: 15px;">ВЫБРАТЬ ПУТЬ</a>
-                </div>
-            </div>
 
-            <div class="module-card">
-                <div class="card-header">
-                    <span class="month-num">ТАРИФ</span>
-                    <h3>ХРАНИТЕЛЬ</h3>
-                    <p class="subtitle">Глубокое погружение и книга — 35 000 ₽</p>
-                </div>
-                <div class="card-content">
-                    <p>Оптимальный выбор для создания полноценного артефакта с поддержкой.</p>
-                    <ul>
-                        <li>Всё из тарифа «Искатель»</li>
-                        <li>Обратная связь по вашим эскизам и верстке</li>
-                        <li><strong>Готовая книга в цифровом виде (PDF)</strong>, полностью подготовленная к печати</li>
-                        <li>Книга «Ловушка Суверена» в подарок</li>
-                    </ul>
-                    <a href="ССЫЛКА_РОБОКАССЫ_35К" class="btn-gold" style="padding: 10px 25px; font-size: 1rem; margin-top: 15px;">СТАТЬ ХРАНИТЕЛЕМ</a>
-                </div>
-            </div>
-
-            <div class="module-card" style="border-width: 3px; box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);">
-                <div class="card-header">
-                    <span class="month-num">VIP ТАРИФ</span>
-                    <h3>ТВОРЕЦ</h3>
-                    <p class="subtitle">Мастерство и Бессмертие — 150 000 ₽</p>
-                </div>
-                <div class="card-content">
-                    <p>Мой личный формат ведения. Мы создаем историю вашего Рода вместе, за руку.</p>
-                    <ul>
-                        <li><strong>Личное сопровождение Ники Алексеевой</strong> на всех этапах</li>
-                        <li>Разработка вашего фамильного герба моими руками</li>
-                        <li><strong>Модуль «Digital Legacy»:</strong> создание NFT-артефакта в блокчейне</li>
-                        <li>Помощь с выбором типографии и контроль качества печати</li>
-                        <li>Обретение силы рода через сакральный символ</li>
-                    </ul>
-                    <a href="ССЫЛКА_РОБОКАССЫ_150К" class="btn-gold" style="padding: 10px 25px; font-size: 1rem; margin-top: 15px;">ОБРЕСТИ МАСТЕРСТВО</a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="itog-box" style="margin-top: 100px; border-style: solid;">
-            <p>© 2026 Книга Рода. Авторский проект Ники Алексеевой.<br>
-            Ваша воля — ваше наследие.</p>
-        </div>
+<div id="pricing-table" class="tariffs-wrapper">
     </div>
 
-</body>
-<footer>
-    © 2026 Книга Рода. Авторский проект Ники Алексеевой.<br>
-    <a href="oferta.html" style="color: #555; text-decoration: underline; font-size: 1rem; margin-top: 10px; display: inline-block;">Публичная оферта и условия возврата</a>
+<script>
+async function loadTariffs() {
+    try {
+        const response = await fetch('tariffs.csv');
+        const data = await response.text();
+        // Убираем пустые строки и делим по строкам
+        const rows = data.trim().split('\n').slice(1); 
+        const container = document.getElementById('pricing-table');
+        container.innerHTML = ''; // Очищаем перед загрузкой
+
+        rows.forEach(row => {
+            // Разделяем через точку с запятой, как мы договорились для CSV
+            const columns = row.split(';');
+            if (columns.length >= 5) {
+                const [id, title, price, desc, link] = columns;
+                container.innerHTML += `
+                    <div class="tariff-card">
+                        <div class="tariff-title">${title}</div>
+                        <div class="tariff-price">${price}</div>
+                        <div class="tariff-desc">${desc}</div>
+                        <a href="${link}" class="gold-button">Забрать пособие</a>
+                    </div>
+                `;
+            }
+        });
+    } catch (error) {
+        console.error('Ошибка загрузки тарифов:', error);
+    }
+}
+loadTariffs();
+</script>
+
+<style>
+    .tariffs-wrapper {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        padding: 50px 0;
+        flex-wrap: wrap;
+        background: #000b1d;
+    }
+    .tariff-card {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid #d4af37;
+        padding: 40px;
+        width: 300px;
+        text-align: center;
+        transition: 0.4s;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+    .tariff-card:hover { 
+        transform: translateY(-10px); 
+        background: rgba(255, 255, 255, 0.07); 
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+    }
+    .tariff-title { color: #d4af37; font-size: 1.2rem; letter-spacing: 2px; font-weight: 600; text-transform: uppercase; }
+    .tariff-price { color: #fff; font-size: 2.3rem; margin: 20px 0; font-weight: 600; }
+    .tariff-desc { color: #b0b0b0; margin-bottom: 30px; min-height: 80px; font-size: 0.95rem; line-height: 1.4; }
+    
+    .gold-button {
+        background: linear-gradient(45deg, #d4af37, #f9f295, #d4af37);
+        color: #5d4037 !important;
+        padding: 15px 20px;
+        text-decoration: none;
+        font-weight: 800;
+        display: block;
+        transition: 0.3s;
+        box-shadow: 0 4px 15px rgba(212, 175, 55, 0.4);
+        text-transform: uppercase;
+        font-size: 0.9rem;
+    }
+    .gold-button:hover { filter: brightness(1.2); }
+</style>
+
+<footer class="itog-box" style="margin-top: 100px; text-align: center; padding: 40px 0;">
+    <p style="color: #d1d1d1;">© 2026 Книга Рода. Авторский проект Ники Алексеевой.<br>
+    Ваша воля — ваше наследие.<br>
+    <a href="oferta.html" style="color: #888; text-decoration: underline; font-size: 0.9rem; margin-top: 15px; display: inline-block;">Публичная оферта и условия возврата</a></p>
 </footer>
+
+</body>
 </html>
