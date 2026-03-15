@@ -1,11 +1,11 @@
-/* --- ГЛОБАЛЬНЫЕ СТИЛИ --- */
+/* --- БАЗОВЫЕ НАСТРОЙКИ --- */
 body {
-    background-color: #001a11 !important; /* Твой фирменный темно-зеленый */
+    background-color: #001a11;
     color: #ffffff;
     font-family: 'Inter', 'Cormorant Garamond', serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
+    line-height: 1.7; /* Увеличили межстрочный интервал для легкости */
 }
 
 .container {
@@ -17,181 +17,157 @@ body {
 /* --- ШАПКА --- */
 header {
     text-align: center;
-    padding: 100px 20px;
+    padding: 120px 20px;
     background: linear-gradient(to bottom, rgba(0,26,17,0.8), #001a11);
 }
 
 header h1 {
-    font-size: 4rem;
-    letter-spacing: 10px;
+    font-size: 4.5rem;
+    letter-spacing: 8px;
     color: #d4af37;
-    margin: 0 0 10px 0;
+    margin: 0;
     text-transform: uppercase;
-}
-
-.author-line {
-    font-size: 1.2rem;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: #ffffff;
 }
 
 /* --- ПРОГРАММА (СЕТКА 2х4) --- */
-.section-title {
-    text-align: center;
-    color: #d4af37;
-    font-size: 2.5rem;
-    margin: 80px 0 40px;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-}
-
 .program-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 колонки в ряд */
-    gap: 20px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
     margin-bottom: 60px;
 }
 
 .module-card {
     background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    border: 1px solid rgba(212, 175, 55, 0.3);
     border-radius: 15px;
-    padding: 25px;
-    transition: 0.3s;
-    display: flex;
-    flex-direction: column;
+    padding: 30px;
+    transition: all 0.4s ease;
+    cursor: pointer;
+    overflow: hidden; /* Важно для раскрытия */
 }
 
 .module-card:hover {
     border-color: #d4af37;
-    background: rgba(255, 255, 255, 0.07);
-    transform: translateY(-5px);
-}
-
-.month-num {
-    color: #d4af37;
-    font-weight: bold;
-    font-size: 0.8rem;
-    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.08);
 }
 
 .card-header h3 {
     color: #d4af37;
-    margin: 10px 0 5px 0;
-    font-size: 1.2rem;
+    font-size: 1.4rem; /* Сделали крупнее */
+    margin: 10px 0;
 }
 
 .subtitle {
-    font-style: italic;
-    font-size: 0.9rem;
-    color: #ffffff;
-    margin-bottom: 15px;
-    display: block;
-    opacity: 0.8;
+    font-size: 1rem;
+    color: #f0f0f0;
+    opacity: 0.9;
+    margin-bottom: 0;
 }
 
+/* КОНТЕНТ (тот самый, что пропадал) */
 .card-content {
-    font-size: 0.95rem;
-    color: #d1d1d1;
+    max-height: 0;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+    font-size: 1.1rem; /* Увеличили для чтения */
+    color: #e0e0e0;
+    margin-top: 0;
 }
 
-/* --- ТАРИФЫ --- */
+/* Состояние при раскрытии */
+.module-card.active {
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.module-card.active .card-content {
+    max-height: 1000px; /* С запасом для длинных текстов */
+    opacity: 1;
+    margin-top: 20px;
+    padding-bottom: 10px;
+}
+
+/* --- ТАРИФЫ (3 В РЯД) --- */
 .tariffs-wrapper {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* СТРОГО 3 В РЯД */
     gap: 30px;
     padding: 40px 0;
-    flex-wrap: wrap;
+    align-items: stretch;
 }
 
 .tariff-card {
     background: rgba(255, 255, 255, 0.05);
     border: 2px solid #d4af37;
-    border-radius: 15px;
-    padding: 40px;
-    width: 300px;
+    border-radius: 20px;
+    padding: 45px 30px;
     text-align: center;
     transition: 0.4s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.tariff-title {
-    color: #d4af37;
-    font-size: 1.3rem;
-    font-weight: 600;
-    text-transform: uppercase;
 }
 
 .tariff-price {
-    font-size: 3rem;
-    margin: 20px 0;
+    font-size: 3.2rem;
     font-weight: 700;
+    margin: 20px 0;
+    color: #ffffff;
+}
+
+.tariff-desc {
+    font-size: 1.1rem;
+    min-height: 100px;
+    margin-bottom: 30px;
 }
 
 /* --- КНОПКИ --- */
-.gold-button, .btn-gold {
+.btn-gold, .gold-button {
     background: linear-gradient(45deg, #d4af37, #f9f295, #d4af37);
-    color: #5d4037 !important;
-    padding: 15px 25px;
-    text-decoration: none;
+    color: #433200 !important;
+    padding: 20px 35px;
     font-weight: 800;
-    border-radius: 10px;
+    border-radius: 12px;
+    text-decoration: none;
     display: inline-block;
+    font-size: 1rem;
     text-transform: uppercase;
-    font-size: 0.85rem;
-    border: none;
-    cursor: pointer;
 }
 
-/* --- ФУТЕР --- */
-footer.itog-box {
-    border-top: 1px solid rgba(212, 175, 55, 0.2);
-    padding: 40px 0;
-    margin-top: 60px;
-}
-
-/* АДАПТИВНОСТЬ */
-@media (max-width: 1024px) {
+/* --- АДАПТИВНОСТЬ --- */
+@media (max-width: 1100px) {
     .program-grid { grid-template-columns: repeat(2, 1fr); }
-}
-@media (max-width: 700px) {
-    .program-grid { grid-template-columns: 1fr; }
-    header h1 { font-size: 2.5rem; }
-}
-/* Изначально скрываем описание */
-.module-card .card-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.5s ease-out, padding 0.3s ease;
-    padding-top: 0;
-    opacity: 0;
+    .tariffs-wrapper { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Когда карточка активна (нажали на неё) */
-.module-card.active .card-content {
-    max-height: 500px; /* Достаточная высота для текста */
-    padding-top: 15px;
-    opacity: 1;
+@media (max-width: 768px) {
+    .program-grid, .tariffs-wrapper { grid-template-columns: 1fr; }
+    header h1 { font-size: 2.8rem; }
+}
+/* Индикатор (плюсик) для карточки программы */
+.card-header {
+    position: relative;
+    padding-right: 40px; /* Оставляем место под плюс */
 }
 
-/* Добавим указатель, что на карточку можно нажать */
-.module-card {
-    cursor: pointer;
-}
-
-/* Маленький индикатор (плюсик), чтобы пользователь понял, что надо жать */
 .card-header::after {
     content: '+';
-    float: right;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
     color: #d4af37;
-    font-size: 1.5rem;
-    transition: 0.3s;
+    font-size: 2rem;
+    font-weight: 300;
+    transition: transform 0.4s ease, color 0.3s ease;
+    line-height: 1;
 }
 
+/* Анимация плюсика при активации карточки */
 .module-card.active .card-header::after {
-    content: '−';
-    transform: rotate(90deg);
+    content: '+'; /* Оставляем тот же символ, но поворачиваем его */
+    transform: translateY(-50%) rotate(45deg);
+    color: #ffffff;
+}
+
+/* Добавим легкое свечение при наведении, чтобы усилить желание нажать */
+.module-card:hover .card-header::after {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
 }
