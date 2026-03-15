@@ -1,6 +1,6 @@
-/* --- БАЗОВЫЕ НАСТРОЙКИ --- */
+/* --- ГЛОБАЛЬНЫЕ СТИЛИ --- */
 body {
-    background-color: #001a11; /* Твой фирменный темно-зеленый */
+    background-color: #001a11 !important; /* Твой фирменный темно-зеленый */
     color: #ffffff;
     font-family: 'Inter', 'Cormorant Garamond', serif;
     margin: 0;
@@ -14,7 +14,7 @@ body {
     padding: 0 20px;
 }
 
-/* --- ШАПКА (HEADER) --- */
+/* --- ШАПКА --- */
 header {
     text-align: center;
     padding: 100px 20px;
@@ -25,7 +25,7 @@ header h1 {
     font-size: 4rem;
     letter-spacing: 10px;
     color: #d4af37;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
     text-transform: uppercase;
 }
 
@@ -36,13 +36,7 @@ header h1 {
     color: #ffffff;
 }
 
-.hero-text {
-    max-width: 800px;
-    margin: 20px auto;
-    font-size: 1.2rem;
-}
-
-/* --- СЕТКА ПРОГРАММЫ (2 РЯДА ПО 4 ПЛАШКИ) --- */
+/* --- ПРОГРАММА (СЕТКА 2х4) --- */
 .section-title {
     text-align: center;
     color: #d4af37;
@@ -59,16 +53,14 @@ header h1 {
     margin-bottom: 60px;
 }
 
-/* Карточка модуля */
 .module-card {
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 15px; /* Скругление */
+    border-radius: 15px;
     padding: 25px;
     transition: 0.3s;
     display: flex;
     flex-direction: column;
-    height: 100%;
 }
 
 .module-card:hover {
@@ -77,20 +69,17 @@ header h1 {
     transform: translateY(-5px);
 }
 
-/* Стили внутри карточки (совпадают с index.html) */
 .month-num {
     color: #d4af37;
     font-weight: bold;
     font-size: 0.8rem;
     text-transform: uppercase;
-    display: block;
 }
 
 .card-header h3 {
     color: #d4af37;
     margin: 10px 0 5px 0;
     font-size: 1.2rem;
-    text-transform: none;
 }
 
 .subtitle {
@@ -99,31 +88,15 @@ header h1 {
     color: #ffffff;
     margin-bottom: 15px;
     display: block;
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .card-content {
     font-size: 0.95rem;
-    line-height: 1.5;
     color: #d1d1d1;
 }
 
-/* --- ИТОГОВЫЙ БОКС (ТВОРЕЦ ИСТОРИИ) --- */
-.itog-box {
-    text-align: center;
-    padding: 60px 40px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid #d4af37;
-    border-radius: 20px;
-    margin: 80px 0;
-}
-
-.itog-box h2 {
-    color: #d4af37;
-    margin-bottom: 20px;
-}
-
-/* --- ТАРИФЫ (ИНВЕСТИЦИИ В НАСЛЕДИЕ) --- */
+/* --- ТАРИФЫ --- */
 .tariffs-wrapper {
     display: flex;
     justify-content: center;
@@ -145,76 +118,46 @@ header h1 {
     justify-content: space-between;
 }
 
-.tariff-card:hover { 
-    transform: translateY(-10px); 
-    background: rgba(212, 175, 55, 0.1); 
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+.tariff-title {
+    color: #d4af37;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-transform: uppercase;
 }
 
-.tariff-title { 
-    color: #d4af37; 
-    font-size: 1.3rem; 
-    letter-spacing: 2px; 
-    font-weight: 600; 
-    text-transform: uppercase; 
-}
-
-.tariff-price { 
-    color: #ffffff; 
-    font-size: 3rem; 
-    margin: 25px 0; 
-    font-weight: 700; 
-}
-
-.tariff-desc { 
-    color: #e0e0e0; 
-    margin-bottom: 35px; 
-    min-height: 80px; 
-    font-size: 1rem; 
+.tariff-price {
+    font-size: 3rem;
+    margin: 20px 0;
+    font-weight: 700;
 }
 
 /* --- КНОПКИ --- */
 .gold-button, .btn-gold {
     background: linear-gradient(45deg, #d4af37, #f9f295, #d4af37);
-    color: #5d4037 !important; /* Коричневый текст */
-    padding: 18px 25px;
+    color: #5d4037 !important;
+    padding: 15px 25px;
     text-decoration: none;
     font-weight: 800;
+    border-radius: 10px;
     display: inline-block;
-    border-radius: 12px;
-    transition: 0.3s;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
     text-transform: uppercase;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     border: none;
     cursor: pointer;
 }
 
-.gold-button:hover, .btn-gold:hover { 
-    filter: brightness(1.1);
-}
-
 /* --- ФУТЕР --- */
 footer.itog-box {
-    margin-top: 100px;
-    background: none;
-    border: none;
     border-top: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 0;
+    padding: 40px 0;
+    margin-top: 60px;
 }
 
-/* --- АДАПТИВНОСТЬ --- */
-@media (max-width: 1100px) {
-    .program-grid {
-        grid-template-columns: repeat(2, 1fr); /* 2 ряда по 2 на планшетах */
-    }
+/* АДАПТИВНОСТЬ */
+@media (max-width: 1024px) {
+    .program-grid { grid-template-columns: repeat(2, 1fr); }
 }
-
-@media (max-width: 768px) {
-    .program-grid {
-        grid-template-columns: 1fr; /* В столбик на телефонах */
-    }
-    header h1 {
-        font-size: 2.5rem;
-    }
+@media (max-width: 700px) {
+    .program-grid { grid-template-columns: 1fr; }
+    header h1 { font-size: 2.5rem; }
 }
