@@ -7,39 +7,70 @@ body {
     line-height: 1.6;
     font-size: 1.3rem;
 }
-.container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+.container { 
+    max-width: 1200px; 
+    margin: 0 auto; 
+    padding: 0 15px; 
+    box-sizing: border-box; /* Это критически важно, чтобы ничего не вылетало за экран */
+}
 
 /* --- ШАПКА (Центрируем всё) --- */
-header {
-    text-align: center; /* Центрирует текст h1 и p */
-    padding: 100px 20px 60px;
+/* --- ГЛАВНЫЙ БАННЕР --- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    height: auto; /* Меняем со 100vh на авто */
+    min-height: 400px; /* Минимальная высота, чтобы баннер не схлопнулся */
+    background: #001a11 url('heroimage.webp') no-repeat center top;
+    background-size: contain; 
+    margin: 0;
+    padding: 0;
+    aspect-ratio: 1920 / 1080; /* Сохраняем пропорции вашего баннера */
+}
+
+/* КОНТЕЙНЕР КНОПКИ ПОД БАННЕРОМ */
+.cta-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center; /* Центрирует кнопку и другие блоки внутри */
+    align-items: center;
+    padding: 20px 20px 60px; /* Уменьшили верхний отступ (был 80px) */
+    background-color: #001a11;
+    margin-top: -2px; /* Нахлест, чтобы убрать белую микро-щель */
 }
 
-header h1 {
-    font-size: 4.5rem;
-    letter-spacing: 10px;
-    color: #d4af37 !important;
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    text-shadow: 0 0 20px rgba(212, 175, 55, 0.4);
-    width: 100%; /* Занимает всю ширину для точной центровки */
+.main-cta {
+    transform: scale(1.1); /* Слегка увеличим кнопку для главного экрана */
+    transition: all 0.3s ease;
 }
 
-.hero-text {
-    color: #f9f295 !important;
-    font-size: 1.5rem;
-    max-width: 800px;
-    margin: 0 auto 40px; /* auto центрирует сам блок текста */
-    text-align: center;
+.main-cta:hover {
+    transform: scale(1.15);
+    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
 }
 
-/* Гарантируем, что первая кнопка тоже по центру */
-header .gold-button {
-    margin: 0 auto;
-    display: inline-block;
+.gold-button {
+    /* Ваши стандартные стили кнопки */
+    z-index: 10;
+}
+
+/* Адаптивность для мобильных */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 60vh; /* На телефонах делаем чуть меньше высоту */
+    }
+}
+
+
+/* СКРЫТИЕ ТЕКСТА (ДЛЯ SEO) */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
 }
 
 /* Все подзаголовки разделов */
@@ -61,16 +92,20 @@ h2, .section-title {
     width: 100%; /* Чтобы не расплывалось */
 }
 
+/* --- КАРТОЧКИ ПРОГРАММЫ (БАЗА) --- */
 .module-card {
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(212, 175, 55, 0.3);
+    background: rgba(0, 40, 30, 0.6);
+    border: 1px solid #d4af37;
     border-radius: 15px;
-    padding: 25px;
-    cursor: pointer;
-    position: relative;
+    padding: 20px;
     transition: 0.3s;
-    overflow: hidden; /* Чтобы контент не вылезал */
-    height: fit-content; /* Карточка подстраивается под текст */
+    cursor: pointer;
+    overflow: hidden;
+    /* ГЛАВНОЕ ИСПРАВЛЕНИЕ: */
+    height: auto !important; /* Убираем фиксированную высоту */
+    min-height: 180px; /* Оставляем минимальную для красоты */
+    display: flex;
+    flex-direction: column;
 }
 
 .module-card:hover { 
@@ -236,10 +271,97 @@ h2, .section-title {
     box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
 }
 
+/* --- ПОЛНАЯ МОБИЛЬНАЯ АДАПТИВНОСТЬ (ИТОГОВЫЙ ВАЙБ) --- */
+
+/* 1. Планшеты (до 1024px) — по 2 в ряд */
+@media (max-width: 1024px) {
+    .program-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 20px;
+    }
+}
+
+/* 2. Смартфоны общие (до 768px) */
+@media (max-width: 768px) {
+    .hero-section {
+        height: auto !important;
+        min-height: 250px !important;
+        aspect-ratio: 16 / 9 !important;
+    }
+
+    .cta-wrapper {
+        padding: 10px 10px 40px !important;
+        margin-top: -2px !important;
+    }
+
+    /* Программа: по 2 в ряд (на крупных телефонах) */
+    .program-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr) !important; 
+        gap: 15px !important;
+        padding: 10px 15px !important;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .module-card {
+        width: 100% !important;
+        box-sizing: border-box !important;
+        min-height: 100px !important;
+    }
+    /* 4. ТАРИФЫ (Убираем "стену") */
+    .tariffs-wrapper {
+        display: flex !important;
+        flex-direction: column !important; /* В одну колонку */
+        align-items: center !important;
+        gap: 25px !important;
+        
+        /* СБРОС ШИРИНЫ 100VW */
+        width: 100% !important; 
+        position: static !important; /* Отменяем абсолютное позиционирование */
+        margin-left: 0 !important; 
+        left: 0 !important;
+        padding: 40px 10px !important;
+        box-sizing: border-box !important;
+    }
+
+    .tariff-card {
+        width: 95% !important; /* Почти во весь экран телефона */
+        max-width: 360px; /* Чтобы на больших телефонах не были слишком широкими */
+        margin: 0 auto !important;
+        height: auto !important;
+    }
+    
+}
+
+/* 3. Узкие смартфоны (до 480px) — СТРОГО ПО 1 В РЯД */
+@media (max-width: 480px) {
+    .program-grid {
+        grid-template-columns: 1fr !important; /* Одна колонка */
+        gap: 25px !important;
+        padding: 10px 10px !important;
+    }
+
+    .itog-box h2, .final-phrase {
+        font-size: 1.4rem !important;
+    }
+
+    .main-cta {
+        width: 95% !important;
+        font-size: 1rem !important;
+    }
+
+    .card-header h3 {
+        font-size: 1.1rem !important;
+    }
+}
+
 /* --- ФУТЕР --- */
 footer {
     text-align: center;
     padding: 60px 0;
     border-top: 1px solid rgba(212, 175, 55, 0.3);
+    background-color: #001a11;
 }
 footer a { color: #d4af37; text-decoration: underline; }

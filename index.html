@@ -9,14 +9,15 @@
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1>КНИГА РОДА</h1>
-            <p class="author-line">Авторский курс Ники Алексеевой</p>
-            <p class="hero-text">Создайте материальное воплощение вашей семейной истории за 8 месяцев — <strong>фамильный артефакт</strong>.</p>
-            <a href="#tariffs" class="gold-button">ПРОЯВИТЬ ВОЛЮ</a>
-        </div>
-    </header>
+<header class="hero-section">
+    <div class="visually-hidden">
+        <h1>КНИГИ РОДА</h1>
+    </div>
+</header>
+
+<div class="cta-wrapper">
+    <a href="#tariffs" class="gold-button main-cta">ПРОЯВИТЬ ВОЛЮ</a>
+</div>
 
     <div class="container">
         <h2 class="section-title">Программа Пути: Обретение Наследия</h2>
@@ -55,20 +56,37 @@
             </div>
         </div>
 
+    <div class="container" style="text-align: center; margin: 60px auto;">
         <div class="itog-box">
-            <h2>Итог: Ваше Предназначение — Творец Истории</h2>
+            <h2 class="final-phrase">ВАШЕ ПРЕДНАЗНАЧЕНИЕ — ТВОРЕЦ ИСТОРИИ</h2>
             <p>Вы обретете навык, который позволит вам самостоятельно издавать как любые книги, так и семейные артефакты.</p>
         </div>
+    </div>
 
-        <h2 id="tariffs" class="section-title" style="text-align: center;">Инвестиции в Ваше Наследие</h2>
+    <div class="container">
+        <h2 class="section-title" id="tariffs">Инвестиции в Ваше Наследие</h2>
         <div id="pricing-table" class="tariffs-wrapper">
             </div>
     </div>
 
-    <footer>
-        <p>© 2026 Книга Рода. Авторский проект Ники Алексеевой.<br>
-        <a href="oferta.html">Публичная оферта и условия возврата</a></p>
-    </footer>
+<section class="container" style="margin-top: 80px;">
+    <div class="itog-box" style="background: rgba(0, 40, 30, 0.8);">
+        <h2 style="font-size: 1.8rem;">Остались вопросы?</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 30px;">Оставьте заявку, и мы свяжемся с вами для консультации.</p>
+        
+        <form id="contact-form" style="display: flex; flex-direction: column; gap: 15px; max-width: 400px; margin: 0 auto;">
+            <input type="text" name="name" placeholder="Ваше имя" required style="padding: 12px; border-radius: 8px; border: 1px solid #d4af37; background: #001a11; color: #fff;">
+            <input type="text" name="contact" placeholder="Telegram или WhatsApp или ВК" required style="padding: 12px; border-radius: 8px; border: 1px solid #d4af37; background: #001a11; color: #fff;">
+            <textarea name="message" placeholder="Ваш вопрос" style="padding: 12px; border-radius: 8px; border: 1px solid #d4af37; background: #001a11; color: #fff; min-height: 100px;"></textarea>
+            <button type="submit" class="gold-button">Отправить запрос</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <p>© 2026 Книга Рода. Авторский проект Ники Алексеевой.<br>
+    <a href="oferta.html">Публичная оферта и условия возврата</a></p>
+</footer>
 
     <script>
     // Раскрытие карточек
@@ -97,7 +115,7 @@
                     // Первая часть (до первого плюса)
                     const firstLine = `<p style="margin-bottom: 15px; font-weight: 600; color: #f9f295;">${items[0].trim()}</p>`;
                     // Остальные части (после плюсов) в виде списка
-                    const listItems = items.slice(1).map(item => `<li style="color: #f9f295; margin-bottom: 8px;">• ${item.trim()}</li>`).join('');
+                    const listItems = items.slice(1).map(item => `<li style="color: #f9f295; margin-bottom: 8px;">${item.trim()}</li>`).join('');
 
                     container.innerHTML += `
                         <div class="tariff-card">
@@ -115,5 +133,13 @@
     }
     loadTariffs();
     </script>
+    <script>
+    // Запрет копирования
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.onkeydown = e => {
+        if (e.ctrlKey && ['c', 'v', 'u', 's'].includes(e.key.toLowerCase())) return false;
+        if (e.keyCode === 123) return false;
+    };
+</script>
 </body>
 </html>
