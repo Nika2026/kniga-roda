@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ой! Ошибка оплаты | Книги Рода</title>
+    <style>
+        body { 
+            background: #001a11; 
+            color: #f9f295; 
+            font-family: 'Garamond', serif; 
+            text-align: center; 
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container { 
+            border: 3px solid #d4af37; 
+            padding: 40px; 
+            border-radius: 20px; 
+            max-width: 600px;
+            background: rgba(0, 26, 17, 0.9);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
+        }
+        h1 { color: #d4af37; font-size: 2.5rem; margin-bottom: 10px; }
+        p { font-size: 1.3rem; line-height: 1.6; margin-bottom: 20px; }
+        
+        /* Та самая крупная золотая кнопка */
+        .gold-button { 
+            display: inline-block; 
+            padding: 20px 40px; 
+            margin: 20px 0;
+            background: linear-gradient(145deg, #d4af37, #f9f295);
+            color: #001a11; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: bold; 
+            font-size: 1.5rem;
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            transition: 0.3s transform;
+        }
+        .gold-button:hover { 
+            transform: scale(1.05);
+            background: linear-gradient(145deg, #f9f295, #d4af37);
+        }
+        .support-link {
+            color: #d4af37;
+            text-decoration: underline;
+            font-size: 1.1rem;
+            display: block;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>МЯУ... ЧТО-ТО ПОШЛО НЕ ТАК</h1>
+        
+        <p>Оплата не прошла, но не волнуйтесь — Музеус еще не закрыл вашу чернильницу. Возможно, стоит попробовать другую карту или проверить лимит.</p>
+        
+        <p>Если у вас возникли трудности, вы можете <strong>отправить свой вопрос через форму на главной странице</strong> — я сразу его увижу!</p>
+        
+        <a href="https://knigi-roda.ru/" class="gold-button">ВЕРНУТЬСЯ НА ГЛАВНУЮ</a>
+
+        <a href="https://t.me/твой_ник" class="support-link">Или написать Нике лично в Telegram</a>
+    </div>
+
+</body>
+</html>
