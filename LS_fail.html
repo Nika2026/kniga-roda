@@ -3,26 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Сбой синхронизации | Ловушка Суверена</title>
+    <title>Ошибка транзакции | Ловушка Суверена</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        body { background: #000d1a; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; text-align: center; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
-        .container { border: 2px solid #708090; padding: 40px; border-radius: 15px; max-width: 600px; }
-        h1 { color: #c0c0c0; }
+        body { background: #000d1a; color: #e0e0e0; font-family: 'Cormorant Garamond', serif; text-align: center; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        .container { border: 1px solid #4a5d6a; padding: 50px; max-width: 600px; background: rgba(0, 13, 26, 0.8); }
+        h1 { color: #c0c0c0; font-size: 2.5rem; letter-spacing: 3px; }
+        p { font-size: 1.3rem; margin-bottom: 30px; }
         .retry-button { 
-            display: inline-block; padding: 15px 30px; margin-top: 20px;
-            border: 2px solid #c0c0c0; color: #c0c0c0; text-decoration: none;
-            font-weight: bold; transition: 0.3s;
+            display: inline-block; padding: 15px 40px; 
+            border: 1px solid #c0c0c0; color: #c0c0c0; text-decoration: none;
+            font-weight: 600; text-transform: uppercase; transition: 0.3s;
         }
-        .retry-button:hover { background: #c0c0c0; color: #000d1a; }
+        .retry-button:hover { background: #ffffff; color: #000d1a; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>ОШИБКА ТРАНЗАКЦИИ</h1>
-        <p>Связь с платежным шлюзом прервана. Данные не были переданы, средства остались на вашем счету.</p>
-        <p>Попробуйте перезапустить процесс оплаты или вернитесь на главную страницу для связи с поддержкой.</p>
-        
-        <a href="https://knigi-roda.ru/lovushkasuverena" class="retry-button">ВЕРНУТЬСЯ НА ГЛАВНУЮ</a>
+        <h1>СБОЙ СИНХРОНИЗАЦИИ</h1>
+        <p>Платеж не был завершен. Возможно, стоит проверить лимиты карты или попробовать другой метод.</p>
+        <a href="https://knigi-roda.ru/lovushkasuverena" class="retry-button">ВЕРНУТЬСЯ К ОПЛАТЕ</a>
     </div>
 </body>
 </html>

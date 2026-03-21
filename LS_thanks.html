@@ -3,43 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Доступ открыт | Ловушка Суверена</title>
+    <title>Система активирована | Ловушка Суверена</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body { 
-            background: #000d1a; /* Глубокий синий */
+            background: #000d1a; 
             color: #e0e0e0; 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            font-family: 'Cormorant Garamond', serif; 
             text-align: center; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh;
         }
         .container { 
-            border: 2px solid #c0c0c0; /* Серебро */
-            padding: 40px; border-radius: 15px; max-width: 600px;
-            background: rgba(0, 13, 26, 0.8);
-            box-shadow: 0 0 25px rgba(192, 192, 192, 0.2);
+            border: 1px solid #c0c0c0; 
+            padding: 50px; border-radius: 0; max-width: 700px;
+            background: rgba(0, 13, 26, 0.9);
+            box-shadow: inset 0 0 20px rgba(192, 192, 192, 0.1), 0 10px 30px rgba(0,0,0,0.5);
         }
-        h1 { color: #ffffff; text-shadow: 0 0 10px #c0c0c0; text-transform: uppercase; letter-spacing: 2px; }
-        p { font-size: 1.1rem; line-height: 1.6; }
+        h1 { color: #ffffff; font-size: 3rem; font-weight: 700; text-transform: uppercase; letter-spacing: 4px; margin-bottom: 30px; }
+        p { font-size: 1.4rem; line-height: 1.6; margin-bottom: 25px; }
         .silver-button { 
-            display: inline-block; padding: 18px 35px; margin-top: 25px;
-            background: linear-gradient(145deg, #c0c0c0, #ffffff);
-            color: #000d1a; text-decoration: none; border-radius: 5px;
-            font-weight: bold; font-size: 1.2rem; transition: 0.3s;
+            display: inline-block; padding: 20px 45px; margin: 10px;
+            border: 1px solid #c0c0c0;
+            background: transparent;
+            color: #ffffff; text-decoration: none; 
+            font-weight: 600; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 2px;
+            transition: 0.4s;
         }
-        .silver-button:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(192, 192, 192, 0.4); }
+        .silver-button:hover { background: #c0c0c0; color: #000d1a; box-shadow: 0 0 20px rgba(192, 192, 192, 0.5); }
+        .nft-note { color: #708090; font-style: italic; font-size: 1.1rem; margin-top: 40px; border-top: 1px solid #2d3e50; padding-top: 20px; }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>СИСТЕМА АКТИВИРОВАНА</h1>
-        <p>Доступ к материалам «Ловушки Суверена» открыт.</p>
-    
-        <a href="https://drive.google.com/drive/folders/1_ASo5tI1K5hQilgpJbzpQrtFyFaRRdKF" class="silver-button" target="_blank">ПОЛУЧИТЬ КНИГУ</a>
+        <p>Доступ к материалам «Ловушки Суверена» открыт. Интеграция прошла успешно.</p>
+        
+        <a href="https://drive.google.com/drive/folders/1_ASo5tI1K5hQilgpJbzpQrtFyFaRRdKF" class="silver-button" target="_blank">ПОЛУЧИТЬ МАТЕРИАЛЫ</a>
 
-        <div style="margin-top: 30px; border-top: 1px solid #708090; padding-top: 20px;">
-            <p style="color: #c0c0c0; font-style: italic;">
-                🎁 **Бонус:** Чтобы получить вашу эксклюзивную NFT, отправьте адрес своего криптокошелька нашему боту.
-            </p>
-            <a href="https://t.me/SokolVolyaBot?start=NFT_claim" style="color: #ffffff; text-decoration: underline;">ОТПРАВИТЬ КОШЕЛЕК В БОТ</a>
+        <div class="nft-note">
+            <p>Чтобы забрать свою NFT, отправьте адрес кошелька в наш системный бот:</p>
+            <a href="https://t.me/SovereignTrapBot?start=NFT_claim" style="color: #c0c0c0; text-decoration: underline;">ОТПРАВИТЬ КОШЕЛЕК</a>
         </div>
     </div>
 </body>
