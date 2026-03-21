@@ -1,367 +1,316 @@
-/* --- БАЗА (Золотой текст) --- */
+/* --- БАЗА И ГЕОМЕТРИЯ --- */
 body {
     background-color: #001a11;
-    color: #f9f295; /* Весь текст теперь золотистый */
+    color: #f9f295;
     font-family: 'Cormorant Garamond', serif;
     margin: 0; padding: 0;
-    line-height: 1.6;
-    font-size: 1.3rem;
+    line-height: 1.4;
+    text-align: center;
+    overflow-x: hidden;
+    font-size: 1.2rem; /* Базовый размер чуть больше */
 }
+
 .container { 
     max-width: 1200px; 
     margin: 0 auto; 
     padding: 0 15px; 
-    box-sizing: border-box; /* Это критически важно, чтобы ничего не вылетало за экран */
 }
 
-/* --- ШАПКА (Центрируем всё) --- */
-/* --- ГЛАВНЫЙ БАННЕР --- */
-.hero-section {
-    position: relative;
-    width: 100%;
-    height: auto; /* Меняем со 100vh на авто */
-    min-height: 400px; /* Минимальная высота, чтобы баннер не схлопнулся */
-    background: #001a11 url('heroimage.webp') no-repeat center top;
-    background-size: contain; 
-    margin: 0;
-    padding: 0;
-    aspect-ratio: 1920 / 1080; /* Сохраняем пропорции вашего баннера */
-}
-
-/* КОНТЕЙНЕР КНОПКИ ПОД БАННЕРОМ */
-.cta-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px 20px 60px; /* Уменьшили верхний отступ (был 80px) */
-    background-color: #001a11;
-    margin-top: -2px; /* Нахлест, чтобы убрать белую микро-щель */
-}
-
-.main-cta {
-    transform: scale(1.1); /* Слегка увеличим кнопку для главного экрана */
-    transition: all 0.3s ease;
-}
-
-.main-cta:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
-}
-
-.gold-button {
-    /* Ваши стандартные стили кнопки */
-    z-index: 10;
-}
-
-/* Адаптивность для мобильных */
-@media (max-width: 768px) {
-    .hero-section {
-        height: 60vh; /* На телефонах делаем чуть меньше высоту */
-    }
-}
-
-
-/* СКРЫТИЕ ТЕКСТА (ДЛЯ SEO) */
+/* --- СКРЫТИЕ ТЕКСТА В HERO --- */
 .visually-hidden {
     position: absolute;
     width: 1px;
     height: 1px;
     margin: -1px;
-    padding: 0;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
     border: 0;
+    padding: 0;
+    white-space: nowrap;
+    clip-path: inset(100%);
+    clip: rect(0 0 0 0);
+    overflow: hidden;
 }
 
-/* Все подзаголовки разделов */
-h2, .section-title {
-    color: #d4af37 !important;
-    font-size: 2.8rem;
-    text-align: center;
+/* --- ГЛАВНЫЙ БАННЕР (Hero) --- */
+.hero-section {
+    position: relative;
+    width: 100%;
+    /* Используем высоту экрана, но ограничиваем, чтобы не схлопывалось */
+    aspect-ratio: 1920 / 1080; /* Соотношение сторон твоей картинки */  
+    min-height: 300px;
+    background: #001a11 url('heroimage.webp') no-repeat center top; /* Привязка к ТОПУ */
+    background-size: cover; /* Картинка полностью видна */
+    margin: 0; 
+    padding: 0;
+    display: block;
+}
+
+.under-hero-content {
+background-color: #001a11;
+    /* Наползаем на баннер, чтобы перекрыть возможную щель */
+    margin-top: -3px; 
+    position: relative;
+    z-index: 10;
+    display: block;
+    overflow: hidden; /* Обрезаем лишнее */
+    width: 100%;
+    padding: 0;
+}
+
+/* --- КНОПКИ (БОЛЬШОЕ ЗОЛОТО) --- */
+.gold-button {
+    background: linear-gradient(45deg, #d4af37, #f9f295, #d4af37);
+    color: #2b2100 !important;
+    padding: 18px 35px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+    text-transform: uppercase;
+    border: none;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.gold-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+}
+
+.full-width-divider img {
+    width: 100%; /* Тянется на всю ширину за баннером */
+    height: auto;
+    display: block;
+    margin: 0;
+    vertical-align: bottom; /* Убирает донный зазор */
+}
+/* --- ЗАГОЛОВКИ (КРУПНО, как было на скриншоте 2) --- */
+.section-title {
+    font-size: 3.5rem; /* Вернула масштаб */
+    color: #d4af37;
+    margin: 60px 0 40px;
     text-transform: uppercase;
     letter-spacing: 5px;
-    margin: 60px 0 40px;
+    font-weight: 700;
 }
 
-/* --- ПРОГРАММА (Возвращаем структуру) --- */
+.final-phrase {
+    font-size: 2.8rem;
+    color: #f9f295;
+    margin-bottom: 20px;
+}
+/* --- ОБВОДКИ КОНТЕЙНЕРОВ (Хранилище и Итог) --- */
+.itog-box, .secret-vault {
+    border: 2px solid #d4af37 !important;
+    background: rgba(0, 20, 15, 0.9);
+    border-radius: 20px;
+    padding: 40px 20px;
+    margin: 60px auto;
+    max-width: 900px;
+}
+
+/* --- ПРОГРАММА И ТАРИФЫ (СЕТКИ) --- */
 .program-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Ровно 4 колонки */
-    gap: 20px;
-    margin: 40px 0;
-    width: 100%; /* Чтобы не расплывалось */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin: 40px auto;
+    text-align: left;
 }
-
-/* --- КАРТОЧКИ ПРОГРАММЫ (БАЗА) --- */
+/* --- ПРОГРАММА (Плашки) --- */
 .module-card {
-    background: rgba(0, 40, 30, 0.6);
+    background: rgba(0, 40, 30, 0.7);
     border: 1px solid #d4af37;
     border-radius: 15px;
-    padding: 20px;
-    transition: 0.3s;
+    padding: 25px;
     cursor: pointer;
-    overflow: hidden;
-    /* ГЛАВНОЕ ИСПРАВЛЕНИЕ: */
-    height: auto !important; /* Убираем фиксированную высоту */
-    min-height: 180px; /* Оставляем минимальную для красоты */
-    display: flex;
-    flex-direction: column;
+    transition: 0.3s;
+    position: relative;
+    text-align: left; /* Текст внутри плашек по левому краю */
+    margin-bottom: 15px;
 }
 
-.module-card:hover { 
-    border-color: #d4af37; 
-    background: rgba(212, 175, 55, 0.05); 
+/* Слово "МЕСЯЦ №" — делаем КРУПНО */
+.card-month-label {
+    display: block;
+    color: #d4af37;
+    font-size: 1.4rem; /* Увеличила с 1.1 до 1.4 */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 8px;
 }
 
-.card-header h3 { 
-    color: #d4af37; 
-    font-size: 1.4rem; 
-    margin: 0; 
-    padding-right: 30px; 
+/* Подзаголовок месяца */
+.card-header h3 {
+    font-size: 1.8rem;
+    color: #f9f295;
+    margin: 0;
+    line-height: 1.3;
 }
 
-/* Плюсик (возвращаем на место) */
+/* Скрытый текст (содержание) */
+.card-content {
+    max-height: 0;      /* Изначально скрыто */
+    overflow: hidden;   /* Не дает тексту вылезать */
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    font-size: 1.2rem;
+    border-top: 1px solid rgba(212, 175, 55, 0); /* Прозрачная линия пока закрыто */
+    margin-top: 0;
+    color: #f9f295; /* Наш фирменный золотистый вместо белого */
+    text-align: left;
+    padding: 0 10px;
+    line-height: 1.5;
+}
+
+/* Когда плашка активна (нажали) */
+.module-card.active .card-content {
+    max-height: 1000px !important; /* Раскрываем */
+    opacity: 1 !important;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(212, 175, 55, 0.3); /* Появляется разделитель */
+}
+
+.module-card.active h3 {
+    color: #fff !important; /* Подзаголовок можно оставить светлым для акцента */
+    text-shadow: 0 0 10px rgba(249, 242, 149, 0.3);
+}
+
+/* Поворот плюсика при раскрытии */
 .card-header::after {
     content: '+';
     position: absolute;
-    right: 20px; 
-    top: 25px;
-    color: #d4af37; 
-    font-size: 2rem;
-    line-height: 1;
-    transition: 0.4s;
-}
-
-/* Анимация раскрытия */
-.module-card.active .card-header::after { 
-    transform: rotate(45deg); 
-    color: #fff; 
-}
-
-.card-content { 
-    max-height: 0; 
-    overflow: hidden; 
-    opacity: 0; 
-    transition: 0.5s ease-in-out; 
-    font-size: 1.1rem; 
-    color: #f9f295; /* Золотой текст внутри выпадашки */
-}
-
-.module-card.active .card-content { 
-    max-height: 500px; 
-    opacity: 1; 
-    margin-top: 15px; 
-}
-
-/* --- ТА САМАЯ ПЛАШКА "ИТОГ" --- */
-.itog-box {
-    text-align: center;
-    padding: 60px 40px;
-    background: rgba(212, 175, 55, 0.07); /* Чуть более заметный золотистый фон */
-    border: 2px solid #d4af37; /* Сделали рамку четче */
-    border-radius: 20px;
-    margin: 80px auto; /* "auto" по бокам центрирует саму плашку */
-    max-width: 900px;
-    display: block; /* Гарантируем центровку */
-}
-
-.itog-box h2 {
-    color: #d4af37; /* Золотой заголовок */
-    font-size: 2.5rem;
-    margin-bottom: 25px;
-    text-transform: uppercase;
-}
-
-.itog-box p {
-    color: #f9f295; /* Нежно-золотистый текст вместо белого */
-    font-size: 1.5rem;
-    line-height: 1.8;
-    margin: 0 auto;
-    max-width: 800px; /* Чтобы текст не растягивался слишком широко */
-}
-/* Золотой заголовок в блоке Итог */
-.itog-box h2 {
+    right: 20px;
+    top: 30px;
     color: #d4af37;
-    font-size: 2.2rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
+    font-size: 2rem;
+    transition: transform 0.3s;
 }
 
-/* Текст в Итоге тоже сделаем чуть теплее */
-.itog-box p {
-    color: #f9f295;
-    font-size: 1.5rem;
+.module-card.active .card-header::after {
+    transform: rotate(45deg); /* Плюсик превращается в крестик */
 }
 
-/* --- ТАРИФЫ (НА ВСЮ ШИРИНУ) --- */
+/* --- ТАРИФЫ (Золото и Масштаб) --- */
+
 .tariffs-wrapper {
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 25px;
-    padding: 60px 0;
-    width: 100vw;
-    position: relative; left: 50%; margin-left: -50vw;
+    margin: 50px 0;
 }
+
+.tariff-price {
+    color: #d4af37 !important; /* Цены больше не белые */
+    font-size: 3rem !important; /* Крупно */
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    margin: 10px 0;
+}
+
 .tariff-card {
-    background: rgba(255, 255, 255, 0.05);
+    background: rgba(0, 40, 30, 0.8);
     border: 1px solid #d4af37;
     border-radius: 20px;
-    padding: 40px 30px;
-    width: 350px;
-    text-align: center;
-    transition: 0.4s;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-/* Цена тарифа — теперь золотая */
-.tariff-price {
-    font-size: 3rem;
-    margin: 20px 0;
+
+/* --- ФОРМА (Крупный ввод) --- */
+#contact-form input, 
+#contact-form textarea {
+    font-size: 1.4rem !important; /* Чтобы текст при вводе был виден */
+    padding: 18px !important;
+    background: #001a11;
+    border: 2px solid #d4af37; /* Жирная золотая рамка */
+    color: #f9f295;
+    border-radius: 10px;
+}
+
+/* --- НИЖНИЙ БОРДЮР (Перед футером) --- */
+.footer-divider {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: -5px; /* Чтобы не было щели с футером */
+}
+.footer-divider img {
+    width: 100%;
+    display: block;
+    transform: rotate(180deg); /* Переворачиваем бордюр для симметрии */
+}
+
+/* --- ФУТЕР (КРУПНО И ЗОЛОТО) --- */
+footer {
+    padding: 60px 20px;
+    background: #00140f;
+    border-top: 2px solid #d4af37;
+    font-size: 1.3rem; /* Сделала крупнее */
+    color: #f9f295;
+}
+
+footer a {
+    color: #d4af37 !important; /* Принудительно золото */
+    text-decoration: underline;
     font-weight: bold;
-    color: #d4af37 !important; /* Золотой цвет цены */
-    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
 }
 
-.tariff-title {
-    color: #d4af37;
-    font-size: 1.8rem;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-}
-
-/* Весь список и текст внутри карточки */
-.tariff-list {
-    list-style: none;
-    padding: 0;
-    margin: 20px 0 40px;
-    text-align: center;
-    color: #f9f295 !important; /* Золотистый цвет для вводной фразы */
-}
-
-.tariff-list li {
-    font-size: 1.2rem;
-    color: #f9f295 !important; /* Золотистый цвет для пунктов списка */
-    margin-bottom: 12px;
-    line-height: 1.4;
-}
-
-/* Красивая золотая точка перед пунктом */
-.tariff-list li::before {
-    content: '•';
-    color: #d4af37;
-    margin-right: 10px;
-    font-weight: bold;
-}
-
-/* --- ЗОЛОТАЯ КНОПКА С ПЕРЕЛИВОМ --- */
+/* --- КНОПКИ --- */
 .gold-button {
     background: linear-gradient(45deg, #d4af37, #f9f295, #d4af37);
-    background-size: 200% auto;
-    color: #433200 !important;
-    padding: 18px 30px;
+    color: #1a1a1a !important;
+    padding: 20px 45px; /* Больше кнопка */
+    font-size: 1.4rem;
     border-radius: 12px;
-    font-weight: bold;
-    text-decoration: none;
-    display: inline-block;
-    transition: 0.5s;
     text-transform: uppercase;
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-}
-.gold-button:hover {
-    background-position: right center;
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.5);
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
 }
 
-/* --- ПОЛНАЯ МОБИЛЬНАЯ АДАПТИВНОСТЬ (ИТОГОВЫЙ ВАЙБ) --- */
-
-/* 1. Планшеты (до 1024px) — по 2 в ряд */
+/* --- МЕДИА-ЗАПРОСЫ --- */
 @media (max-width: 1024px) {
-    .program-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 20px;
-    }
+    .hero-section { height: auto; aspect-ratio: 16/9; }
+    .under-hero-content { margin-top: -5px !important; } /* Сильнее притягиваем на мобильных */
+    .program-grid { grid-template-columns: repeat(2, 1fr); }
+    .tariffs-wrapper { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* 2. Смартфоны общие (до 768px) */
 @media (max-width: 768px) {
+    .program-grid, .tariffs-wrapper { grid-template-columns: 1fr; }
     .hero-section {
-        height: auto !important;
-        min-height: 250px !important;
-        aspect-ratio: 16 / 9 !important;
-    }
-
-    .cta-wrapper {
-        padding: 10px 10px 40px !important;
-        margin-top: -2px !important;
-    }
-
-    /* Программа: по 2 в ряд (на крупных телефонах) */
-    .program-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important; 
-        gap: 15px !important;
-        padding: 10px 15px !important;
-        width: 100% !important;
-        box-sizing: border-box;
-    }
-
-    .module-card {
-        width: 100% !important;
-        box-sizing: border-box !important;
-        min-height: 100px !important;
-    }
-    /* 4. ТАРИФЫ (Убираем "стену") */
-    .tariffs-wrapper {
-        display: flex !important;
-        flex-direction: column !important; /* В одну колонку */
-        align-items: center !important;
-        gap: 25px !important;
-        
-        /* СБРОС ШИРИНЫ 100VW */
-        width: 100% !important; 
-        position: static !important; /* Отменяем абсолютное позиционирование */
-        margin-left: 0 !important; 
-        left: 0 !important;
-        padding: 40px 10px !important;
-        box-sizing: border-box !important;
-    }
-
-    .tariff-card {
-        width: 95% !important; /* Почти во весь экран телефона */
-        max-width: 360px; /* Чтобы на больших телефонах не были слишком широкими */
-        margin: 0 auto !important;
-        height: auto !important;
+        /* На планшетах и телефонах переходим на автоматическую высоту по картинке */
+        height: auto;
+        aspect-ratio: 16 / 9; /* Укажи пропорции своего баннера, если они другие */
     }
     
+    .under-hero-content {
+        /* Усиливаем "прилипание" для мобильных */
+        margin-top: -5px!important; 
+    }
 }
 
-/* 3. Узкие смартфоны (до 480px) — СТРОГО ПО 1 В РЯД */
+/* Узкие телефоны (до 480px) */
 @media (max-width: 480px) {
-    .program-grid {
-        grid-template-columns: 1fr !important; /* Одна колонка */
-        gap: 25px !important;
-        padding: 10px 10px !important;
+    .hero-section { 
+        height: 50vh; 
+        aspect-ratio: 4 / 3; 
+        background-position: center top;
     }
-
-    .itog-box h2, .final-phrase {
-        font-size: 1.4rem !important;
-    }
-
-    .main-cta {
-        width: 95% !important;
-        font-size: 1rem !important;
-    }
-
+    .under-hero-content { margin-top: -10px !important; } /* Сильнее притягиваем на мобильных */
+    .secret-vault { padding: 20px 10px; }
+    .final-phrase { font-size: 1.4rem !important; }
     .card-header h3 {
-        font-size: 1.1rem !important;
+        font-size: 1.4rem;
+        padding-right: 30px; /* Место для плюсика */
+    }
+    .card-month-label {
+        font-size: 1.2rem;
     }
 }
-
-/* --- ФУТЕР --- */
-footer {
-    text-align: center;
-    padding: 60px 0;
-    border-top: 1px solid rgba(212, 175, 55, 0.3);
-    background-color: #001a11;
-}
-footer a { color: #d4af37; text-decoration: underline; }
