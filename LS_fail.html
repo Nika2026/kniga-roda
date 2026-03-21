@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сбой синхронизации | Ловушка Суверена</title>
+    <style>
+        body { background: #000d1a; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; text-align: center; margin: 0; display: flex; align-items: center; justify-content: center; min-height: 100vh; }
+        .container { border: 2px solid #708090; padding: 40px; border-radius: 15px; max-width: 600px; }
+        h1 { color: #c0c0c0; }
+        .retry-button { 
+            display: inline-block; padding: 15px 30px; margin-top: 20px;
+            border: 2px solid #c0c0c0; color: #c0c0c0; text-decoration: none;
+            font-weight: bold; transition: 0.3s;
+        }
+        .retry-button:hover { background: #c0c0c0; color: #000d1a; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ОШИБКА ТРАНЗАКЦИИ</h1>
+        <p>Связь с платежным шлюзом прервана. Данные не были переданы, средства остались на вашем счету.</p>
+        <p>Попробуйте перезапустить процесс оплаты или вернитесь на главную страницу для связи с поддержкой.</p>
+        
+        <a href="https://knigi-roda.ru/lovushkasuverena" class="retry-button">ВЕРНУТЬСЯ НА ГЛАВНУЮ</a>
+    </div>
+</body>
+</html>
