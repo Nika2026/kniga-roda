@@ -45,10 +45,23 @@
     <div class="secret-vault">
         <h2 style="color: #d4af37; margin-bottom: 20px;">ОСТАЛИСЬ ВОПРОСЫ?</h2>
         <p>Оставьте свои контакты, и мы свяжемся с вами для уточнения деталей.</p>
-        <form id="contact-form" style="max-width: 500px; margin: 30px auto; display: flex; flex-direction: column; gap: 15px;">
-            <input type="text" placeholder="Ваше имя" required style="padding: 15px; background: #001a11; border: 1px solid #d4af37; color: #f9f295; font-family: inherit;">
-            <input type="text" placeholder="Telegram / WhatsApp / ВК" required style="padding: 15px; background: #001a11; border: 1px solid #d4af37; color: #f9f295; font-family: inherit;">
+        
+       <form id="contact-form" onsubmit="event.preventDefault(); sendSiteForm();" ... >
+           <input type="text" id="site_name" placeholder="Ваше имя" required ...; margin: 10px 0 ><br>
+            <input type="text" id="site_contact" placeholder="Telegram / WhatsApp / ВК" required ...><br>
+    
+            <select id="site_tariff" ...>
+                <option value="Без тарифа">Выберите тариф (или пропустите)</option>
+                <option value="Искатель">Искатель</option>
+                <option value="Хранитель">Хранитель</option>
+                <option value="Творец">Творец</option>
+            </select><br>
+
+            <textarea id="site_message" placeholder="Ваш вопрос или примечание" ...></textarea><br>
+            <input type="text" id="site_code" placeholder="Кодовое слово (если есть)" style="..."><br>
+
             <button type="submit" class="gold-button">ОТПРАВИТЬ ЗАПРОС</button>
+            <p id="send_status"></p>
         </form>
     </div>
 </section>
@@ -152,5 +165,60 @@ document.onkeydown = e => {
 };
 </script>
 
+<script>
+// --- НАСТРОЙКИ (Константы) ---
+const CONFIG = {
+    // Твой актуальный URL Google Script
+    SCRIPT_URL: "https://script.google.com/macros/s/AKfycbyiGwjAQmwjwJZxSiNdRuS5PK_1-eVnUdkiX9yPc7DRxvDGSyIltm8XBU5noJzOEe5B/exec",
+    
+    // Названия источников для таблицы
+    SOURCE_VAULT: "Secret Vault",
+    SOURCE_MAIN: "knigi-roda.ru (Главная)",
+    
+    // Текстовые уведомления
+    MSG_SENDING: "⏳ Отправка вашего вопроса...",
+    MSG_SUCCESS: "✅ Спасибо! Мастер ответит вам в ближайшее время.",
+    MSG_ERROR: "❌ Ошибка связи. Попробуйте обновить страницу."
+};
+
+async function sendSiteForm() {
+    // 1. Забираем данные из ID
+    const name = document.getElementById('site_name').value;
+    const contact = document.getElementById('site_contact').value;
+    const tariff = document.getElementById('site_tariff').value;
+    const message = document.getElementById('site_message').value;
+    const codeValue = document.getElementById('site_code').value;
+    const statusText = document.getElementById('send_status');
+
+    statusText.innerText = CONFIG.MSG_SENDING;
+
+    // 2. Формируем посылку, используя константы
+    const data = {
+        full_name: name,
+        username: contact,
+        product: tariff,
+        notes: message, 
+        code: codeValue,
+        status: "Вопрос",
+        // Если код введен — берем имя источника из настроек выше
+        source: codeValue.trim() !== "" ? CONFIG.SOURCE_VAULT : CONFIG.SOURCE_MAIN
+    };
+
+    try {
+        await fetch(CONFIG.SCRIPT_URL, {
+            method: 'POST',
+            mode: 'no-cors', 
+            body: JSON.stringify(data)
+        });
+        
+        statusText.innerText = CONFIG.MSG_SUCCESS;
+        document.getElementById('contact-form').reset();
+        
+    } catch (e) {
+        statusText.innerText = CONFIG.MSG_ERROR;
+        console.error('Ошибка отправки:', e);
+    }
+}
+</script>
 </body>
 </html>

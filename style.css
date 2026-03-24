@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth; /* Чтобы при клике на "Проявить волю" страница плавно катилась вниз */
+}
+
 /* --- БАЗА И ГЕОМЕТРИЯ --- */
 body {
     background-color: #001a11;
@@ -14,6 +18,36 @@ body {
     max-width: 1200px; 
     margin: 0 auto; 
     padding: 0 15px; 
+}
+
+/* --- СТИЛИЗАЦИЯ СКРОЛЛБАРА (Золотой путь) --- */
+
+/* Для Chrome, Safari и Edge */
+::-webkit-scrollbar {
+    width: 10px; /* Ширина полосы */
+}
+
+/* Фон, по которому движется ползунок */
+::-webkit-scrollbar-track {
+    background: #001a11; /* Твой основной темно-зеленый цвет */
+}
+
+/* Сам ползунок (бегунок) */
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #d4af37, #f9f295); /* Золотой градиент */
+    border-radius: 10px;
+    border: 2px solid #001a11; /* Отступ, чтобы ползунок казался тоньше и изящнее */
+}
+
+/* Эффект при наведении на ползунок */
+::-webkit-scrollbar-thumb:hover {
+    background: #f9f295; /* Вспышка золота при касании */
+}
+
+/* Для Firefox */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #d4af37 #001a11;
 }
 
 /* --- СКРЫТИЕ ТЕКСТА В HERO --- */
@@ -222,15 +256,60 @@ background-color: #001a11;
     justify-content: space-between;
 }
 
-/* --- ФОРМА (Крупный ввод) --- */
+/* --- ФОРМА (Исправленный стиль) --- */
+.secret-vault {
+    box-sizing: border-box;
+    border: 1px solid #d4af37 !important;
+    background: rgba(0, 20, 15, 0.95);
+    border-radius: 20px;
+    padding: 50px 30px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 800px;
+    margin: 40px auto;
+}
+
+/* Стилизация всех полей ввода внутри формы */
 #contact-form input, 
+#contact-form textarea, 
+#contact-form select {
+    box-sizing: border-box !important;
+    width: 100% !important;
+    max-width: 500px !important; /* Чтобы на десктопе не были на весь экран */
+    margin: 15px auto !important; /* Отступы между полями */
+    display: block !important; /* Каждое поле с новой строки */
+    background: rgba(0, 26, 17, 0.8) !important;
+    border: 1px solid #d4af37 !important;
+    color: #f9f295 !important;
+    padding: 15px 20px !important;
+    border-radius: 12px !important;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem !important;
+}
+
+/* Исправляем высоту textarea, чтобы она не была узкой полоской */
 #contact-form textarea {
-    font-size: 1.4rem !important; /* Чтобы текст при вводе был виден */
-    padding: 18px !important;
-    background: #001a11;
-    border: 2px solid #d4af37; /* Жирная золотая рамка */
-    color: #f9f295;
-    border-radius: 10px;
+    min-height: 100px;
+    resize: vertical;
+}
+
+/* Кнопка — один в один как на /thanks */
+#contact-form .gold-button {
+    margin: 20px auto !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: 500px !important;
+    background: linear-gradient(45deg, #d4af37, #f9f295, #d4af37) !important;
+    color: #1a1a1a !important;
+    font-weight: 700;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+/* Placeholder (подсказки внутри полей) */
+#contact-form ::placeholder {
+    color: rgba(249, 242, 149, 0.5) !important;
 }
 
 /* --- НИЖНИЙ БОРДЮР (Перед футером) --- */
@@ -313,4 +392,13 @@ footer a {
     .card-month-label {
         font-size: 1.2rem;
     }
+}
+
+/* Золотой скроллбар */
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: #001a11; }
+::-webkit-scrollbar-thumb { 
+    background: linear-gradient(180deg, #d4af37, #f9f295); 
+    border-radius: 10px; 
+    border: 2px solid #001a11; 
 }
