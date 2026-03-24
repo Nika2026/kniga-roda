@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Врата Тайн | Секретный Архив Фрэнка</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --deep-green: #001a11;
+        }
+
+        body, html { 
+            margin: 0; padding: 0; width: 100%; height: 100%; 
+            overflow: hidden; background-color: var(--deep-green); 
+            font-family: 'Cormorant Garamond', serif; 
+            color: var(--gold);
+        }
+
+        /* МРАЧНЫЙ ФОН */
+        .coming-soon-bg { 
+            position: fixed; inset: 0; 
+            background: url('coming-soon-underground.png') no-repeat center center; 
+            background-size: cover; 
+            z-index: 1; 
+        }
+
+        /* ОБРАТНЫЙ ОТСЧЕТ */
+        #countdown {
+            position: fixed; top: 40px; width: 100%; text-align: center;
+            font-size: 3.5rem; font-weight: bold; letter-spacing: 5px;
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
+            z-index: 10;
+        }
+
+        /* ЗАМОК - УВЕЛИЧЕН В 3 РАЗА */
+        #lock {
+            width: 450px; /* Было 200px, стало 600px */
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 5;
+            filter: drop-shadow(0 0 30px rgba(0,0,0,0.8));
+        }
+
+        /* УСКОЛЬЗАЮЩИЙ КЛЮЧ - УВЕЛИЧЕН В 3 РАЗА */
+        #escapist-key {
+            width: 300px; /* Было 100px, стало 300px */
+            position: absolute;
+            z-index: 100; /* Поверх всего */
+            cursor: pointer;
+            transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            /* Начальная позиция */
+            top: 70%; left: 20%;
+        }
+
+        /* МАНИФЕСТ */
+        .manifesto {
+            position: fixed; bottom: 30px; width: 100%; text-align: center;
+            font-size: 1.4rem; letter-spacing: 2px; text-transform: uppercase;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+            z-index: 10; padding: 0 20px; box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="coming-soon-bg"></div>
+    <div id="countdown"></div>
+    
+    <img src="lock-secret.png" id="lock" alt="Замок Секрета">
+
+    <img src="key-archivist.png" id="escapist-key" alt="Ключ Архивариуса">
+
+    <div class="manifesto">
+        РАЗБЕЙ ОКОВЫ ПСЕВДО ПРАВОВЫХ ИЛЛЮЗИЙ, НАЙДИ РЕАЛЬНЫЕ ФАКТЫ В КОНГЛОМЕРАТЕ ИНФОРМАЦИОННОГО ШУМА
+    </div>
+
+    <script>
+        // 1. ТАЙМЕР
+        const targetDate = new Date("2026-04-21 23:59:59").getTime();
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            if (distance < 0) {
+                document.getElementById("countdown").innerHTML = "АРХИВ ОТКРЫТ";
+                return;
+            }
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            const format = (n) => n < 10 ? '0'+n : n;
+            document.getElementById("countdown").innerHTML = `${days}д : ${format(hours)}ч : ${format(minutes)}м : ${format(seconds)}с`;
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // 2. ИНТЕРАКТИВ КЛЮЧА
+        const key = document.getElementById('escapist-key');
+
+        function moveKey() {
+            // Рассчитываем случайную позицию, чтобы ключ не вылетал за границы экрана
+            const padding = 100; // отступ от краев
+            const maxX = window.innerWidth - key.clientWidth - padding;
+            const maxY = window.innerHeight - key.clientHeight - padding;
+
+            const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
+
+            key.style.left = randomX + 'px';
+            key.style.top = randomY + 'px';
+        }
+
+        // Слушаем наведение мыши и касание пальцем
+        key.addEventListener('mouseenter', moveKey);
+        key.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // чтобы не срабатывал обычный клик
+            moveKey();
+        });
+    </script>
+</body>
+</html>
