@@ -50,7 +50,7 @@
             position: absolute;
             z-index: 100; /* Поверх всего */
             cursor: pointer;
-            transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transition: all 0.3s ease-out;
             /* Начальная позиция */
             top: 70%; left: 20%;
         }
@@ -62,6 +62,35 @@
             text-shadow: 0 2px 10px rgba(0,0,0,0.9);
             z-index: 10; padding: 0 20px; box-sizing: border-box;
         }
+
+        /* Базовые размеры для ПК (уже были) */
+
+/* МАГИЯ ДЛЯ МОБИЛЬНЫХ (Экран уже 768px) */
+@media (max-width: 768px) {
+    .coming-soon-bg {
+        /* Центрируем фон по самому важному участку */
+        background-position: 40% center; 
+    }
+
+    #lock {
+        width: 80%; /* Замок займет 80% ширины экрана телефона */
+        max-width: 300px; /* Но не больше 300px, чтобы не был гигантским */
+    }
+
+    #escapist-key {
+        width: 150px; /* Ключ в два раза меньше, чем на ПК */
+    }
+
+    #countdown {
+        font-size: 1.8rem; /* Уменьшаем шрифт таймера */
+        top: 20px;
+    }
+
+    .manifesto {
+        font-size: 0.9rem; /* Читабельный, но компактный текст */
+        bottom: 20px;
+    }
+}
     </style>
 </head>
 <body>
