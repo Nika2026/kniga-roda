@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ЛОВУШКА СУВЕРЕНА | Ника Алексеева</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body {
+       
+       body {
             margin: 0;
             padding: 0;
             background: #000b1d;
@@ -55,7 +57,7 @@
         }
 
         h1 {
-            font-size: clamp(2.7rem, 7vw, 4rem);
+            font-size: clamp(2.5rem, 7vw, 4rem);
             margin: 0;
             letter-spacing: 6px;
             color: #ffffff;
@@ -64,7 +66,7 @@
         }
 
         .subtitle {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             color: #c0c0c0;
             font-style: italic;
             margin-top: 15px;
@@ -81,7 +83,7 @@
             border: 2px solid #c0c0c0;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             border-radius: 4px;
             position: relative;
             overflow: hidden;
@@ -158,15 +160,59 @@
             text-align: center;
             padding: 60px 0;
             color: #555;
-            font-size: 1.1rem;
+            font-size: 0.95rem;
+        }
+
+        /* Синий стиль аудиопроигрывателя для Ловушки Суверена */
+        #audio-control {
+            position: fixed;
+            top: 25px;
+            right: 25px;
+            z-index: 9999;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%; /* Делаем кружком */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        #audio-control.blue-style {
+            background: rgba(0, 31, 63, 0.8) !important; /* Темно-синий "Midnight Blue" */
+            border: 2px solid #c0c0c0 !important; /* Серебряный борт */
+            box-shadow: 0 0 15px rgba(192, 192, 192, 0.3);
+        }
+
+        #audio-control.blue-style #audio-icon {
+            color: #e0e0e0 !important; /* Холодное серебро */
+        }
+
+        #audio-control.blue-style:hover {
+            background: rgba(0, 45, 90, 0.9) !important;
+            box-shadow: 0 0 25px rgba(192, 192, 192, 0.5);
+            transform: scale(1.1);
+        }
+
+        /* Эффект зачеркивания для синей кнопки */
+        #audio-control.blue-style.audio-off {
+            opacity: 0.5;
+            border-color: rgba(192, 192, 192, 0.2) !important;
         }
     </style>
 </head>
 <body>
+    <div id="audio-control" class="audio-on blue-style">
+        <i id="audio-icon" class="fas fa-volume-up"></i>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="GimnWillBearer.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="container">
         <div class="hero-banner">
-            <img src="bamerLS1.jpg" id="static-poster" alt="Ловушка Суверена">
+            <img src="bannerLS1.jpg" id="static-poster" alt="Ловушка Суверена">
             <img src="Банер-Книга-Ловушка-Суверена-коллекция-NFT-1500-600-Серебрянная-коллекция.gif" 
                  id="animated-gif" 
                  alt="Ловушка Суверена анимация"
@@ -176,7 +222,7 @@
         <header>
             <h1>ЛОВУШКА СУВЕРЕНА</h1>
             <p class="subtitle">Стратегия Тихой Гавани и защита достоинства Рода в 2026 году</p>
-            <a href="https://rbksa.ru/b/p4BQMIOBxkyG3wHsm22Ywg" class="btn-silver">СТАТЬ ВЛАДЕЛЬЦЕМ</a>
+            <a href="https://auth.robokassa.ru/merchant/Invoice/p4BQMIOBxkyG3wHsm22Ywg" class="btn-silver">СТАТЬ ВЛАДЕЛЬЦЕМ</a>
         </header>
 
         <div class="card-grid">
@@ -207,15 +253,49 @@
 
         <div class="price-box">
             <h2 style="font-size: 3rem; margin: 0; color: #ffffff;">999 ₽</h2>
-            <p style="font-size: 1.5rem; color: #c0c0c0;">Книга PDF + Сборник шаблонов + NFT Silver</p>
-            <a href="https://rbksa.ru/b/p4BQMIOBxkyG3wHsm22Ywg" class="btn-silver">СТАТЬ ВЛАДЕЛЬЦЕМ КЛЮЧА</a>
+            <p style="font-size: 1.4rem; color: #c0c0c0;">Книга PDF + Сборник шаблонов + NFT Silver</p>
+            <a href="https://auth.robokassa.ru/merchant/Invoice/p4BQMIOBxkyG3wHsm22Ywg" class="btn-silver">СТАТЬ ВЛАДЕЛЬЦЕМ КЛЮЧА</a>
         </div>
 
         <footer>
             © 2026 Ника Алексеева. Тихий суверенитет и воля Рода.<br>
-            <a href="oferta.html" style="color: #555; text-decoration: underline; font-size: 1.2rem; margin-top: 10px; display: inline-block;">Публичная оферта и условия возврата</a>
+            <a href="oferta.html" style="color: #555; text-decoration: underline; font-size: 0.8rem; margin-top: 10px; display: inline-block;">Публичная оферта и условия возврата</a>
         </footer>
     </div>
 
+<script>
+    const audio = document.getElementById('bgMusic');
+    const audioBtn = document.getElementById('audio-control');
+    const audioIcon = document.getElementById('audio-icon');
+    let isPlaying = false;
+
+    // Функция переключения
+    function toggleAudio() {
+        if (!audio) return;
+        
+        if (isPlaying) {
+            audio.pause();
+            audioBtn.classList.add('audio-off');
+            audioIcon.className = 'fas fa-volume-mute';
+        } else {
+            audio.volume = 0.15; // Сразу ставим комфортную громкость
+            audio.play().catch(e => console.log("Ждем взаимодействия"));
+            audioBtn.classList.remove('audio-off');
+            audioIcon.className = 'fas fa-volume-up';
+        }
+        isPlaying = !isPlaying;
+    }
+
+    // Слушаем клик по самой кнопке
+    audioBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleAudio();
+    });
+
+    // Автозапуск при первом клике в ЛЮБОМ месте сайта
+    document.addEventListener('click', () => {
+        if (!isPlaying) toggleAudio();
+    }, { once: true }); // Сработает только один раз
+</script>
 </body>
 </html>
