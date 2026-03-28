@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,15 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+<div id="audio-control" class="audio-on">
+    <i id="audio-icon" class="fas fa-volume-up"></i>
+</div>
+
+<audio id="bgMusic" loop>
+    <source src="GimnKnigiRoda.mp3" type="audio/mpeg">
+    Ваш браузер не поддерживает аудио.
+</audio>
 
 <header class="hero-section">
     <div class="visually-hidden">
@@ -219,6 +229,41 @@ async function sendSiteForm() {
         console.error('Ошибка отправки:', e);
     }
 }
+</script>
+
+<script>
+    const audio = document.getElementById('bgMusic');
+    const audioBtn = document.getElementById('audio-control');
+    const audioIcon = document.getElementById('audio-icon');
+    let isPlaying = false;
+
+    // Функция переключения
+    function toggleAudio() {
+        if (!audio) return;
+        
+        if (isPlaying) {
+            audio.pause();
+            audioBtn.classList.add('audio-off');
+            audioIcon.className = 'fas fa-volume-mute';
+        } else {
+            audio.volume = 0.15; // Сразу ставим комфортную громкость
+            audio.play().catch(e => console.log("Ждем взаимодействия"));
+            audioBtn.classList.remove('audio-off');
+            audioIcon.className = 'fas fa-volume-up';
+        }
+        isPlaying = !isPlaying;
+    }
+
+    // Слушаем клик по самой кнопке
+    audioBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        toggleAudio();
+    });
+
+    // Автозапуск при первом клике в ЛЮБОМ месте сайта
+    document.addEventListener('click', () => {
+        if (!isPlaying) toggleAudio();
+    }, { once: true }); // Сработает только один раз
 </script>
 </body>
 </html>
