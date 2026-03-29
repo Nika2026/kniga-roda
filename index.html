@@ -1,8 +1,24 @@
 <!DOCTYPE html>
 <html lang="ru">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-<head>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <head>
     <meta charset="UTF-8">
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function(m,e,t,r,i,k,a){
+            m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+            m[i].l=1*new Date();
+            for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+            k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+        })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108295607', 'ym');
+
+        ym(108295607, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/108295607" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>КНИГА РОДА | Авторский курс Ники Алексеевой</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -59,7 +75,9 @@
        <form id="contact-form" onsubmit="event.preventDefault(); sendSiteForm();" ... >
            <input type="text" id="site_name" placeholder="Ваше имя" required ...; margin: 10px 0 ><br>
             <input type="text" id="site_contact" placeholder="Telegram / WhatsApp / ВК" required ...><br>
-    
+            <input type="hidden" name="utm_source" id="utm_source" value="">
+            <input type="hidden" name="utm_campaign" id="utm_campaign" value="">
+
             <select id="site_tariff" ...>
                 <option value="Без тарифа">Выберите тариф (или пропустите)</option>
                 <option value="Искатель">Искатель</option>
@@ -179,7 +197,7 @@ document.onkeydown = e => {
 // --- НАСТРОЙКИ (Константы) ---
 const CONFIG = {
     // Твой актуальный URL Google Script
-    SCRIPT_URL: "https://script.google.com/macros/s/AKfycbyiGwjAQmwjwJZxSiNdRuS5PK_1-eVnUdkiX9yPc7DRxvDGSyIltm8XBU5noJzOEe5B/exec",
+    SCRIPT_URL: "https://script.google.com/macros/s/AKfycbxaEfwZ2itEJRIhon67qzy8mQbdM4XsMLYgX3KSoaiyiczc5Id7PDFq89TzYPTfzrY/exec",
     
     // Названия источников для таблицы
     SOURCE_VAULT: "Secret Vault",
@@ -192,17 +210,21 @@ const CONFIG = {
 };
 
 async function sendSiteForm() {
-    // 1. Забираем данные из ID
+    // 1. Забираем данные из элементов
     const name = document.getElementById('site_name').value;
     const contact = document.getElementById('site_contact').value;
     const tariff = document.getElementById('site_tariff').value;
     const message = document.getElementById('site_message').value;
     const codeValue = document.getElementById('site_code').value;
     const statusText = document.getElementById('send_status');
+    
+    // Забираем значения из скрытых полей UTM
+    const utmSource = document.getElementById('utm_source').value;
+    const utmCampaign = document.getElementById('utm_campaign').value;
 
     statusText.innerText = CONFIG.MSG_SENDING;
 
-    // 2. Формируем посылку, используя константы
+    // 2. Формируем посылку (добавляем метки в объект data)
     const data = {
         full_name: name,
         username: contact,
@@ -210,7 +232,10 @@ async function sendSiteForm() {
         notes: message, 
         code: codeValue,
         status: "Вопрос",
-        // Если код введен — берем имя источника из настроек выше
+        // Передаем метки, чтобы они попали в таблицу
+        utm_source: utmSource,
+        utm_campaign: utmCampaign,
+        // Если код введен — берем имя источника из настроек
         source: codeValue.trim() !== "" ? CONFIG.SOURCE_VAULT : CONFIG.SOURCE_MAIN
     };
 
@@ -229,8 +254,9 @@ async function sendSiteForm() {
         console.error('Ошибка отправки:', e);
     }
 }
-</script>
 
+    // Функция проигрывателя
+</script>
 <script>
     const audio = document.getElementById('bgMusic');
     const audioBtn = document.getElementById('audio-control');
@@ -265,5 +291,25 @@ async function sendSiteForm() {
         if (!isPlaying) toggleAudio();
     }, { once: true }); // Сработает только один раз
 </script>
+
+<script>
+    // Как только страница загрузилась
+    window.addEventListener('load', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        
+        // Берем значения из ссылки
+        const source = urlParams.get('utm_source');
+        const campaign = urlParams.get('utm_campaign');
+
+        // Если они есть в ссылке — записываем в невидимые поля формы
+        if (source) {
+            document.getElementById('utm_source').value = source;
+        }
+        if (campaign) {
+            document.getElementById('utm_campaign').value = campaign;
+        }
+    });
+</script>
+
 </body>
 </html>
