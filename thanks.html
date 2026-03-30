@@ -5,124 +5,139 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>БЛАГОДАРИМ ЗА ДОВЕРИЕ | Книга Рода</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        .thanks-container {
-            padding: 100px 20px;
-            min-height: 80vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .success-icon {
-            font-size: 4rem;
-            color: #d4af37;
-            margin-bottom: 20px;
-        }
-        .instruction-box {
-            background: rgba(0, 40, 30, 0.8);
-            border: 2px solid #d4af37;
-            border-radius: 20px;
-            padding: 40px;
-            max-width: 600px;
-            margin-top: 30px;
-        }
-        .form-thanks {
-            margin-top: 30px;
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        /* Добавь это в стили на странице thanks.html */
-        .certificate-preview {
-            width: 200px;
-            height: 280px;
-            background: #002a1a;
-            border: 1px solid #d4af37;
-            margin: 20px auto;
-            position: relative;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .certificate-preview::after {
-            content: "В ПЕЧАТИ...";
-            color: #d4af37;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-        }
-    </style>
+    <link rel="stylesheet" href="pages.css">
+
+    <script type="text/javascript">
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+       ym(108295607, "init", { clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true });
+    </script>
 </head>
 <body>
 
-<div class="container thanks-container">
-    <div class="success-icon">✦</div>
-    <h1 class="section-title" style="margin-top: 0;">ОПЛАТА ПРИНЯТА</h1>
-    <p style="font-size: 1.5rem; color: #f9f295;">Добро пожаловать в круг хранителей истории!</p>
-
-    <div class="instruction-box">
-        <h3 style="color: #d4af37; margin-bottom: 20px;">ПОСЛЕДНИЙ ШАГ К НАСЛЕДИЮ:</h3>
-        <p>Введите ваше имя так, как оно должно быть вписано в Именную Грамоту Хранителя. Сразу после подтверждения данных, каллиграфическая копия будет отправлена вам вместе с доступом в чат курса</p>
+<div class="main-content">
+    <div class="content-card">
+        <div style="font-size: 3.5rem; margin-bottom: 15px;">📜</div>
+        <h1 style="color: #d4af37;">СИСТЕМА АКТИВИРОВАНА</h1>
         
-        <form id="google-thanks-form" style="margin-top: 30px; width: 100%; display: flex; flex-direction: column; gap: 15px;">
-    
-            <input type="text" name="entry.1350170417" placeholder="Ваше Имя и Фамилия" required 
-                   style="padding: 15px; background: #001a11; border: 2px solid #d4af37; color: #f9f295; font-family: inherit; font-size: 1.2rem; border-radius: 10px;">
-    
-            <input type="text" name="entry.27733475" placeholder="Ваш контакт (ТГ, WhatsApp, VK или тел)" required 
-                   style="padding: 15px; background: #001a11; border: 2px solid #d4af37; color: #f9f295; font-family: inherit; font-size: 1.2rem; border-radius: 10px;">
-    
-            <select name="entry.720847247" required 
-                    style="padding: 15px; background: #001a11; border: 2px solid #d4af37; color: #f9f295; font-family: inherit; font-size: 1.2rem; border-radius: 10px; cursor: pointer;">
-                <option value="" disabled selected>Выберите ваш тариф</option>
-                <option value="Искатель">Искатель</option>
-                <option value="Хранитель">Хранитель</option>
-                <option value="Творец">Творец</option>
-            </select>
-    
-            <button type="submit" class="gold-button" style="margin-top: 10px;">ПОДТВЕРДИТЬ И ПОЛУЧИТЬ ГРАМОТУ</button>
-        </form>
-    </div>
+        <div id="form-container">
+            <form id="thanks-form">
+                <input type="text" id="full_name" name="full_name" placeholder="ВАШЕ ИМЯ" required class="form-input">
+                <input type="text" id="username" name="username" placeholder="@TELEGRAM_NICK" required class="form-input">
+                
+                <select id="tariff-select" name="product" required class="form-input">
+                    <option value="" disabled selected>ЗАГРУЗКА ТАРИФОВ...</option>
+                </select>
 
-    <a href="index.html" style="margin-top: 40px; color: #d4af37; text-decoration: none; border-bottom: 1px solid #d4af37;">Вернуться на главную</a>
+                <input type="text" id="code" name="code" placeholder="СЕКРЕТНОЕ СЛОВО (если есть)" class="form-input">
+                <textarea id="notes" name="notes" placeholder="ВАШИ ВОПРОСЫ НИКЕ" class="form-input" style="height: 80px;"></textarea>
+
+                <input type="hidden" id="utm_source" name="utm_source" value="">
+                <input type="hidden" id="utm_campaign" name="utm_campaign" value="">
+                <input type="hidden" name="status" value="Оплачено">
+                <input type="hidden" name="source" value="Страница успеха">
+
+                <button type="submit" class="gold-button">ПОДТВЕРДИТЬ</button>
+            </form>
+        </div>
+    </div>
 </div>
 
-<footer style="margin-top: 50px;">
-    <p>© 2026 Книга Рода. Авторский проект Ники Алексеевой.</p>
+<footer>
+    <p>
+        <a href="index.html" style="font-weight: bold; text-transform: uppercase; margin-bottom: 10px; display: inline-block;">На главную страницу</a><br>
+        © 2026 Книга Рода. Авторский проект Ники Алексеевой.<br>
+        Самозанятая Алексеева В.В. | ИНН 183471569291<br>
+        <a href="oferta.html">Публичная оферта и условия возврата</a> | 
+        Связь: <a href="https://t.me/alexeyevavv">@alexeyevavv</a><br>
+        Канал: <a href="https://t.me/blazon_stamp_form/302">@blazon_stamp_form</a>
+    </p>
 </footer>
-<script>
-document.getElementById('google-thanks-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // ТВОЙ АДРЕС (Проверь его еще раз!)
-    const googleFormUrl = "https://docs.google.com/forms/d/e/1FAIpQLSeMTDMAfLN_VwW-gkKbw91R4TQM-wQSttMZmwbztWLlw_yNBA/formResponse";
-    
-    const formData = new FormData(this);
-    
-    console.log("Пытаюсь отправить данные...");
 
-    fetch(googleFormUrl, {
-        method: 'POST',
-        mode: 'no-cors',
-        body: formData
-    })
-    .then(() => {
-        console.log("Связь с Google установлена!");
-        document.getElementById('google-thanks-form').innerHTML = `
-            <div style="text-align: center; padding: 20px;">
-                <h3 style="color: #d4af37; font-size: 2rem; margin-bottom: 20px;">ГРАМОТА В ПУТИ!</h3>
-                <a href="https://t.me/+jaFFa1ZEzpJmMTAy" class="gold-button">ВОЙТИ В ЧАТ КУРСА</a>
-            </div>
-        `;
-    })
-    .catch(err => {
-        console.error("Ошибка при отправке:", err);
-        alert("Ошибка сети. Проверьте консоль (F12)");
+<audio id="successSound"><source src="victory.mp3" type="audio/mpeg"></audio>
+
+<script>
+    // 1. Загрузка меток из URL (процедура с главной)
+    window.addEventListener('load', function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const source = urlParams.get('utm_source');
+        const campaign = urlParams.get('utm_campaign');
+        if (source) document.getElementById('utm_source').value = source;
+        if (campaign) document.getElementById('utm_campaign').value = campaign;
     });
-});
+
+    // 2. Загрузка тарифов
+    async function loadTariffs() {
+        const select = document.getElementById('tariff-select');
+        try {
+            const response = await fetch('tariffs.csv');
+            const data = await response.text();
+            const rows = data.split('\n').slice(1);
+            select.innerHTML = '<option value="" disabled selected>ВЫБЕРИТЕ ВАШ ТАРИФ</option>';
+            rows.forEach(row => {
+                const cols = row.split(';');
+                if (cols.length >= 2) {
+                    const opt = document.createElement('option');
+                    opt.value = cols[1];
+                    opt.textContent = `${cols[1]} — ${cols[2] || ''}`;
+                    select.appendChild(opt);
+                }
+            });
+        } catch (e) { select.innerHTML = '<option>Ошибка загрузки тарифов</option>'; }
+    }
+    loadTariffs();
+
+    // 3. Та самая процедура отправки из index.html
+    document.getElementById('thanks-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const scriptUrl = "https://script.google.com/macros/s/AKfycbxaEfwZ2itEJRIhon67qzy8mQbdM4XsMLYgX3KSoaiyiczc5Id7PDFq89TzYPTfzrY/exec";
+        const btn = e.target.querySelector('button');
+        
+        btn.disabled = true;
+        btn.textContent = "СИНХРОНИЗАЦИЯ...";
+
+        // Формируем объект данных в точности как на главной
+        const data = {
+            full_name: document.getElementById('full_name').value,
+            username: document.getElementById('username').value,
+            product: document.getElementById('tariff-select').value,
+            code: document.getElementById('code').value,
+            notes: document.getElementById('notes').value,
+            utm_source: document.getElementById('utm_source').value,
+            utm_campaign: document.getElementById('utm_campaign').value,
+            status: "Оплачено",
+            source: "Страница успеха"
+        };
+
+        fetch(scriptUrl, {
+            method: 'POST',
+            mode: 'no-cors',
+            cache: 'no-cache',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+        })
+        .then(() => {
+            document.getElementById('successSound').play();
+            ym(108295607,'reachGoal','thanks_submit');
+            
+            document.getElementById('form-container').innerHTML = `
+                <div style="padding: 25px; border: 2px solid #d4af37; border-radius: 15px; background: rgba(212,175,55,0.05);">
+                    <h2 style="color:#d4af37; font-family: 'Cormorant Garamond', serif;">УСПЕШНО!</h2>
+                    <p style="font-size: 1.2rem;">Данные вписаны в Книгу Рода.</p>
+                    <a href="https://t.me/+jaFFa1ZEzpJmMTAy" class="gold-button">ВОЙТИ В ЧАТ</a>
+                </div>`;
+        })
+        .catch(err => {
+            console.error(err);
+            alert("Ошибка связи. Напишите @alexeyevavv");
+            btn.disabled = false;
+            btn.textContent = "ПОДТВЕРДИТЬ";
+        });
+    });
 </script>
 </body>
 </html>

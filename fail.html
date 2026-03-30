@@ -3,73 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ой! Ошибка оплаты | Книги Рода</title>
-    <style>
-        body { 
-            background: #001a11; 
-            color: #f9f295; 
-            font-family: 'Garamond', serif; 
-            text-align: center; 
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            margin: 0;
-        }
-        .container { 
-            border: 3px solid #d4af37; 
-            padding: 40px; 
-            border-radius: 20px; 
-            max-width: 600px;
-            background: rgba(0, 26, 17, 0.9);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2);
-        }
-        h1 { color: #d4af37; font-size: 2.5rem; margin-bottom: 10px; }
-        p { font-size: 1.3rem; line-height: 1.6; margin-bottom: 20px; }
-        
-        /* Та самая крупная золотая кнопка */
-        .gold-button { 
-            display: inline-block; 
-            padding: 20px 40px; 
-            margin: 20px 0;
-            background: linear-gradient(145deg, #d4af37, #f9f295);
-            color: #001a11; 
-            text-decoration: none; 
-            border-radius: 20px; 
-            font-weight: bold; 
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            transition: 0.3s transform;
-        }
-        .gold-button:hover { 
-            transform: scale(1.05);
-            background: linear-gradient(145deg, #f9f295, #d4af37);
-        }
-        .support-link {
-            color: #d4af37;
-            text-decoration: underline;
-            font-size: 1.1rem;
-            display: block;
-            margin-top: 15px;
-        }
-    </style>
+    <title>ОШИБКА ОПЛАТЫ | Книга Рода</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="pages.css">
 </head>
 <body>
 
-    <div class="container">
-        <h1>МЯУ... ЧТО-ТО ПОШЛО НЕ ТАК</h1>
+<div class="main-content">
+    <div class="content-card">
+        <div style="font-size: 4rem; margin-bottom: 20px;">📜</div>
+        <h1 style="color: #d4af37;">МЯУ... ЧТО-ТО ПОШЛО НЕ ТАК</h1>
+        <p>Герольд Музеус сообщает, что оплата не прошла. Но не волнуйтесь, чернила в вашей чернильнице еще не высохли!</p>
         
-        <p>Оплата не прошла, но не волнуйтесь — Музеус еще не закрыл вашу чернильницу. Возможно, стоит попробовать другую карту или проверить лимит.</p>
+        <div style="display: flex; justify-content: center; margin-top: 30px;">
+            <a href="index.html" class="gold-button">ПОПРОБОВАТЬ СНОВА</a>
+        </div>
         
-        <p>Если у вас возникли трудности, вы можете <strong>отправить свой вопрос через форму на главной странице</strong> — я сразу его увижу!</p>
-        
-        <a href="https://knigi-roda.ru/" class="gold-button">ВЕРНУТЬСЯ НА ГЛАВНУЮ</a>
-
-        <a href="https://t.me/alexeyevavv" class="support-link">Или написать Нике лично в Telegram</a>
+        <p style="margin-top: 25px; font-size: 1.1rem;">
+            Если возникли трудности, напишите Нике: <a href="https://t.me/alexeyevavv" style="color: #d4af37;">@alexeyevavv</a>
+        </p>
     </div>
+</div>
+
+<footer>
+    <p>
+        <a href="index.html" style="font-weight: bold; text-transform: uppercase; margin-bottom: 10px; display: inline-block;">На главную страницу</a><br>
+        © 2026 Книга Рода. Авторский проект Ники Алексеевой.<br>
+        Самозанятая Алексеева В.В. | ИНН 183471569291<br>
+        <a href="oferta.html">Публичная оферта</a> | Связь: <a href="https://t.me/alexeyevavv">@alexeyevavv</a>
+    </p>
+</footer>
 
 </body>
 </html>
