@@ -112,6 +112,15 @@
             padding-bottom: 20px;
         }
 
+        /* Применяем ко всем инпутам и селектам в модальном окне Ловушки */
+        .modal-content input, 
+        .modal-content select, 
+        .modal-content textarea {
+            width: 100% !important;
+            box-sizing: border-box !important; /* Это заставит их вписаться в границы */
+            max-width: 100%;
+        }
+
         @media (max-width: 600px) {
             .document-wrapper { padding: 40px 25px; }
             h1 { font-size: 18px; }
