@@ -2,8 +2,6 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-
-    <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
         (function(m,e,t,r,i,k,a){
             m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
@@ -11,17 +9,16 @@
             for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
             k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
         })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=108295607', 'ym');
-
         ym(108295607, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/108295607" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
-    <!-- /Yandex.Metrika counter -->
+    
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://mc.yandex.ru https://yastatic.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://mc.yandex.ru https://yastatic.net; connect-src 'self' https://mc.yandex.ru https://yastatic.net; media-src 'self' blob:;">
 
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://mc.yandex.ru https://yastatic.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; style-src-elem 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https://mc.yandex.ru https://yastatic.net; connect-src 'self' https://mc.yandex.ru https://yastatic.net;">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Врата Тайн | Секретный Архив Фрэнка</title>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --gold: #d4af37;
@@ -35,7 +32,6 @@
             color: var(--gold);
         }
 
-        /* МРАЧНЫЙ ФОН */
         .coming-soon-bg { 
             position: fixed; inset: 0; 
             background: url('coming-soon-underground.png') no-repeat center center; 
@@ -43,7 +39,6 @@
             z-index: 1; 
         }
 
-        /* ОБРАТНЫЙ ОТСЧЕТ */
         #countdown {
             position: fixed; top: 40px; width: 100%; text-align: center;
             font-size: 3.5rem; font-weight: bold; letter-spacing: 5px;
@@ -51,9 +46,8 @@
             z-index: 10;
         }
 
-        /* ЗАМОК - УВЕЛИЧЕН В 3 РАЗА */
         #lock {
-            width: 450px; /* Было 200px, стало 600px */
+            width: 450px;
             position: absolute;
             top: 50%; left: 50%;
             transform: translate(-50%, -50%);
@@ -61,18 +55,15 @@
             filter: drop-shadow(0 0 30px rgba(0,0,0,0.8));
         }
 
-        /* УСКОЛЬЗАЮЩИЙ КЛЮЧ - УВЕЛИЧЕН В 3 РАЗА */
         #escapist-key {
-            width: 300px; /* Было 100px, стало 300px */
+            width: 300px;
             position: absolute;
-            z-index: 100; /* Поверх всего */
+            z-index: 100;
             cursor: pointer;
             transition: all 0.3s ease-out;
-            /* Начальная позиция */
             top: 70%; left: 20%;
         }
 
-        /* МАНИФЕСТ */
         .manifesto {
             position: fixed; bottom: 30px; width: 100%; text-align: center;
             font-size: 1.4rem; letter-spacing: 2px; text-transform: uppercase;
@@ -80,34 +71,13 @@
             z-index: 10; padding: 0 20px; box-sizing: border-box;
         }
 
-        /* Базовые размеры для ПК (уже были) */
-
-/* МАГИЯ ДЛЯ МОБИЛЬНЫХ (Экран уже 768px) */
-@media (max-width: 768px) {
-    .coming-soon-bg {
-        /* Центрируем фон по самому важному участку */
-        background-position: 50% center; 
-    }
-
-    #lock {
-        width: 80%; /* Замок займет 80% ширины экрана телефона */
-        max-width: 300px; /* Но не больше 300px, чтобы не был гигантским */
-    }
-
-    #escapist-key {
-        width: 150px; /* Ключ в два раза меньше, чем на ПК */
-    }
-
-    #countdown {
-        font-size: 1.8rem; /* Уменьшаем шрифт таймера */
-        top: 20px;
-    }
-
-    .manifesto {
-        font-size: 0.9rem; /* Читабельный, но компактный текст */
-        bottom: 20px;
-    }
-}
+        /* Адаптив */
+        @media (max-width: 768px) {
+            #lock { width: 80%; max-width: 300px; }
+            #escapist-key { width: 150px; }
+            #countdown { font-size: 1.8rem; top: 20px; }
+            .manifesto { font-size: 0.9rem; bottom: 20px; }
+        }
     </style>
 </head>
 <body>
@@ -116,8 +86,11 @@
     <div id="countdown"></div>
     
     <img src="lock-secret.png" id="lock" alt="Замок Секрета">
-
     <img src="key-archivist.png" id="escapist-key" alt="Ключ Архивариуса">
+
+    <audio id="bg-music" loop>
+        <source src="mystic-celtic.mp3" type="audio/mpeg">
+    </audio>
 
     <div class="manifesto">
         РАЗБЕЙ ОКОВЫ ПСЕВДО ПРАВОВЫХ ИЛЛЮЗИЙ, НАЙДИ РЕАЛЬНЫЕ ФАКТЫ В КОНГЛОМЕРАТЕ ИНФОРМАЦИОННОГО ШУМА
@@ -143,12 +116,19 @@
         setInterval(updateCountdown, 1000);
         updateCountdown();
 
-        // 2. ИНТЕРАКТИВ КЛЮЧА
+        // 2. ИНТЕРАКТИВ КЛЮЧА И МУЗЫКА
         const key = document.getElementById('escapist-key');
+        const audio = document.getElementById('bg-music');
+        let musicStarted = false;
 
         function moveKey() {
-            // Рассчитываем случайную позицию, чтобы ключ не вылетал за границы экрана
-            const padding = 100; // отступ от краев
+            // Включаем музыку при первом взаимодействии
+            if (!musicStarted) {
+                audio.play().catch(e => console.log("Браузер заблокировал звук до клика"));
+                musicStarted = true;
+            }
+
+            const padding = 100;
             const maxX = window.innerWidth - key.clientWidth - padding;
             const maxY = window.innerHeight - key.clientHeight - padding;
 
@@ -159,10 +139,9 @@
             key.style.top = randomY + 'px';
         }
 
-        // Слушаем наведение мыши и касание пальцем
         key.addEventListener('mouseenter', moveKey);
         key.addEventListener('touchstart', (e) => {
-            e.preventDefault(); // чтобы не срабатывал обычный клик
+            e.preventDefault();
             moveKey();
         });
     </script>
